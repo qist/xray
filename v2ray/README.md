@@ -226,7 +226,7 @@ server {
     add_header X-Content-Type-Options nosniff;
     add_header X-Frame-Options "DENY";
     add_header X-via "Server v2.0";
-    ssl_certificate /etc/nginx/ssl/xx.xxx.com/certificate.crt;
+    ssl_certificate /etc/nginx/ssl/xx.xxx.com/certificate.cer;
     ssl_certificate_key /etc/nginx/ssl/xx.xxx.com/private.key;
     keepalive_timeout 60;
     ssl_session_timeout 1d;
