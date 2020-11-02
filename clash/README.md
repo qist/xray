@@ -9,8 +9,12 @@ https://github.com/Fndroid/clash_for_windows_pkg/releases
 
  * [clash 配置文件](./config.yaml)
  * [clash 不走代理配置文件](./cfw-settings.yaml)
-# windows 配置文件路径 C:\Users\Administrator\.config\clash 
-cfw-settings.yaml 复制到 C:\Users\Administrator\.config\clash 重启
+# windows 配置
+![1](./static/1.png)
+![2](./static/2.png)
+![3](./static/3.png)
+![4](./static/4.png)
+![5](./static/5.png)
 ### clash Android 下载地址
 ```
 https://github.com/Kr328/ClashForAndroid/releases
