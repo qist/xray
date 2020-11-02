@@ -236,7 +236,7 @@ systemctl status trojan-go
 ```
 #### 客户端配置
 # 下载trojan-go win 或者 linux 版本
-* [客户端配置](../client.yaml)
+* [客户端配置](./client.yaml)
 ## 第三方工具 使用 http socks5 连接
 ```
 proxies:
