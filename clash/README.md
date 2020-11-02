@@ -8,7 +8,6 @@ https://github.com/Fndroid/clash_for_windows_pkg/releases
 ### 配置文件
 
  * [clash 配置文件](./config.yaml)
- * [clash 不走代理配置文件](./cfw-settings.yaml)
 # windows 配置
 ![1](./static/1.png)
 ![2](./static/2.png)
