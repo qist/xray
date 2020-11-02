@@ -255,4 +255,4 @@ server {
 }
 ```
 #### 客户端配置
-* [客户端配置] (. ../clash/README.md)
+* [客户端配置] (/clash/README.md)
