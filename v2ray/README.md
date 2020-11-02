@@ -6,12 +6,12 @@ mkdir -p /usr/local/v2ray
 
 cd /usr/local/v2ray
 
-wget https://github.com/v2fly/v2ray-core/releases/download/v4.32.0/v2ray-linux-64.zip
+ https://github.com/v2fly/v2ray-core/releases
 
 ```
 #### 解压 v2ray
 ```
-unzip v2ray-linux-64.zip
+unzip  下载对应版本名
 
 ```
 #### 配置启动文件
