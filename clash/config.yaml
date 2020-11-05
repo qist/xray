@@ -2233,7 +2233,6 @@ rules:
   - DOMAIN-SUFFIX,foxbusiness.com,✈️ 墙外网站
   - DOMAIN-SUFFIX,javhuge.com,✈️ 墙外网站
   - DOMAIN-SUFFIX,pcanywhere.net,✈️ 墙外网站
-  - DOMAIN-SUFFIX,iqiyi.com,✈️ 墙外网站
   - DOMAIN-SUFFIX,tuvpn.com,✈️ 墙外网站
   - DOMAIN-SUFFIX,schema.org,✈️ 墙外网站
   - DOMAIN-SUFFIX,t-g.com,✈️ 墙外网站
