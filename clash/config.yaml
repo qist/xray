@@ -185,7 +185,124 @@ proxy-groups:
   #    - "加利福尼亚4"
   #    - "trojan"
   #    - "香港"
+rule-providers:
+  Apple:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Apple.yaml
+    interval: 86400
+    path: ./Apple.yaml    
+  Foreignmedia:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Foreignmedia.yaml
+    interval: 86400    
+    path: ./Foreignmedia.yaml
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Netflix.yaml
+    interval: 86400    
+    path: ./Netflix.yaml
+  Reject:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Reject.yaml
+    interval: 86400    
+    path: ./Reject.yaml
+  Reject1:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Reject1.yaml
+    interval: 86400    
+    path: ./Reject1.yaml    
+  IpDirect:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/IpDirect.yaml
+    interval: 86400    
+    path: ./IpDirect.yaml
+  Proxy:
+    type: http
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Proxy.yaml
+    interval: 86400    
+    behavior: classical
+    path: ./Proxy.yaml
+  ITdev:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/ITdev.yaml
+    interval: 86400    
+    path: ./ITdev.yaml
+  Chinao:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/China-o.yaml
+    interval: 86400    
+    path: ./China-o.yaml
+  Chinat:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/China-t.yaml
+    interval: 86400    
+    path: ./China-t.yaml
+  Chinas:
+    type: http
+    behavior: classical
+    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/China-s.yaml
+    interval: 86400    
+    path: ./China-s.yaml    
+# 规则
 rules:
+  - RULE-SET,Apple,Ⓜ️ 微软苹果
+  - RULE-SET,Foreignmedia,🌍 国外媒体
+  - RULE-SET,Netflix,🎥 NETFLIX
+  - RULE-SET,Reject,🛑 广告拦截
+  - RULE-SET,Reject1,🛑 广告拦截  
+  - RULE-SET,IpDirect,DIRECT
+  - RULE-SET,Chinao,DIRECT
+  - RULE-SET,Chinat,DIRECT
+  - RULE-SET,Chinas,DIRECT  
+  - RULE-SET,Proxy,✈️ 墙外网站
+  - RULE-SET,ITdev,✈️ 墙外网站
+  - DOMAIN-SUFFIX,smtp,DIRECT
+  - DOMAIN-KEYWORD,aria2,DIRECT
+  - GEOIP,CN,DIRECT
+  - GEOIP,AE,✈️ 墙外网站
+  - GEOIP,AU,✈️ 墙外网站
+  - GEOIP,BR,✈️ 墙外网站
+  - GEOIP,CA,✈️ 墙外网站
+  - GEOIP,DE,✈️ 墙外网站
+  - GEOIP,DK,✈️ 墙外网站
+  - GEOIP,ES,✈️ 墙外网站
+  - GEOIP,FI,✈️ 墙外网站
+  - GEOIP,FR,✈️ 墙外网站
+  - GEOIP,GB,✈️ 墙外网站
+  - GEOIP,GR,✈️ 墙外网站
+  - GEOIP,HK,✈️ 墙外网站
+  - GEOIP,ID,✈️ 墙外网站
+  - GEOIP,IL,✈️ 墙外网站
+  - GEOIP,IN,✈️ 墙外网站
+  - GEOIP,IQ,✈️ 墙外网站
+  - GEOIP,IR,✈️ 墙外网站
+  - GEOIP,IT,✈️ 墙外网站
+  - GEOIP,JP,✈️ 墙外网站
+  - GEOIP,KR,✈️ 墙外网站
+  - GEOIP,MO,✈️ 墙外网站
+  - GEOIP,MY,✈️ 墙外网站
+  - GEOIP,NL,✈️ 墙外网站
+  - GEOIP,NO,✈️ 墙外网站
+  - GEOIP,NZ,✈️ 墙外网站
+  - GEOIP,PH,✈️ 墙外网站
+  - GEOIP,RU,✈️ 墙外网站
+  - GEOIP,SA,✈️ 墙外网站
+  - GEOIP,SG,✈️ 墙外网站
+  - GEOIP,TH,✈️ 墙外网站
+  - GEOIP,TR,✈️ 墙外网站
+  - GEOIP,TW,✈️ 墙外网站
+  - GEOIP,US,✈️ 墙外网站
+  - GEOIP,VN,✈️ 墙外网站  
+  - MATCH,🐟 其他网站
   - DOMAIN-SUFFIX,local,DIRECT
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
