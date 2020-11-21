@@ -44,11 +44,11 @@ psk = password # password 自定义
 obfs = tls # http or tls
 ```
 # 启动 snell-server
-systemctl start snell-server
+` systemctl start snell-server
 # 设置开机启动
-systemctl enable snell-server
+` systemctl enable snell-server
 # 查看启动状态
-systemctl status snell-server
-```
+` systemctl status snell-server
+
 #### 客户端配置
 * [客户端配置](../clash/README.md)
