@@ -97,7 +97,8 @@ proxy-groups:
   - name: ✈️ 墙外网站
     type: select
     proxies:
-      - ♻️ 自动选择
+      - "负载均衡"
+      #- ♻️ 自动选择
       - "加利福尼亚"
       - "加利福尼亚1"
       - "加利福尼亚2"
@@ -155,7 +156,17 @@ proxy-groups:
       - "加利福尼亚4"
       - "trojan"
       - "香港"
-      - "socks"      
+      - "socks" 
+  - name: "负载均衡"
+    type: load-balance
+    proxies:
+      - "trojan"
+      - "家-socks5"
+      - "家-http"
+      - "加利福尼亚-cdn"
+      - "加利福尼亚-ws"
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 500      
 rule-providers:
   Apple:
     type: http
@@ -229,13 +240,13 @@ rules:
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
   - RULE-SET,Reject,🛑 广告拦截
-  - RULE-SET,Reject1,🛑 广告拦截  
+  - RULE-SET,Reject1,🛑 广告拦截
+  - RULE-SET,Proxy,✈️ 墙外网站
+  - RULE-SET,ITdev,✈️ 墙外网站
   - RULE-SET,IpDirect,DIRECT
   - RULE-SET,Chinao,DIRECT
   - RULE-SET,Chinat,DIRECT
   - RULE-SET,Chinas,DIRECT  
-  - RULE-SET,Proxy,✈️ 墙外网站
-  - RULE-SET,ITdev,✈️ 墙外网站
   - DOMAIN-SUFFIX,smtp,DIRECT
   - DOMAIN-KEYWORD,aria2,DIRECT
   - GEOIP,CN,DIRECT
@@ -272,5 +283,5 @@ rules:
   #- GEOIP,TR,✈️ 墙外网站
   #- GEOIP,TW,✈️ 墙外网站
   #- GEOIP,US,✈️ 墙外网站
-  #- GEOIP,VN,✈️ 墙外网站  
+  #- GEOIP,VN,✈️ 墙外网站
   - MATCH,🐟 其他网站
