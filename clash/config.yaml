@@ -167,67 +167,67 @@ rule-providers:
   Apple:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/Apple.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Apple.yaml
     interval: 86400
     path: ./Apple.yaml    
   Foreignmedia:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/Foreignmedia.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.yaml
     interval: 86400    
     path: ./Foreignmedia.yaml
   Netflix:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/Netflix.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.yaml
     interval: 86400    
     path: ./Netflix.yaml
   Reject:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/Reject.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject.yaml
     interval: 86400    
     path: ./Reject.yaml
   Reject1:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/Reject1.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject1.yaml
     interval: 86400    
     path: ./Reject1.yaml    
   IpDirect:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/IpDirect.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/IpDirect.yaml
     interval: 86400    
     path: ./IpDirect.yaml
   Proxy:
     type: http
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/Proxy.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Proxy.yaml
     interval: 86400    
     behavior: classical
     path: ./Proxy.yaml
   ITdev:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/ITdev.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/ITdev.yaml
     interval: 86400    
     path: ./ITdev.yaml
   Chinao:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/China-o.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-o.yaml
     interval: 86400    
     path: ./China-o.yaml
   Chinat:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/China-t.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-t.yaml
     interval: 86400    
     path: ./China-t.yaml
   Chinas:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/qist/v2ray/main/clash/Ruleset/China-s.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-s.yaml
     interval: 86400    
     path: ./China-s.yaml    
 # 规则
