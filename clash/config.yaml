@@ -8,70 +8,56 @@ mode: rule
 log-level: info
 external-controller: '127.0.0.1:9090'
 secret: ''
-dns:
-  enable: false
-  listen: 0.0.0.0:53 
-  ipv6: false
-  default-nameserver:
-    - 1.2.4.8
-    - 223.5.5.5
-    - 119.29.29.29    
-  nameserver:
-    - 1.2.4.8
-    - 119.29.29.29
-    - 223.5.5.5
-    - tls://dns.rubyfish.cn:853
-  fallback:
-    - 223.5.5.5
-    - tls://1.0.0.1:853
-    - tls://dns.google:853
+#dns:
+#  enable: false
+#  listen: 0.0.0.0:53 
+#  ipv6: false
+#  default-nameserver:
+#    - 1.2.4.8
+#    - 223.5.5.5
+#    - 119.29.29.29    
+#  nameserver:
+#    - 1.2.4.8
+#    - 119.29.29.29
+#    - 223.5.5.5
+#    - tls://dns.rubyfish.cn:853
+#  fallback:
+#    - 223.5.5.5
+#    - tls://1.0.0.1:853
+#    - tls://dns.google:853
 # Will be ignored after profile selection
 proxies:
   - name: "socks"
     type: socks5
     server: 127.0.0.1
     port: 1080
-  - name: "加利福尼亚1"
+    
+  - name: "http"
+    type: http
+    server: 127.0.0.1
+    port: 1080
+    
+  - name: "ss"
     type: ss
     server: xxx.xxx.com
     port: 222
     cipher: chacha20-ietf-poly1305
     password: "password"
     udp: true
-  - name: "加利福尼亚2"
-    type: ss
+    
+  - name: "ssr"
+    type: ssr
     server: xxx.xxx.com
-    port: 17788
-    cipher: chacha20-ietf-poly1305
+    port: 3396
+    cipher: chacha20-ietf
     password: "password"
+    obfs: tls1.2_ticket_auth
+    protocol: auth_sha1_v4
+    obfs-param: download.microsoft.com
+    protocol-param: "31057:8wPxj2"
     udp: true
-  - name: "加利福尼亚3"
-    type: ss
-    server: xxx.xxx.com
-    port: 7789
-    cipher: chacha20-ietf-poly1305
-    password: "password"
-    udp: true
-  - name: "加利福尼亚4"
-    type: ss
-    server: xxx.xxx.com
-    port: 17789
-    cipher: chacha20-ietf-poly1305
-    password: "password"
-    udp: true
-  - name: "加利福尼亚"
-    type: vmess
-    server: xxx.xxx.com
-    port: 443
-    uuid: 998272ec-6486-43ab-a450-86e6964be97f
-    alterId: 64
-    cipher: auto
-    tls: true
-    network: ws
-    ws-path: /
-    Host: xxx.xxx.com
-
-  - name: "香港"
+    
+  - name: "vmess"
     type: vmess
     server: xxx.xxx.com
     port: 443
@@ -93,19 +79,30 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: true
+    
+  - name: "snell"
+    type: snell
+    server: xxx.xxx.com
+    port: 9443
+    psk: password
+    #version: 2
+    obfs-opts:
+      mode: tls # or http
+      host: xxx.xxx.com
+      
 proxy-groups:
   - name: ✈️ 墙外网站
     type: select
     proxies:
-      - ♻️ 自动选择
-      - "加利福尼亚"
-      - "加利福尼亚1"
-      - "加利福尼亚2"
-      - "加利福尼亚3"
-      - "加利福尼亚4"
+      - "负载均衡"
+      #- ♻️ 自动选择
       - "socks"
+      - "http"
+      - "ss"
+      - "ssr"
+      - "vmess"
       - "trojan"
-      - "香港"
+      - "snell"
       - DIRECT
   - name: 🐟 其他网站
     type: select
@@ -115,14 +112,13 @@ proxy-groups:
   - name: 🎥 NETFLIX
     type: select
     proxies:
-      - "加利福尼亚"
-      - "加利福尼亚1"
-      - "加利福尼亚2"
-      - "加利福尼亚3"
-      - "加利福尼亚4"
+      - "socks"
+      - "http"
+      - "ss"
+      - "ssr"
+      - "vmess"
       - "trojan"
-      - "socks"      
-      - "香港"
+      - "snell"
       - DIRECT      
   - name: 🚫 以下不用动
     type: select
@@ -143,84 +139,95 @@ proxy-groups:
     proxies:
       - ✈️ 墙外网站
       - DIRECT
-  - name: ♻️ 自动选择
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 500
+  #- name: ♻️ 自动选择
+  #  type: url-test
+  #  url: http://www.gstatic.com/generate_204
+  #  interval: 500
+  #  proxies:
+  #    - "socks"
+  #    - "http"
+  #    - "ss"
+  #    - "ssr"
+  #    - "vmess"
+  #    - "trojan"
+  #    - "snell"
+  - name: "负载均衡"
+    type: load-balance
     proxies:
-      - "加利福尼亚"
-      - "加利福尼亚1"
-      - "加利福尼亚2"
-      - "加利福尼亚3"
-      - "加利福尼亚4"
+      - "socks"
+      - "http"
+      - "ss"
+      - "ssr"
+      - "vmess"
       - "trojan"
-      - "香港"
-      - "socks"      
+      - "snell"
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 500      
 rule-providers:
   Apple:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Apple.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Apple.yaml
     interval: 86400
     path: ./Apple.yaml    
   Foreignmedia:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Foreignmedia.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.yaml
     interval: 86400    
     path: ./Foreignmedia.yaml
   Netflix:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Netflix.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.yaml
     interval: 86400    
     path: ./Netflix.yaml
   Reject:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Reject.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject.yaml
     interval: 86400    
     path: ./Reject.yaml
   Reject1:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Reject1.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject1.yaml
     interval: 86400    
     path: ./Reject1.yaml    
   IpDirect:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/IpDirect.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/IpDirect.yaml
     interval: 86400    
     path: ./IpDirect.yaml
   Proxy:
     type: http
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/Proxy.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Proxy.yaml
     interval: 86400    
     behavior: classical
     path: ./Proxy.yaml
   ITdev:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/ITdev.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/ITdev.yaml
     interval: 86400    
     path: ./ITdev.yaml
   Chinao:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/China-o.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-o.yaml
     interval: 86400    
     path: ./China-o.yaml
   Chinat:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/China-t.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-t.yaml
     interval: 86400    
     path: ./China-t.yaml
   Chinas:
     type: http
     behavior: classical
-    url: https://gitee.com/juestnow/v2ray/raw/main/clash/Ruleset/China-s.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-s.yaml
     interval: 86400    
     path: ./China-s.yaml    
 # 规则
@@ -229,13 +236,13 @@ rules:
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
   - RULE-SET,Reject,🛑 广告拦截
-  - RULE-SET,Reject1,🛑 广告拦截  
+  - RULE-SET,Reject1,🛑 广告拦截
+  - RULE-SET,Proxy,✈️ 墙外网站
+  - RULE-SET,ITdev,✈️ 墙外网站
   - RULE-SET,IpDirect,DIRECT
   - RULE-SET,Chinao,DIRECT
   - RULE-SET,Chinat,DIRECT
   - RULE-SET,Chinas,DIRECT  
-  - RULE-SET,Proxy,✈️ 墙外网站
-  - RULE-SET,ITdev,✈️ 墙外网站
   - DOMAIN-SUFFIX,smtp,DIRECT
   - DOMAIN-KEYWORD,aria2,DIRECT
   - GEOIP,CN,DIRECT
@@ -272,5 +279,5 @@ rules:
   #- GEOIP,TR,✈️ 墙外网站
   #- GEOIP,TW,✈️ 墙外网站
   #- GEOIP,US,✈️ 墙外网站
-  #- GEOIP,VN,✈️ 墙外网站  
+  #- GEOIP,VN,✈️ 墙外网站
   - MATCH,🐟 其他网站

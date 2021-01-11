@@ -3,8 +3,11 @@ payload:
   - DOMAIN-SUFFIX,kubernetes.io
   - DOMAIN-SUFFIX,golang.org
   - DOMAIN-SUFFIX,github.com
+  - DOMAIN-SUFFIX,centerch.com
   - DOMAIN-SUFFIX,raw.githubusercontent.com
   #  > Domain name fuzzy matching k8s.io k8s.com ....
   - DOMAIN-KEYWORD,k8s
   - DOMAIN-KEYWORD,elastic
   - DOMAIN-KEYWORD,docker
+  - DOMAIN-KEYWORD,cloudfront
+  - DOMAIN-KEYWORD,cloudflare
