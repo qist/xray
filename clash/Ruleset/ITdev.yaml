@@ -4,7 +4,8 @@ payload:
   - DOMAIN-SUFFIX,golang.org
   - DOMAIN-SUFFIX,github.com
   - DOMAIN-SUFFIX,centerch.com
-  - DOMAIN-SUFFIX,raw.githubusercontent.com
+  - DOMAIN-SUFFIX,githubusercontent.com
+  - DOMAIN-SUFFIX,gab.com
   #  > Domain name fuzzy matching k8s.io k8s.com ....
   - DOMAIN-KEYWORD,k8s
   - DOMAIN-KEYWORD,elastic
