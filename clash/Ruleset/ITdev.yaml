@@ -6,6 +6,7 @@ payload:
   - DOMAIN-SUFFIX,centerch.com
   - DOMAIN-SUFFIX,githubusercontent.com
   - DOMAIN-SUFFIX,gab.com
+  - DOMAIN-SUFFIX,cnn.it
   #  > Domain name fuzzy matching k8s.io k8s.com ....
   - DOMAIN-KEYWORD,k8s
   - DOMAIN-KEYWORD,elastic
