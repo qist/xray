@@ -9704,7 +9704,7 @@ payload:
   - DOMAIN,github.com
   - DOMAIN,github.community
   - DOMAIN,github.dev
-  - DOMAIN,github.io
+  - DOMAIN-SUFFIX,github.io
   - DOMAIN,githubapp.com
   - DOMAIN,githubassets.com
   - DOMAIN,githubhackathon.com
