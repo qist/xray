@@ -13,4 +13,5 @@ payload:
   - DOMAIN-KEYWORD,docker
   - DOMAIN-KEYWORD,cloudfront
   - DOMAIN-KEYWORD,cloudflare
+  - DOMAIN-KEYWORD,victoriametrics
   - IP-CIDR,144.34.252.132/32,no-resolve
