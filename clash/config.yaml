@@ -90,6 +90,62 @@ proxies:
       mode: tls # or http
       host: xxx.xxx.com
       
+  - name: trojan-grpc
+    server: xxx.xxx.com
+    port: 443
+    type: trojan
+    password: password
+    network: grpc
+    alpn:
+      - h2
+    sni: tycng.com
+    skip-cert-verify: true
+    #udp: true
+    grpc-opts:
+      grpc-service-name: "trojan"
+
+  - name: vmess-grpc
+    server: xxx.xxx.com
+    port: 443
+    type: vmess
+    uuid: d9e5d918-91f8-49ee-94a3-faswerqwe
+    alterId: 64
+    cipher: auto
+    network: grpc
+    tls: true
+    servername: xxx.xxx.com
+    skip-cert-verify: true
+    grpc-opts:
+      grpc-service-name: "sbwhgrpc"
+  - name: "vmess-http"
+     type: vmess
+     server: xxx.xxx.com
+     port: 20002
+     uuid: 3785ed4b-ccf2-843f-c605-gafwqae
+     alterId: 64
+     cipher: auto
+     network: http
+     http-opts:
+       method: "GET"
+       path:
+         - '/'
+       headers:
+         Host:
+           - www.bing.com
+           - www.cloudflare.com
+           - www.amazon.com
+         User-Agent:
+           - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+             like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.49
+           - Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X)
+             AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/84.0.4147.71
+             Mobile/15E148 Safari/604.1
+         Accept-Encoding:
+           - gzip, deflate
+         Connection:
+           - keep-alive
+     skip-cert-verify: false      
+      
 proxy-groups:
   - name: ✈️ 墙外网站
     type: select
@@ -103,6 +159,9 @@ proxy-groups:
       - "vmess"
       - "trojan"
       - "snell"
+      - "vmess-http"
+      - "vmess-grpc"
+      - "trojan-grpc"
       - DIRECT
   - name: 🐟 其他网站
     type: select
@@ -119,7 +178,10 @@ proxy-groups:
       - "vmess"
       - "trojan"
       - "snell"
-      - DIRECT      
+      - "vmess-http"
+      - "vmess-grpc"
+      - "trojan-grpc"
+      - DIRECT    
   - name: 🚫 以下不用动
     type: select
     proxies:
