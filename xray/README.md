@@ -221,6 +221,74 @@ vim /etc/xray/config.json
         }
     ]
 }
+# ss 配置
+{
+    "log": {
+        "access": "/var/log/xray/ss-access.log",
+        "error": "/var/log/xray/ss-error.log",
+        "loglevel": "warning"
+},
+    "inbounds": [
+        {
+            "port": 222,
+            "protocol": "shadowsocks",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "password",
+                        "method": "chacha20-ietf-poly1305"
+                    }
+                ],
+                "network": "tcp,udp"
+            }
+        },
+        {
+            "port": 7789,
+            "protocol": "shadowsocks",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "password",
+                        "method": "chacha20-ietf-poly1305"
+                    }
+                ],
+                "network": "tcp,udp"
+            }
+        },
+        {
+            "port": 17788,
+            "protocol": "shadowsocks",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "password",
+                        "method": "chacha20-ietf-poly1305"
+                    }
+                ],
+                "network": "tcp,udp"
+            }
+        },
+        {
+            "port": 17789,
+            "protocol": "shadowsocks",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "password",
+                        "method": "chacha20-ietf-poly1305"
+                    }
+                ],
+                "network": "tcp,udp"
+            }
+        }        
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ]
+}
 ```
 #### 启动 xray
 ```
