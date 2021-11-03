@@ -1,0 +1,40 @@
+{
+  "inbounds": [
+    {
+      "port": 9999,
+      "listen": "127.0.0.1",
+      "protocol": "vmess",
+      "tag":"6gzw5k",
+      "settings": {
+        "clients": [
+          {
+            "id": "ef489692-36ed-0315-6dd1-767b1ddd7bce",
+            "alterId": 64
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/",
+          "headers": {}
+        }
+      },
+      "tag": "6gzw5k",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "6gzw5k"
+    }
+  ]
+}
