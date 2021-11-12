@@ -360,8 +360,8 @@ server {
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection $connection_upgrade;
       proxy_ssl_session_reuse off;
-           proxy_redirect     off;
-           proxy_pass http://ws/;
+      proxy_redirect     off;
+      proxy_pass http://ws/;
     }
 
 }
@@ -410,6 +410,7 @@ server {
         send_timeout 1071906480m;
         keepalive_requests 4294967296;
         lingering_close always;
+        grpc_set_header X-Real-IP $proxy_add_x_forwarded_for;
         client_body_timeout 1071906480m;
         grpc_read_timeout 1071906480m;
         grpc_send_timeout 1071906480m;
@@ -426,8 +427,8 @@ server {
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection $connection_upgrade;
       proxy_ssl_session_reuse off;
-           proxy_redirect     off;
-           proxy_pass http://ws/;
+      proxy_redirect     off;
+      proxy_pass http://ws/;
     }
     #vmess grpc 配置
         location /sbwhgrpc {
@@ -437,6 +438,7 @@ server {
                 client_body_timeout 1071906480m;
                 send_timeout 1071906480m;
                 lingering_close always;
+                grpc_set_header X-Real-IP $proxy_add_x_forwarded_for;
                 grpc_read_timeout 1071906480m;
                 grpc_send_timeout 1071906480m;
                 grpc_pass grpc://127.0.0.1:31301;
