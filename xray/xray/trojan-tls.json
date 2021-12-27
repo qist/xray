@@ -1,0 +1,38 @@
+{
+    "inbounds": [
+        {
+            "port": 20001,
+            "protocol": "trojan",
+            "tag":"VLESSH2",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "XS0YewmOVew07",
+                        "email": "sss@gmail.com"
+                    }
+                ]
+            },
+            "fallbacks": [
+            {
+              "dest": 80
+            }
+            ],
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                         "h2",
+                        "http/1.1"
+                    ],
+                    "certificates": [
+                        {
+                            "certificateFile": "/apps/nginx/sslkey/fullchain.crt",
+                            "keyFile": "/apps/nginx/sslkey/private.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
