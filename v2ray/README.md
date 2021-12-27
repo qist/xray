@@ -62,7 +62,7 @@ vim /etc/v2ray/config.json
         "clients": [
           {
             "id": "998272ec-6486-43ab-a450-86e6964be97f",
-            "alterId": 64
+            "alterId": 0
           }
         ]
       }, 
