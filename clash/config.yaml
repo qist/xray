@@ -62,7 +62,7 @@ proxies:
     server: xxx.xxx.com
     port: 443
     uuid: 998272ec-6486-43ab-a450-86e6964be97f
-    alterId: 64
+    alterId: 0
     cipher: auto
     tls: true
     network: ws
@@ -87,7 +87,7 @@ proxies:
     psk: password
     #version: 2
     obfs-opts:
-      mode: tls # or http
+      mode: http # or http
       host: xxx.xxx.com
       
   - name: trojan-grpc
@@ -109,7 +109,7 @@ proxies:
     port: 443
     type: vmess
     uuid: d9e5d918-91f8-49ee-94a3-faswerqwe
-    alterId: 64
+    alterId: 0
     cipher: auto
     network: grpc
     tls: true
@@ -122,7 +122,7 @@ proxies:
      server: xxx.xxx.com
      port: 20002
      uuid: 3785ed4b-ccf2-843f-c605-gafwqae
-     alterId: 64
+     alterId: 0
      cipher: auto
      network: http
      http-opts:
