@@ -77,6 +77,8 @@ vim xx.xxx.com.conf
             index  index.php index.html index.htm;
         }
 }
+
+```
 # 启动
 systemctl start nginx
 # 设置开机启动
@@ -171,9 +173,9 @@ vim /etc/trojan-go/config.json
     }
   },
   "shadowsocks": {
-    "enabled": true,
-    "method": "AES-128-GCM", # 加密 方式
-    "password": "password" # 密码
+    "enabled": false,
+    "method": "AES-128-GCM",
+    "password": "password"
   },
   "transport_plugin": {
     "enabled": false,
@@ -235,22 +237,5 @@ systemctl enable trojan-go
 systemctl status trojan-go
 ```
 #### 客户端配置
-# 下载trojan-go win 或者 linux 版本
-* [客户端配置](./client.yaml)
-## 第三方工具 使用 http socks5 连接
-```
-proxies:
-  - name: "socks"
-    type: socks5
-    server: 127.0.0.1
-    port: 1080
-proxies:
-  - name: "http"
-    type: http
-    server: 127.0.0.1
-    port: 1080
-```
-* [第三方工具](../clash/README.md)
-## windows 使用ie 代理
-![1](./static/1.png)
-![2](./static/2.png)
+
+* [客户端配置](../clash/README.md)

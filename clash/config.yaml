@@ -117,6 +117,7 @@ proxies:
     skip-cert-verify: true
     grpc-opts:
       grpc-service-name: "sbwhgrpc"
+      
   - name: "vmess-http"
      type: vmess
      server: xxx.xxx.com
@@ -144,7 +145,21 @@ proxies:
            - gzip, deflate
          Connection:
            - keep-alive
-     skip-cert-verify: false      
+     skip-cert-verify: false   
+
+  - name: trojan-ws
+    server: xxx.xxx.com
+    port: 443
+    type: trojan
+    password: password
+    network: ws
+    sni: xxx.xxx.com
+    skip-cert-verify: true
+    udp: true
+    ws-opts:
+       path: /
+       headers:
+         Host: xxx.xxx.com     
       
 proxy-groups:
   - name: ✈️ 墙外网站
@@ -156,6 +171,7 @@ proxy-groups:
       - "http"
       - "ss"
       - "ssr"
+      - "trojan-ws"
       - "vmess"
       - "trojan"
       - "snell"
