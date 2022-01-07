@@ -65,9 +65,16 @@ proxies:
     alterId: 0
     cipher: auto
     tls: true
+    udp: true
+    servername: xxx.xxx.com
+    skip-cert-verify: true    
     network: ws
-    ws-path: /
-    Host: xxx.xxx.com
+    ws-opts: 
+       path: /apps
+       headers:
+         Host: xxx.xxx.com
+       max-early-data: 4096
+       early-data-header-name: Sec-WebSocket-Protocol
 
   - name: "trojan"
     type: trojan
