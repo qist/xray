@@ -24,7 +24,6 @@ After=network.target network-online.target nss-lookup.target
 Type=simple
 StandardError=journal
 ExecStart=/usr/local/bin/snell-server -c /etc/snell/snell-server.conf
-#ExecStart="/usr/local/bin/trojan-go" -config "/usr/local/etc/trojan/config.json"
 ExecReload=/bin/kill -HUP $MAINPID
 LimitNOFILE=51200
 Restart=on-failure
