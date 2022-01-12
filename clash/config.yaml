@@ -105,6 +105,7 @@ proxies:
     network: grpc
     alpn:
       - h2
+      - http/1.1      
     sni: tycng.com
     skip-cert-verify: true
     #udp: true
