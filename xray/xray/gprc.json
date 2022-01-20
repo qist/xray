@@ -23,11 +23,5 @@
             }
         }
     }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom",
-            "tag": "taa8ws"
-        }
     ]
 }

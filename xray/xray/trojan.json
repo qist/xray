@@ -21,11 +21,5 @@
                 }
                 }
             }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom",
-            "tag": "ubeewk"
-        }
     ]
 }

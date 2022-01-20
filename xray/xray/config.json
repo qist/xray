@@ -30,11 +30,5 @@
         ]
       }
     }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "tag": "6gzw5k"
-    }
   ]
 }
