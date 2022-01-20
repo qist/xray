@@ -15,6 +15,8 @@ unzip  下载对应版本名
 
 ```
 #### 配置启动文件
+# 目录方式启动
+* [xray 启动配置](./xray.service) 
 ```
 ### 方便 centos Ubuntu 使用
 vim /etc/systemd/system/xray.service
@@ -55,6 +57,8 @@ WantedBy=multi-user.target
 ```
 
 #### 配置 xray
+# xray 配置参考
+* [xray 配置](./xray)
 ```
 v2 配置在线生成
 https://intmainreturn0.com/v2ray-config-gen/
@@ -368,82 +372,57 @@ server {
 # https 配置
 # 安装 免费自动签名工具
 curl  https://get.acme.sh | sh
-# 签发证书
-acme.sh --issue  -d xx.xxx.com  --nginx -k 4096
-# 复制证书到nginx 使用目录
-mkdir -p /etc/nginx/ssl/xx.xxx.com
-acme.sh --install-cert -d xx.xxx.com   \
-        --key-file /etc/nginx/ssl/xx.xxx.com/private.key  \
-        --fullchain-file /etc/nginx/ssl/xx.xxx.com/fullchain.cer  \
-        --reloadcmd "systemctl reload nginx"
 
-map $http_upgrade $connection_upgrade {
-            default upgrade;
-            ''      close;
-}
-upstream ws {
-        least_conn;
-        server 127.0.0.1:9999 max_fails=3 fail_timeout=30s;
-        keepalive 64;
-        
-server {
-    listen 443 ssl http2;
-    server_name  ocezs.tycng.com;
-    root /usr/share/nginx/html;
-    index index.php index.html index.htm;
-    ssl_certificate /apps/nginx/sslkey/tycng.com/certificate.crt;
-    ssl_certificate_key /apps/nginx/sslkey/tycng.com/private.key;
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
-    client_header_timeout 1071906480m;
-    keepalive_timeout 1071906480m;
-    location / {
-        root   /usr/share/nginx/html;
-        index  index.php index.html index.htm;
-    }
-     # trojan grpc 配置
-    location /trojan {
-        if ($content_type !~ "application/grpc") {
-           return 404;
-        }
-        client_max_body_size 0;
-        send_timeout 1071906480m;
-        keepalive_requests 4294967296;
-        lingering_close always;
-        grpc_set_header X-Real-IP $proxy_add_x_forwarded_for;
-        client_body_timeout 1071906480m;
-        grpc_read_timeout 1071906480m;
-        grpc_send_timeout 1071906480m;
-        grpc_pass grpc://127.0.0.1:6565;
-    }
-    # ws https 配置
-    location /apps {
-      proxy_set_header Host $host;
-      proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-NginX-Proxy true;
-      proxy_http_version 1.1;
-      proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection $connection_upgrade;
-      proxy_ssl_session_reuse off;
-      proxy_redirect     off;
-      proxy_pass http://ws/;
-    }
-    #vmess grpc 配置
-        location /sbwhgrpc {
-                client_max_body_size 0;
-#               keepalive_time 1071906480m;
-                keepalive_requests 4294967296;
-                client_body_timeout 1071906480m;
-                send_timeout 1071906480m;
-                lingering_close always;
-                grpc_set_header X-Real-IP $proxy_add_x_forwarded_for;
-                grpc_read_timeout 1071906480m;
-                grpc_send_timeout 1071906480m;
-                grpc_pass grpc://127.0.0.1:31301;
-        }
-}
+mkdir -p /apps/nginx/sslkey/tycng.com
+ nginx ocsp配置
+cd /apps/nginx/sslkey/tycng.com 
+ openssl rand 48 > tlsb_session_ticket.key
+ openssl  dhparam -out dhparam.pem 2048
+ openssl rand 48 > tls_session_ticket.key
+# 签发证书   
+#letsencrypt 签发
+acme.sh --issue  tycng.com -d *.tycng.com  --nginx -k 4096
+
+# 复制证书到nginx 使用目录
+acme.sh --install-cert -d gio.tycng.com  \
+--key-file /apps/nginx/sslkey/tycng.com/private.key \
+--ca-file /apps/nginx/sslkey/tycng.com/ca.crt \
+--cert-file /apps/nginx/sslkey/tycng.com/cert.crt \
+--fullchain-file /apps/nginx/sslkey/tycng.com/fullchain.crt
+ecc 证书申请
+acme.sh --issue  -d tycng.com -d *.tycng.com --dns dns_dp -k ec-256 
+
+# 查看证书 ocsp_uri
+openssl x509 -in fullchain.crt -noout -ocsp_uri
+
+acme.sh --install-cert -d tycng.com  --ecc \
+--key-file /apps/nginx/sslkey/tycng.com/eccprivate.key \
+--ca-file /apps/nginx/sslkey/tycng.com/eccca.crt \
+--cert-file /apps/nginx/sslkey/tycng.com/ecccert.crt \
+--fullchain-file /apps/nginx/sslkey/tycng.com/ecccertificate.crt \
+--reloadcmd "cd /apps/nginx/sslkey/tycng.com/;openssl ocsp -CAfile certificate.crt -issuer eccca.crt -cert ecccert.crt -no_nonce  \
+-url  http://ocsp.int-x3.letsencrypt.org  -text -respout eccstapling_ocsp ;nginx -s reload"
+
+# zerossl 签发
+acme.sh --issue --nginx -d gio.tycng.com -d tycng.com -d ocezs.tycng.com -d trojan.tycng.com  -d kms.tycng.com -d dvns.tycng.com -m xxx@gmail.com  -k 4096
+acme.sh --issue --nginx -d gio.tycng.com -d tycng.com -d ocezs.tycng.com -d trojan.tycng.com  -d kms.tycng.com -d dvns.tycng.com -m xxx@gmail.com  -k ec-256
+acme.sh --install-cert -d gio.tycng.com  \
+--key-file /apps/nginx/sslkey/tycng.com/private.key \
+--ca-file /apps/nginx/sslkey/tycng.com/ca.crt \
+--cert-file /apps/nginx/sslkey/tycng.com/cert.crt \
+--fullchain-file /apps/nginx/sslkey/tycng.com/fullchain.crt
+
+
+acme.sh --install-cert -d gio.tycng.com  \
+ --ecc --key-file /apps/nginx/sslkey/tycng.com/ecc/private.key \
+ --ca-file /apps/nginx/sslkey/tycng.com/ecc/ca.crt \
+ --cert-file /apps/nginx/sslkey/tycng.com/ecc/cert.crt \
+ --fullchain-file /apps/nginx/sslkey/tycng.com/ecc/fullchain.crt \
+ --reloadcmd "cd /apps/nginx/sslkey/tycng.com/ecc/;openssl ocsp -CAfile fullchain.crt -issuer ca.crt -cert cert.crt -no_nonce \
+ -url  http://zerossl.ocsp.sectigo.com  -text -respout stapling_ocsp ;nginx -s reload"
+ 
+# nginx 配置参考
+* [nginx 配置](./nginx)
 
 # 启动
 systemctl start nginx
