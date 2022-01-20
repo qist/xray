@@ -1,7 +1,5 @@
-# v2ray
-* [v2ray安装](./v2ray/README.md)
-* [trojan安装](./trojan/README.md)
-* [trojan-go安装](./trojan-go/README.md)
+# xray
+## xray 支持  trojan trojan-go v2ray 相关协议 以后只维护xray
 * [snell安装](./snell/README.md)
 * [xray安装](./xray/README.md)
 ## 客户端安装
