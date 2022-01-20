@@ -420,9 +420,6 @@ acme.sh --install-cert -d gio.tycng.com  \
  --fullchain-file /apps/nginx/sslkey/tycng.com/ecc/fullchain.crt \
  --reloadcmd "cd /apps/nginx/sslkey/tycng.com/ecc/;openssl ocsp -CAfile fullchain.crt -issuer ca.crt -cert cert.crt -no_nonce \
  -url  http://zerossl.ocsp.sectigo.com  -text -respout stapling_ocsp ;nginx -s reload"
- 
-# nginx 配置参考
-* [nginx 配置](./nginx)
 
 # 启动
 systemctl start nginx
@@ -432,5 +429,8 @@ systemctl enable nginx
 systemctl status nginx
 
 ```
+# nginx 配置参考
+* [nginx 配置](./nginx)
+
 #### 客户端配置
 * [客户端配置](../clash/README.md)
