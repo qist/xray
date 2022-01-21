@@ -8,7 +8,8 @@ payload:
   - DOMAIN-SUFFIX,gab.com
   - DOMAIN-SUFFIX,cnn.it
   #  > Domain name fuzzy matching k8s.io k8s.com ....
-  - DOMAIN-KEYWORD,k8s.
+  - DOMAIN-SUFFIX,k8s.io
+  - DOMAIN-SUFFIX,k8s.com
   - DOMAIN-KEYWORD,elastic
   - DOMAIN-KEYWORD,docker
   - DOMAIN-KEYWORD,cloudfront
