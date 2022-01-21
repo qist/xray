@@ -9,6 +9,7 @@ payload:
   - DOMAIN-SUFFIX,cnn.it
   #  > Domain name fuzzy matching k8s.io k8s.com ....
   - DOMAIN-SUFFIX,k8s.io
+  - DOMAIN-SUFFIX,istio.io
   - DOMAIN-SUFFIX,k8s.com
   - DOMAIN-KEYWORD,elastic
   - DOMAIN-KEYWORD,docker
