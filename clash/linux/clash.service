@@ -1,0 +1,13 @@
+[Unit]
+Description=A rule based proxy tunnel
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+ExecStartPost=/etc/clash/scripts/setup.sh
+ExecStopPost=/etc/clash/scripts/unsetup.sh
+ExecStart=/tmp/clash-linux-amd64-2022.01.03 -d /tmp/
+
+[Install]
+WantedBy=multi-user.target

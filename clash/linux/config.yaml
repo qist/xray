@@ -1,0 +1,68 @@
+# linux
+###############################################################
+#prot: 7893
+mixed-port: 7890
+#socks-port: 7891
+#redir-port: 7892
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: '0.0.0.0:9090'
+secret: '124356789'
+external-ui: dashboard
+ipv6: false
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: redir-host
+  fake-ip-range: 198.19.0.1/16
+  nameserver:
+    - 192.168.2.84:53
+    - 192.168.2.89:53
+  fallback:
+    - 'tls://1.1.1.1:853'
+    - 'tcp://1.1.1.1:53'
+    - 'tcp://208.67.222.222:443'
+    - 'tls://dns.google'
+interface-name: eth0
+tun:
+  enable: true
+  stack: system
+  
+# win 
+###############################################################
+#prot: 7893
+mixed-port: 7890
+#socks-port: 7891
+#redir-port: 7892
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: '0.0.0.0:9090'
+secret: '124356789'
+external-ui: dashboard
+ipv6: false
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  enhanced-mode: redir-host
+  fake-ip-range: 198.19.0.1/16
+  nameserver:
+    - 192.168.2.84:53
+    - 192.168.2.89:53
+  fallback:
+    - 'tls://1.1.1.1:853'
+    - 'tcp://1.1.1.1:53'
+    - 'tcp://208.67.222.222:443'
+    - 'tls://dns.google'
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - 198.19.0.2:53  
+  auto-route: true 
+  auto-detect-interface: true
