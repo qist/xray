@@ -6,7 +6,7 @@ After=network-online.target
 Type=simple
 User=root
 ExecStartPost=/etc/clash/scripts/setup.sh
-ExecStopPost=/etc/clash/scripts/unsetup.sh
+#ExecStopPost=/etc/clash/scripts/unsetup.sh
 ExecStart=/tmp/clash-linux-amd64-2022.01.03 -d /tmp/
 
 [Install]
