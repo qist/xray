@@ -75,3 +75,211 @@ tun:
     - 198.19.0.2:53  
   auto-route: true 
   auto-detect-interface: true
+  
+# 代理节点服务器  
+proxy-providers:   #  https://user:pasword@gio.tycng.com/trojan.yaml # 账号密码下载 htpasswd生成密码 配置参考config.yaml 同级目录对应的yaml
+  trojan:
+    type: http
+    path: ./profiles/proxies/trojan.yaml
+    url: https://gio.tycng.com/trojan.yaml 
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://www.google.com
+      interval: 300
+  ss:
+    type: http
+    path: ./profiles/proxies/ss.yaml
+    url: https://gio.tycng.com/ss.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://www.google.com
+      interval: 300
+  snell:
+    type: http
+    path: ./profiles/proxies/snell.yaml
+    url: https://gio.tycng.com/snell.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://www.google.com
+      interval: 300
+  vmess:
+    type: http
+    path: ./profiles/proxies/vmess.yaml
+    url: https://gio.tycng.com/vmess.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://www.google.com
+      interval: 300
+      
+###############################################################配置分割线
+# 代理组策略
+proxy-groups:
+  - name: ✈️ 墙外网站
+    type: select
+    use: 
+     - vmess
+     - snell
+     - trojan
+     - ss
+    proxies:
+      - "负载均衡"
+      - DIRECT
+  - name: 🐟 其他网站
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 墙外网站
+  - name: 🎥 NETFLIX
+    type: select
+    proxies:
+      - ✈️ 墙外网站
+      - DIRECT
+  - name: 🚫 以下不用动
+    type: select
+    proxies:
+      - DIRECT
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT    
+      - DIRECT   
+  - name: Ⓜ️ 微软苹果
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 墙外网站
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - ✈️ 墙外网站
+      - DIRECT
+  - name: "负载均衡"
+    type: load-balance
+    use:
+     - trojan
+    url: 'https://www.google.com'
+    interval: 500      
+##  rule 规则   
+rule-providers:
+  Apple:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Apple.yaml
+    interval: 86400
+    path: ./profiles/rules/Apple.yaml    
+  Foreignmedia:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.yaml
+    interval: 86400    
+    path: ./profiles/rules/Foreignmedia.yaml
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.yaml
+    interval: 86400    
+    path: ./profiles/rules/Netflix.yaml
+  Reject:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject.yaml
+    interval: 86400    
+    path: ./profiles/rules/Reject.yaml
+  Reject1:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject1.yaml
+    interval: 86400    
+    path: ./profiles/rules/Reject1.yaml    
+  IpDirect:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/IpDirect.yaml
+    interval: 86400    
+    path: ./profiles/rules/IpDirect.yaml
+  Proxy:
+    type: http
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Proxy.yaml
+    interval: 86400    
+    behavior: classical
+    path: ./profiles/rules/Proxy.yaml
+  ITdev:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/ITdev.yaml
+    interval: 86400    
+    path: ./profiles/rules/ITdev.yaml
+  Chinao:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-o.yaml
+    interval: 86400    
+    path: ./profiles/rules/China-o.yaml
+  Chinat:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-t.yaml
+    interval: 86400    
+    path: ./profiles/rules/China-t.yaml
+  Chinas:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-s.yaml
+    interval: 86400    
+    path: ./profiles/rules/China-s.yaml  
+# 规则
+rules:
+  - RULE-SET,Apple,Ⓜ️ 微软苹果
+  - RULE-SET,Foreignmedia,🌍 国外媒体
+  - RULE-SET,Netflix,🎥 NETFLIX
+  - RULE-SET,Reject,🛑 广告拦截
+  - RULE-SET,Reject1,🛑 广告拦截
+  - RULE-SET,Proxy,✈️ 墙外网站
+  - RULE-SET,ITdev,✈️ 墙外网站
+  #- GEOIP,AE,✈️ 墙外网站
+  #- GEOIP,AU,✈️ 墙外网站
+  #- GEOIP,BR,✈️ 墙外网站
+  #- GEOIP,CA,✈️ 墙外网站
+  #- GEOIP,DE,✈️ 墙外网站
+  #- GEOIP,DK,✈️ 墙外网站
+  #- GEOIP,ES,✈️ 墙外网站
+  #- GEOIP,FI,✈️ 墙外网站
+  #- GEOIP,FR,✈️ 墙外网站
+  #- GEOIP,GB,✈️ 墙外网站
+  #- GEOIP,GR,✈️ 墙外网站
+  #- GEOIP,HK,✈️ 墙外网站
+  #- GEOIP,ID,✈️ 墙外网站
+  #- GEOIP,IL,✈️ 墙外网站
+  #- GEOIP,IN,✈️ 墙外网站
+  #- GEOIP,IQ,✈️ 墙外网站
+  #- GEOIP,IR,✈️ 墙外网站
+  #- GEOIP,IT,✈️ 墙外网站
+  #- GEOIP,JP,✈️ 墙外网站
+  #- GEOIP,KR,✈️ 墙外网站
+  #- GEOIP,MO,✈️ 墙外网站
+  #- GEOIP,MY,✈️ 墙外网站
+  #- GEOIP,NL,✈️ 墙外网站
+  #- GEOIP,NO,✈️ 墙外网站
+  #- GEOIP,NZ,✈️ 墙外网站
+  #- GEOIP,PH,✈️ 墙外网站
+  #- GEOIP,RU,✈️ 墙外网站
+  #- GEOIP,SA,✈️ 墙外网站
+  #- GEOIP,SG,✈️ 墙外网站
+  #- GEOIP,TH,✈️ 墙外网站
+  #- GEOIP,TR,✈️ 墙外网站
+  #- GEOIP,TW,✈️ 墙外网站
+  #- GEOIP,US,✈️ 墙外网站
+  #- GEOIP,VN,✈️ 墙外网站
+  - RULE-SET,IpDirect,DIRECT
+  - RULE-SET,Chinao,DIRECT
+  - RULE-SET,Chinat,DIRECT
+  - RULE-SET,Chinas,DIRECT
+  - DOMAIN-SUFFIX,smtp,DIRECT
+  - DOMAIN-KEYWORD,aria2,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🐟 其他网站
+

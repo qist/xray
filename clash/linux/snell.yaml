@@ -1,0 +1,11 @@
+proxies:
+
+  - name: "snell"
+    type: snell
+    server: xxx.xxx.com
+    port: 9443
+    psk: password
+    #version: 2
+    obfs-opts:
+      mode: http # or http
+      host: xxx.xxx.com

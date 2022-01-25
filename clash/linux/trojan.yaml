@@ -1,0 +1,40 @@
+proxies:
+  - name: trojan-ws
+    server: xxx.xxx.com
+    port: 443
+    type: trojan
+    password: "password"
+    network: ws
+    sni: xxx.xxx.com
+    skip-cert-verify: true
+    udp: true
+    ws-opts:
+       path: /efnxuvlqws
+       headers:
+         Host: xxx.xxx.com
+         
+  - name: "trojan"
+    type: trojan
+    server: xxx.xxx.com
+    port: 443
+    password: password
+    sni: xxx.xxx.com
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: true         
+
+  - name: trojan-grpc
+    server: xxx.xxx.com
+    port: 443
+    type: trojan
+    password: "password"
+    network: grpc
+    alpn:
+      - http/1.1
+      - h2
+    sni: xxx.xxx.com
+    skip-cert-verify: false
+    udp: true
+    grpc-opts:
+      grpc-service-name: "trojan"

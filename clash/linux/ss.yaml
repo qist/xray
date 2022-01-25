@@ -1,0 +1,21 @@
+proxies:
+
+  - name: "ss"
+    type: ss
+    server: xxx.xxx.com
+    port: 222
+    cipher: chacha20-ietf-poly1305
+    password: "password"
+    udp: true
+    
+  - name: "ssr"
+    type: ssr
+    server: xxx.xxx.com
+    port: 3396
+    cipher: chacha20-ietf
+    password: "password"
+    obfs: tls1.2_ticket_auth
+    protocol: auth_sha1_v4
+    obfs-param: download.microsoft.com
+    protocol-param: "31057:8wPxj2"
+    udp: true

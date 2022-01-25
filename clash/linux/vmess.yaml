@@ -1,0 +1,63 @@
+proxies:
+
+  - name: "vmess"
+    type: vmess
+    server: xxx.xxx.com
+    port: 443
+    uuid: 998272ec-6486-43ab-a450-86e6964be97f
+    alterId: 0
+    cipher: auto
+    tls: true
+    udp: true
+    servername: xxx.xxx.com
+    skip-cert-verify: true    
+    network: ws
+    ws-opts: 
+       path: /apps
+       headers:
+         Host: xxx.xxx.com
+       max-early-data: 4096
+       early-data-header-name: Sec-WebSocket-Protocol
+
+  - name: vmess-grpc
+    server: xxx.xxx.com
+    port: 443
+    type: vmess
+    uuid: d9e5d918-91f8-49ee-94a3-faswerqwe
+    alterId: 0
+    cipher: auto
+    network: grpc
+    tls: true
+    servername: xxx.xxx.com
+    skip-cert-verify: true
+    grpc-opts:
+      grpc-service-name: "sbwhgrpc"
+      
+  - name: "vmess-http"
+     type: vmess
+     server: xxx.xxx.com
+     port: 20002
+     uuid: 3785ed4b-ccf2-843f-c605-gafwqae
+     alterId: 0
+     cipher: auto
+     network: http
+     http-opts:
+       method: "GET"
+       path:
+         - '/'
+       headers:
+         Host:
+           - www.bing.com
+           - www.cloudflare.com
+           - www.amazon.com
+         User-Agent:
+           - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+             like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.49
+           - Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X)
+             AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/84.0.4147.71
+             Mobile/15E148 Safari/604.1
+         Accept-Encoding:
+           - gzip, deflate
+         Connection:
+           - keep-alive
+     skip-cert-verify: false
