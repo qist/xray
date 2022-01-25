@@ -71,3 +71,19 @@ H:\docker\tmp\clash-windows-amd64.exe -d H:\docker\tmp
 ```
 # linux 启动
  * [clash linux](./clash.service)
+# linux 旁路方式局域网使用 部署IP 192.168.2.10
+```
+
+sysctl -w net.ipv4.ip_forward=1
+或者编辑/etc/sysctl.conf
+net.ipv4.ip_forward=1
+sysctl -p
+# 192.168.2.10 dns 解析改成127.0.0.1 这样可以基于域名进行分流
+192.168.2.2 设置
+# 删除默认路由
+route delete default gw 192.168.2.1 
+# 创建默认路由
+route add default gw 192.168.2.10
+# 修改dns 为 192.168.2.10
+#如果固定请修改网卡配置
+```
