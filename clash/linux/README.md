@@ -67,7 +67,7 @@ dashboard/
 # 下载 https://www.wintun.net/  # wintun.dll
 # wintun.dll 放到-d 参数配置目录下面
 H:\docker\tmp\clash-windows-amd64.exe -d H:\docker\tmp
-# 可以使用nssm 创建服务启动
+# 可以使用nssm 创建服务启动 http://www.nssm.cc/download
 ```
 # linux 启动
  * [clash linux](./clash.service)
