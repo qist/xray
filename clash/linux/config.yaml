@@ -18,15 +18,20 @@ dns:
   ipv6: false
   enhanced-mode: redir-host
   fake-ip-range: 198.19.0.1/16
-  nameserver:
-    - 192.168.2.84:53
-    - 192.168.2.89:53
+  nameserver: # 内网劫持可以换成内部dns
+    - 223.5.5.5:53
+    - 119.29.29.29:53
+    - 1.2.4.8:53
+    - 114.114.114.114:53
+    - "[240C::6666]:53"
+    - "[2400:3200::1]:53"
+    - "[2400:da00::6666]:53"
   fallback:
     - 'tls://1.1.1.1:853'
     - 'tcp://1.1.1.1:53'
     - 'tcp://208.67.222.222:443'
     - 'tls://dns.google'
-interface-name: eth0
+interface-name: eth0  # 一定要指定网卡
 tun:
   enable: true
   stack: system
@@ -44,16 +49,20 @@ external-controller: '0.0.0.0:9090'
 secret: '124356789'
 external-ui: dashboard
 ipv6: false
-
 dns:
   enable: true
   listen: 0.0.0.0:53
   ipv6: false
   enhanced-mode: redir-host
   fake-ip-range: 198.19.0.1/16
-  nameserver:
-    - 192.168.2.84:53
-    - 192.168.2.89:53
+  nameserver:   # 内网劫持可以换成内部dns
+    - 223.5.5.5:53
+    - 119.29.29.29:53
+    - 1.2.4.8:53
+    - 114.114.114.114:53
+    - "[240C::6666]:53"
+    - "[2400:3200::1]:53"
+    - "[2400:da00::6666]:53"
   fallback:
     - 'tls://1.1.1.1:853'
     - 'tcp://1.1.1.1:53'
