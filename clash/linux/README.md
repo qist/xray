@@ -57,6 +57,9 @@ dashboard/
 └── yacd.ico
 
 1 directory, 44 files
+
+# clash 部署IP
+# 访问http://ip:9090/ui/#/
 ```
 
 ### 配置文件
