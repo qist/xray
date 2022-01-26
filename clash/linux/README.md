@@ -66,6 +66,18 @@ dashboard/
 ### 配置文件
 
  * [clash 配置文件](./config.yaml)
+ 
+# 配置特别说明：
+```
+proxy-groups:
+  - name: test
+    type: select
+    use: 
+     - vmess  # 上面proxy-providers 没配置的名字请删除不然有些客户端报错
+     - snell
+     - trojan
+     - ss
+```
 # windows 启动
 ```
 # 下载 https://www.wintun.net/  # wintun.dll
