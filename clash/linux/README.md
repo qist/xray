@@ -8,6 +8,7 @@ https://github.com/Dreamacro/clash/releases/tag/premium
 ```
 # 下载 https://github.com/haishanh/yacd
 创建dashboard目录跟config.yaml 同级 然后解压下载好的yacd.tar.xz 文件 
+# 或者使用https://github.com/qist/v2ray/tree/main/clash/linux/dashboard
 [root@control-plane]# tree  dashboard/
 dashboard/
 ├── apple-touch-icon-precomposed.png
@@ -73,8 +74,10 @@ H:\docker\tmp\clash-windows-amd64.exe -d H:\docker\tmp
 # 可以使用nssm 创建服务启动 http://www.nssm.cc/download
 ```
 # linux 启动
- * [clash linux](./clash.service)
 # linux 旁路方式局域网使用 部署IP 192.168.2.10
+# 创建用户  clash
+ useradd clash -s /sbin/nologin -M
+ * [clash linux](./clash.service)
 ```
 
 sysctl -w net.ipv4.ip_forward=1

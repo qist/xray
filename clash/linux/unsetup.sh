@@ -5,4 +5,10 @@ BASEDIR=$(dirname "$SELF")
 
 . "$BASEDIR"/config.sh
 
-ip route add default via "$TUN_ADDR" dev "$TUN_DEV"
+ip rule delete from all table "$CLASH_TABLE"
+ip rule delete uidrange "${CLASH_UID}-${CLASH_UID}" table "$MAIN_TABLE"
+ip rule delete to 192.168.0.0/16 table "$MAIN_TABLE"
+ip rule delete to 172.16.0.0/12 table "$MAIN_TABLE"
+ip rule delete to 10.0.0.0/8 table "$MAIN_TABLE"
+
+ip route flush table "$CLASH_TABLE"

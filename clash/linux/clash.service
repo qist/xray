@@ -4,10 +4,13 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=root
-ExecStartPost=/etc/clash/scripts/setup.sh
-#ExecStopPost=/etc/clash/scripts/unsetup.sh
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+User=clash
+Group=clash
 ExecStart=/tmp/clash-linux-amd64-2022.01.03 -d /tmp/
-
+ExecStartPost=/etc/clash/scripts/setup.sh
+ExecStopPost=/etc/clash/scripts/unsetup.sh
+#StandardOutput=append:/var/log/clash.log
 [Install]
 WantedBy=multi-user.target
