@@ -213,8 +213,8 @@ proxy-groups:
   - name: 🛑 广告拦截
     type: select
     proxies:
+      - REJECT   
       - DIRECT
-      - REJECT
   - name: Ⓜ️ 微软苹果
     type: select
     proxies:
