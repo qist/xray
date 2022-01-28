@@ -12,6 +12,7 @@ payload:
   - DOMAIN-SUFFIX,k8s.io
   - DOMAIN-SUFFIX,istio.io
   - DOMAIN-SUFFIX,k8s.com
+  - DOMAIN-SUFFIX,go.dev
   - DOMAIN-KEYWORD,elastic
   - DOMAIN-KEYWORD,docker
   - DOMAIN-KEYWORD,cloudfront
