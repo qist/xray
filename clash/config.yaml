@@ -318,14 +318,7 @@ rule-providers:
     path: ./China-s.yaml    
 # 规则
 rules:
-  - PROCESS-NAME,socks,DIRECT
-  - PROCESS-NAME,http,DIRECT
-  - PROCESS-NAME,ss,DIRECT
-  - PROCESS-NAME,ssr,DIRECT
-  - PROCESS-NAME,vmess,DIRECT
-  - PROCESS-NAME,trojan,DIRECT
-  - PROCESS-NAME,snell,DIRECT
-  - PROCESS-NAME,v2ray,DIRECT
+  - PROCESS-NAME,BitComet,DIRECT
   - RULE-SET,Apple,Ⓜ️ 微软苹果
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX

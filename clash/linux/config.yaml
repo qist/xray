@@ -233,6 +233,7 @@ rule-providers:
     path: ./profiles/rules/China-s.yaml  
 # 规则
 rules:
+  - PROCESS-NAME,BitComet,DIRECT
   - RULE-SET,Apple,Ⓜ️ 微软苹果
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
