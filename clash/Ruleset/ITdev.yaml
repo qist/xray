@@ -7,6 +7,7 @@ payload:
   - DOMAIN-SUFFIX,githubusercontent.com
   - DOMAIN-SUFFIX,gab.com
   - DOMAIN-SUFFIX,cnn.it
+  - DOMAIN-SUFFIX,ansible.com
   #  > Domain name fuzzy matching k8s.io k8s.com ....
   - DOMAIN-SUFFIX,k8s.io
   - DOMAIN-SUFFIX,istio.io
