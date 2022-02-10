@@ -169,67 +169,67 @@ rule-providers:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Apple.yaml
-    interval: 86400
+    interval: 3600
     path: ./profiles/rules/Apple.yaml    
   Foreignmedia:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/Foreignmedia.yaml
   Netflix:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/Netflix.yaml
   Reject:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/Reject.yaml
   Reject1:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject1.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/Reject1.yaml    
   IpDirect:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/IpDirect.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/IpDirect.yaml
   Proxy:
     type: http
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Proxy.yaml
-    interval: 86400    
+    interval: 3600    
     behavior: classical
     path: ./profiles/rules/Proxy.yaml
   ITdev:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/ITdev.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/ITdev.yaml
   Chinao:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/China-o.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/China-o.yaml
   Chinat:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/China-t.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/China-t.yaml
   Chinas:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/China-s.yaml
-    interval: 86400    
+    interval: 3600    
     path: ./profiles/rules/China-s.yaml  
 # 规则
 rules:
