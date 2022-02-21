@@ -10,6 +10,7 @@ payload:
   - DOMAIN-SUFFIX,ansible.com
   #  > Domain name fuzzy matching k8s.io k8s.com ....
   - DOMAIN-SUFFIX,k8s.io
+  - DOMAIN-SUFFIX,coredns.io
   - DOMAIN-SUFFIX,istio.io
   - DOMAIN-SUFFIX,k8s.com
   - DOMAIN-SUFFIX,go.dev
