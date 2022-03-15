@@ -6,11 +6,15 @@ After=network-online.target
 Type=simple
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+NoNewPrivileges=true
 User=clash
 Group=clash
-ExecStart=/tmp/clash-linux-amd64-2022.01.03 -d /tmp/
+ExecStart=/usr/local/bin/clash-linux-amd64 -d /usr/local/clash
 ExecStartPost=/etc/clash/scripts/setup.sh
 ExecStopPost=/etc/clash/scripts/unsetup.sh
+LimitCORE=infinity
+LimitNOFILE=102400
+LimitNPROC=102400
 #StandardOutput=append:/var/log/clash.log
 [Install]
 WantedBy=multi-user.target

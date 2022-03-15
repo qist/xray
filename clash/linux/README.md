@@ -105,3 +105,17 @@ route add default gw 192.168.2.10
 # 修改dns 为 192.168.2.10
 #如果固定请修改网卡配置
 ```
+# 
+
+内核低于4
+使用脚本模式启动
+# 授权 clash-linux-amd64 可以在clash 用户启动
+```
+setcap cap_net_bind_service,cap_net_raw,cap_net_admin=+ep /usr/local/bin/clash-linux-amd64
+```
+# 写入开机启动脚本
+```
+/etc/rc.local
+nohup runuser -l clash -c '/usr/local/bin/clash-linux-amd64 -d /usr/local/clash'  >> /tmp/clash.log 2>&1 &
+/etc/clash/scripts/setup.sh
+```
