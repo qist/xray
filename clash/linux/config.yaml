@@ -230,10 +230,16 @@ rule-providers:
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/China-s.yaml
     interval: 3600    
-    path: ./profiles/rules/China-s.yaml  
+    path: ./profiles/rules/China-s.yaml
+  applications:
+    type: http
+    behavior: classical
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/applications.yaml
+    interval: 3600    
+    path: ./profiles/rules/applications.yaml 
 # 规则
 rules:
-  - PROCESS-NAME,BitComet,DIRECT
+  - RULE-SET,applications,DIRECT
   - RULE-SET,Apple,Ⓜ️ 微软苹果
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
