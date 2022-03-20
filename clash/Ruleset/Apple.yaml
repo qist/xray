@@ -85,4 +85,5 @@ payload:
   - DOMAIN-SUFFIX,icloud-content.com
   - DOMAIN-SUFFIX,me.com
   - DOMAIN-SUFFIX,mzstatic.com
+  - DOMAIN-SUFFIX,msftconnecttest.com
   - DOMAIN,www-cdn.icloud.com.akadns.net
