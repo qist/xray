@@ -282,7 +282,7 @@ rule-providers:
     path: ./profiles/rules/Reject1.yaml    
   IpDirect:
     type: http
-    behavior: classical
+    behavior: ipcidr
     url: https://gio.tycng.com/v2ray/clash/Ruleset/IpDirect.yaml
     interval: 3600    
     path: ./profiles/rules/IpDirect.yaml
