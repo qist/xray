@@ -4,8 +4,9 @@ proxies:
     type: snell
     server: xxx.xxx.com
     port: 9443
+    udp: true
     psk: password
-    #version: 2
+    version: 3
     obfs-opts:
       mode: http # or http
       host: xxx.xxx.com

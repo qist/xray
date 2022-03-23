@@ -40,7 +40,9 @@ Generating new config...
 [snell-server]
 listen = 0.0.0.0:9443 # 监听端口
 psk = password # password 自定义
-obfs = tls # http or tls
+obfs = http # http or tls
+obfs-host=www.bing.com
+version=3
 ```
 # 启动 snell-server
 ` systemctl start snell-server
