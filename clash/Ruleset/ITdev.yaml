@@ -20,4 +20,5 @@ payload:
   - DOMAIN-KEYWORD,cloudflare
   - DOMAIN-KEYWORD,victoriametrics
   - DOMAIN-KEYWORD,discord
+  - DOMAIN-SUFFIX,cert-manager.io
   - IP-CIDR,144.34.252.132/32,no-resolve
