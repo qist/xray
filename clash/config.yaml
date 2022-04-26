@@ -2,20 +2,20 @@ mixed-port: 7890
 socks-port: 7891
 redir-port: 7892
 allow-lan: false
-bind-address: '*'
+bind-address: "*"
 ipv6: false
 mode: rule
 log-level: info
-external-controller: '127.0.0.1:9090'
-secret: ''
+external-controller: "127.0.0.1:9090"
+secret: ""
 #dns:
 #  enable: false
-#  listen: 0.0.0.0:53 
+#  listen: 0.0.0.0:53
 #  ipv6: false
 #  default-nameserver:
 #    - 1.2.4.8
 #    - 223.5.5.5
-#    - 119.29.29.29    
+#    - 119.29.29.29
 #  nameserver:
 #    - 1.2.4.8
 #    - 119.29.29.29
@@ -31,12 +31,12 @@ proxies:
     type: socks5
     server: 127.0.0.1
     port: 1080
-    
+
   - name: "http"
     type: http
     server: 127.0.0.1
     port: 1080
-    
+
   - name: "ss"
     type: ss
     server: xxx.xxx.com
@@ -44,7 +44,7 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: "password"
     udp: true
-    
+
   - name: "ssr"
     type: ssr
     server: xxx.xxx.com
@@ -56,7 +56,7 @@ proxies:
     obfs-param: download.microsoft.com
     protocol-param: "31057:8wPxj2"
     udp: true
-    
+
   - name: "vmess"
     type: vmess
     server: xxx.xxx.com
@@ -67,14 +67,14 @@ proxies:
     tls: true
     udp: true
     servername: xxx.xxx.com
-    skip-cert-verify: true    
+    skip-cert-verify: true
     network: ws
-    ws-opts: 
-       path: /apps
-       headers:
-         Host: xxx.xxx.com
-       max-early-data: 4096
-       early-data-header-name: Sec-WebSocket-Protocol
+    ws-opts:
+      path: /apps
+      headers:
+        Host: xxx.xxx.com
+      max-early-data: 4096
+      early-data-header-name: Sec-WebSocket-Protocol
 
   - name: "trojan"
     type: trojan
@@ -86,7 +86,7 @@ proxies:
       - h2
       - http/1.1
     skip-cert-verify: true
-    
+
   - name: "snell"
     type: snell
     server: xxx.xxx.com
@@ -96,7 +96,7 @@ proxies:
     obfs-opts:
       mode: http # or http
       host: xxx.xxx.com
-      
+
   - name: trojan-grpc
     server: xxx.xxx.com
     port: 443
@@ -105,7 +105,7 @@ proxies:
     network: grpc
     alpn:
       - h2
-      - http/1.1      
+      - http/1.1
     sni: tycng.com
     skip-cert-verify: true
     #udp: true
@@ -125,35 +125,35 @@ proxies:
     skip-cert-verify: true
     grpc-opts:
       grpc-service-name: "sbwhgrpc"
-      
+
   - name: "vmess-http"
-     type: vmess
-     server: xxx.xxx.com
-     port: 20002
-     uuid: 3785ed4b-ccf2-843f-c605-gafwqae
-     alterId: 0
-     cipher: auto
-     network: http
-     http-opts:
-       method: "GET"
-       path:
-         - '/'
-       headers:
-         Host:
-           - www.bing.com
-           - www.cloudflare.com
-           - www.amazon.com
-         User-Agent:
-           - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-             like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.49
-           - Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X)
-             AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/84.0.4147.71
-             Mobile/15E148 Safari/604.1
-         Accept-Encoding:
-           - gzip, deflate
-         Connection:
-           - keep-alive
-     skip-cert-verify: false   
+    type: vmess
+    server: xxx.xxx.com
+    port: 20002
+    uuid: 3785ed4b-ccf2-843f-c605-gafwqae
+    alterId: 0
+    cipher: auto
+    network: http
+    http-opts:
+      method: "GET"
+      path:
+        - "/"
+      headers:
+        Host:
+          - www.bing.com
+          - www.cloudflare.com
+          - www.amazon.com
+        User-Agent:
+          - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.49
+          - Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X)
+            AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/84.0.4147.71
+            Mobile/15E148 Safari/604.1
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+    skip-cert-verify: false
 
   - name: trojan-ws
     server: xxx.xxx.com
@@ -165,10 +165,10 @@ proxies:
     skip-cert-verify: true
     udp: true
     ws-opts:
-       path: /
-       headers:
-         Host: xxx.xxx.com     
-      
+      path: /
+      headers:
+        Host: xxx.xxx.com
+
 proxy-groups:
   - name: ✈️ 墙外网站
     type: select
@@ -205,7 +205,7 @@ proxy-groups:
       - "vmess-http"
       - "vmess-grpc"
       - "trojan-grpc"
-      - DIRECT    
+      - DIRECT
   - name: 🚫 以下不用动
     type: select
     proxies:
@@ -213,7 +213,7 @@ proxy-groups:
   - name: 🛑 广告拦截
     type: select
     proxies:
-      - REJECT   
+      - REJECT
       - DIRECT
   - name: Ⓜ️ 微软苹果
     type: select
@@ -247,81 +247,81 @@ proxy-groups:
       - "vmess"
       - "trojan"
       - "snell"
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 500      
+    url: "http://www.gstatic.com/generate_204"
+    interval: 500
 rule-providers:
   Apple:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Apple.yaml
     interval: 3600
-    path: ./profiles/rules/Apple.yaml    
+    path: ./profiles/rules/Apple.yaml
   Foreignmedia:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.yaml
-    interval: 3600    
+    interval: 3600
     path: ./profiles/rules/Foreignmedia.yaml
   Netflix:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.yaml
-    interval: 3600    
+    interval: 3600
     path: ./profiles/rules/Netflix.yaml
   Reject:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject.yaml
-    interval: 3600    
+    interval: 3600
     path: ./profiles/rules/Reject.yaml
   Reject1:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject1.yaml
-    interval: 3600    
-    path: ./profiles/rules/Reject1.yaml    
+    interval: 3600
+    path: ./profiles/rules/Reject1.yaml
   IpDirect:
     type: http
     behavior: ipcidr
     url: https://gio.tycng.com/v2ray/clash/Ruleset/IpDirect.yaml
-    interval: 3600    
+    interval: 3600
     path: ./profiles/rules/IpDirect.yaml
   Proxy:
     type: http
     url: https://gio.tycng.com/v2ray/clash/Ruleset/Proxy.yaml
-    interval: 3600    
+    interval: 3600
     behavior: classical
     path: ./profiles/rules/Proxy.yaml
   ITdev:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/ITdev.yaml
-    interval: 3600    
+    interval: 3600
     path: ./profiles/rules/ITdev.yaml
   Chinao:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/China-o.yaml
-    interval: 3600    
+    interval: 3600
     path: ./profiles/rules/China-o.yaml
   Chinat:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/China-t.yaml
-    interval: 3600    
+    interval: 3600
     path: ./profiles/rules/China-t.yaml
   Chinas:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/China-s.yaml
-    interval: 3600    
-    path: ./profiles/rules/China-s.yaml 
+    interval: 3600
+    path: ./profiles/rules/China-s.yaml
   applications:
     type: http
     behavior: classical
     url: https://gio.tycng.com/v2ray/clash/Ruleset/applications.yaml
-    interval: 3600    
-    path: ./profiles/rules/applications.yaml   
+    interval: 3600
+    path: ./profiles/rules/applications.yaml
 
 # 规则
 rules:
@@ -336,7 +336,7 @@ rules:
   - RULE-SET,IpDirect,DIRECT
   - RULE-SET,Chinao,DIRECT
   - RULE-SET,Chinat,DIRECT
-  - RULE-SET,Chinas,DIRECT  
+  - RULE-SET,Chinas,DIRECT
   - DOMAIN-SUFFIX,smtp,DIRECT
   - DOMAIN-KEYWORD,aria2,DIRECT
   - GEOIP,CN,DIRECT
