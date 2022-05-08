@@ -42,6 +42,7 @@ payload:
   - DOMAIN,gio.tycng.com
   - DOMAIN-SUFFIX,01.buyshouses.net
   - DOMAIN-SUFFIX,01.org
+  - DOMAIN-SUFFIX,bingapis.com
   - DOMAIN-SUFFIX,0101826.com
   - DOMAIN-SUFFIX,011323.com
   - DOMAIN-SUFFIX,012492.com
