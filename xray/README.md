@@ -431,6 +431,41 @@ systemctl status nginx
 ```
 # nginx 配置参考
 * [nginx 配置](./nginx)
+  
+# 国内跳板nginx配置
+
+```
+# nginx.conf 配置
+underscores_in_headers on;
+
+upstream grpc {
+        server xx.xxx.com:443;
+        keepalive 20000;
+}
+
+    location /dzfg9lm24p0x {
+        lua_need_request_body off;
+        access_log  off;
+        if ($content_type !~ "application/grpc") {
+                return 404;
+        }
+        client_body_buffer_size 202400k;
+        client_body_in_single_buffer on;
+        client_max_body_size 0;
+        client_body_timeout 24h;
+        keepalive_timeout 24h;
+        send_timeout 24h;
+        keepalive_requests 4294967296;
+        grpc_socket_keepalive on;
+        grpc_intercept_errors on;
+        grpc_set_header Host "xxx.com"; # 后端域名
+        grpc_set_header X-Real-IP $remote_addr;
+        grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        grpc_read_timeout 24h;
+        grpc_send_timeout 24h;
+        grpc_pass grpcs://grpc;
+    }
+```
 
 #### 客户端配置
 * [客户端配置](../clash/README.md)
