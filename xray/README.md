@@ -444,7 +444,6 @@ upstream grpc {
 }
 
     location /dzfg9lm24p0x {
-        lua_need_request_body off;
         access_log  off;
         if ($content_type !~ "application/grpc") {
                 return 404;
