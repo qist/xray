@@ -38,9 +38,11 @@ payload:
   - DOMAIN-SUFFIX,00990168.com
   - DOMAIN-SUFFIX,0099msc.com
   - DOMAIN-SUFFIX,00afcp.com
-  - DOMAIN,dvns.tycng.com
+  - DOMAIN,trojan.tycng.com
+  - DOMAIN,gio.tycng.com
   - DOMAIN-SUFFIX,01.buyshouses.net
   - DOMAIN-SUFFIX,01.org
+  - DOMAIN-SUFFIX,bingapis.com
   - DOMAIN-SUFFIX,0101826.com
   - DOMAIN-SUFFIX,011323.com
   - DOMAIN-SUFFIX,012492.com
