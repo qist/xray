@@ -1,4 +1,4 @@
-# Xray ws 模式安装
+# Xray  安装
 
 #### 下载 Xray
 
@@ -44,15 +44,16 @@ systemctl status xray
 
 ```
 #### 配置nginx 使用80 或者443 进行转发
-
+```
 # 使用cloudflare 进行转发 后端可以配置http 
 http://cloudflare.com/
 # 设置 cloudflare 网络选择 WebSocket ssl/tls 修改成灵活
 # 安装 nginx
 
-```
-yum install nginx \ apt install nginx
-
+# centos
+yum install nginx 
+# ubuntu
+apt install nginx
 ```
 # 安装 免费自动签名工具
 

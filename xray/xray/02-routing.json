@@ -1,12 +1,9 @@
 {
     "dns": {
-        "hosts": {
-            "gio.tycng.com": "144.34.252.132",
-            "trojan.tycng.com": "144.34.252.132"
-        },
         "servers": [
-            "https://gio.tycng.com/dns-query",
-            "https://trojan.tycng.com/dns-query"
+            "https://dns.google/dns-query",
+            "https://dns.quad9.net/dns-query",
+            "https://dns.cloudflare.com/dns-query"
         ],
         "queryStrategy": "UseIPv4"
     },
