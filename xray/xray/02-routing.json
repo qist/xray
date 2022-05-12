@@ -1,0 +1,36 @@
+{
+    "dns": {
+        "hosts": {
+            "gio.tycng.com": "144.34.252.132",
+            "trojan.tycng.com": "144.34.252.132"
+        },
+        "servers": [
+            "https://gio.tycng.com/dns-query",
+            "https://trojan.tycng.com/dns-query"
+        ],
+        "queryStrategy": "UseIPv4"
+    },
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "settings": {
+            "rules": [
+                {
+                    "type": "field",
+                    "domain": [
+                        "geosite:category-ads-all"
+                    ],
+                    "outboundTag": "block"
+                },
+                {
+                    "type": "field",
+                    "ip": [
+                        "geoip:cn",
+                        "geoip:private"
+                    ],
+                    "outboundTag": "block"
+                }
+            ]
+        },
+        "strategy": "rules"
+    }
+}

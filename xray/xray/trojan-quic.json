@@ -1,0 +1,37 @@
+{
+    "inbounds": [
+        {
+            "port": 6566,
+            "listen": "0.0.0.0",
+            "protocol": "trojan",
+            "tag": "QUICTROJAN",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "password",
+                        "email": "dvns.tycng.com_TROJAN_QUIC"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "quic",
+                "quicSettings": {
+                    "security": "chacha20-poly1305",
+                    "key": "password",
+                    "header": {
+                        "type": "wechat-video"
+                    }
+                },
+                "security": "tls",
+                "tlsSettings": {
+                    "certificates": [
+                        {
+                            "certificateFile": "/apps/nginx/sslkey/tycng.com/fullchain.crt",
+                            "keyFile": "/apps/nginx/sslkey/tycng.com/private.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

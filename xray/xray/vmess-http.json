@@ -4,12 +4,13 @@
             "listen": "0.0.0.0",
             "port": 20002,
             "protocol": "vmess",
-            "tag":"VLESSHTTP",
+            "tag": "VLESSHTTP",
             "settings": {
                 "clients": [
                     {
-                        "id": "3785ed4b-ccf2-843f-c605-21dd7b3dec50",
-                        "alterId": 0
+                        "id": "uuid",
+                        "alterId": 0,
+                        "email": "ocezs.tycng.com_VLESS_HTTP"
                     }
                 ]
             },
@@ -41,9 +42,11 @@
                         }
                     }
                 },
-                "security": "none"
+                "security": "none",
+                "sockopt": {
+                    "tcpFastOpen": true
+                }
             }
         }
     ]
-
 }

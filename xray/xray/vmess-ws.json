@@ -1,15 +1,17 @@
 {
   "inbounds": [
     {
-      "port": 9999,
-      "listen": "127.0.0.1",
+      //"port": 9999,
+      "listen": "/run/vmess-ws.sock",
       "protocol": "vmess",
-      "tag":"6gzw5k",
+      "tag": "VLESSWS",
       "settings": {
         "clients": [
           {
-            "id": "ef489692-36ed-0315-6dd1-767b1ddd7bce",
-            "alterId": 0
+            "id": "uuid",
+            "alterId": 0,
+            "add": "gio.tycng.com",
+            "email": "gio.tycng.com_VLESS_WS"
           }
         ]
       },
@@ -19,11 +21,14 @@
         "wsSettings": {
           "path": "/",
           "headers": {}
+        },
+        "sockopt": {
+          "tcpFastOpen": true
         }
       },
-      "tag": "6gzw5k",
+      "tag": "VLESSWS",
       "sniffing": {
-        "enabled": true,
+        "enabled": false,
         "destOverride": [
           "http",
           "tls"

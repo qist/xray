@@ -1,0 +1,44 @@
+{
+    "inbounds": [
+        {
+            "port": 6666,
+            "listen": "0.0.0.0",
+            "protocol": "vless",
+            "tag": "QUICVLESS",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "uuid",
+                        "flow": "xtls-rprx-direct",
+                        "level": 0
+                    }
+                ],
+                "decryption": "none",
+                "fallbacks": [
+                    {
+                        "dest": 80
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "quic",
+                "quicSettings": {
+                    "security": "chacha20-poly1305",
+                    "key": "password",
+                    "header": {
+                        "type": "wechat-video"
+                    }
+                },
+                "security": "tls",
+                "tlsSettings": {
+                    "certificates": [
+                        {
+                            "certificateFile": "/apps/nginx/sslkey/tycng.com/fullchain.crt",
+                            "keyFile": "/apps/nginx/sslkey/tycng.com/private.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

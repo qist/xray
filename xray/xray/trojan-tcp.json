@@ -3,34 +3,37 @@
         {
             "port": 20001,
             "protocol": "trojan",
-            "tag":"VLESSH2",
+            "tag": "VLESSH2",
             "settings": {
                 "clients": [
                     {
-                        "password": "XS0YewmOVew07",
-                        "email": "sss@gmail.com"
+                        "password": "password",
+                        "email": "ocezs.tycng.com_TROJAN_TCP"
                     }
                 ]
             },
             "fallbacks": [
-            {
-              "dest": 80
-            }
+                {
+                    "dest": 80
+                }
             ],
             "streamSettings": {
                 "network": "tcp",
                 "security": "tls",
                 "tlsSettings": {
                     "alpn": [
-                         "h2",
+                        "h2",
                         "http/1.1"
                     ],
                     "certificates": [
                         {
-                            "certificateFile": "/apps/nginx/sslkey/fullchain.crt",
-                            "keyFile": "/apps/nginx/sslkey/private.key"
+                            "certificateFile": "/apps/nginx/sslkey/tycng.com/fullchain.crt",
+                            "keyFile": "/apps/nginx/sslkey/tycng.com/private.key"
                         }
                     ]
+                },
+                "sockopt": {
+                    "tcpFastOpen": true
                 }
             }
         }

@@ -1,0 +1,29 @@
+{
+    "inbounds": [
+        {
+            //"port": 6565,
+            "listen": "/run/trojan-grpc.sock",
+            "protocol": "trojan",
+            "tag": "TROJANGRPC",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "password",
+                        "email": "dvns.tycng.com_VLESS_gRPC"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "grpc",
+                "security": "none",
+                "grpcSettings": {
+                    "serviceName": "dzfg9lm24p0x",
+                    "multiMode": true
+                },
+                "sockopt": {
+                    "tcpFastOpen": true
+                }
+            }
+        }
+    ]
+}

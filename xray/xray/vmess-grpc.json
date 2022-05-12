@@ -1,0 +1,31 @@
+{
+    "inbounds": [
+        {
+            //"port": 31301,
+            "listen": "/run/vmess-grpc.sock",
+            "protocol": "vmess",
+            "tag": "VLESSGRPC",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "uuid",
+                        "alterId": 0,
+                        "add": "ocezs.tycng.com",
+                        "email": "ocezs.tycng.com_VLESS_gRPC"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "grpc",
+                "grpcSettings": {
+                    "serviceName": "sbwhgrpc",
+                    "multiMode": true
+                },
+                "sockopt": {
+                    "tcpFastOpen": true
+                }
+            }
+        }
+    ]
+}

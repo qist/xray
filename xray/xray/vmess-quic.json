@@ -1,0 +1,36 @@
+{
+    "inbounds": [
+        {
+            "port": 6565,
+            "listen": "0.0.0.0",
+            "protocol": "vmess",
+            "tag": "QUICVMESS",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "uuid"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "quic",
+                "quicSettings": {
+                    "security": "chacha20-poly1305",
+                    "key": "password",
+                    "header": {
+                        "type": "wechat-video"
+                    }
+                },
+                "security": "tls",
+                "tlsSettings": {
+                    "certificates": [
+                        {
+                            "certificateFile": "/apps/nginx/sslkey/tycng.com/fullchain.crt",
+                            "keyFile": "/apps/nginx/sslkey/tycng.com/private.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+  "inbounds": [
+    {
+      // "port": 6666,
+      "listen": "/run/trojan-ws.sock",
+      "protocol": "trojan",
+      "tag": "TROJANWS",
+      "settings": {
+        "clients": [
+          {
+            "password": "password",
+            "email": "ocezs.tycng.com_VLESS_gRPC"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/efnxuvlqws",
+          "headers": {}
+        },
+        "sockopt": {
+          "tcpFastOpen": true
+        }
+      },
+      "tag": "TROJANWS",
+      "sniffing": {
+        "enabled": false,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ]
+}
