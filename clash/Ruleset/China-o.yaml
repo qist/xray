@@ -509,19 +509,15 @@ payload:
   - DOMAIN,c.admob.com
   - DOMAIN,c.android.clients.google.com
   - DOMAIN,cache.pack.google.com
-  - DOMAIN,checkin.gstatic.com
   - DOMAIN,clickserve.dartsearch.net
   - DOMAIN,clientservices.googleapis.com
-  - DOMAIN,connectivitycheck.gstatic.com
   - DOMAIN,corp.google.com
   - DOMAIN,crl.pki.goog
-  - DOMAIN,csi.gstatic.com
   - DOMAIN,dl.google.com
   - DOMAIN,dl.l.google.com
   - DOMAIN,doubleclick.net
   - DOMAIN,firebase-settings.crashlytics.com
   - DOMAIN,fonts.googleapis.com
-  - DOMAIN,fonts.gstatic.com
   - DOMAIN,google-analytics.com
   - DOMAIN,googleadservices.com
   - DOMAIN,googleanalytics.com
@@ -551,14 +547,12 @@ payload:
   - DOMAIN,safebrowsing.googleapis.com
   - DOMAIN,settings.crashlytics.com
   - DOMAIN,ssl-google-analytics.l.google.com
-  - DOMAIN,ssl.gstatic.com
   - DOMAIN,toolbarqueries.google.com
   - DOMAIN,tools.google.com
   - DOMAIN,tools.l.google.com
   - DOMAIN,translate.googleapis.com
   - DOMAIN,update.googleapis.com
   - DOMAIN,www-googletagmanager.l.google.com
-  - DOMAIN,www.gstatic.com
   # > ALL
   - DOMAIN-SUFFIX,0-100.com
   - DOMAIN-SUFFIX,0-6.com
@@ -16570,7 +16564,6 @@ payload:
   - DOMAIN-SUFFIX,checheboke.com
   - DOMAIN-SUFFIX,chechong.com
   - DOMAIN-SUFFIX,check.cc
-  - DOMAIN-SUFFIX,checkin.gstatic.com
   - DOMAIN-SUFFIX,checkip.pw
   - DOMAIN-SUFFIX,checkoo.com
   - DOMAIN-SUFFIX,checkpass.net
@@ -19423,7 +19416,6 @@ payload:
   - DOMAIN-SUFFIX,congyicn.com
   - DOMAIN-SUFFIX,congzao.com
   - DOMAIN-SUFFIX,congzhi.com
-  - DOMAIN-SUFFIX,connectivitycheck.gstatic.com
   - DOMAIN-SUFFIX,conoha.vip
   - DOMAIN-SUFFIX,conohavps.com
   - DOMAIN-SUFFIX,conpak.com.hk
@@ -19970,7 +19962,6 @@ payload:
   - DOMAIN-SUFFIX,cshxdc.com
   - DOMAIN-SUFFIX,cshzw.com
   - DOMAIN-SUFFIX,csi-china.l.google.com
-  - DOMAIN-SUFFIX,csi.gstatic.com
   - DOMAIN-SUFFIX,csiaexpo.com
   - DOMAIN-SUFFIX,csic-711.com
   - DOMAIN-SUFFIX,csic-ljtech.com

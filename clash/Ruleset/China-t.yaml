@@ -8045,7 +8045,6 @@ payload:
   - DOMAIN-SUFFIX,ssjzw.com
   - DOMAIN-SUFFIX,ssky123.com
   - DOMAIN-SUFFIX,ssl-google-analytics.l.google.com
-  - DOMAIN-SUFFIX,ssl.gstatic.com
   - DOMAIN-SUFFIX,ssl.travelzoo.com
   - DOMAIN-SUFFIX,ssl.tzoo-img.com
   - DOMAIN-SUFFIX,sslaaa.com
@@ -16531,7 +16530,6 @@ payload:
   - DOMAIN-SUFFIX,www.dji.com
   - DOMAIN-SUFFIX,www.djivideos.com
   - DOMAIN-SUFFIX,www.ericsson.com
-  - DOMAIN-SUFFIX,www.gstatic.com
   - DOMAIN-SUFFIX,www.htc.com
   - DOMAIN-SUFFIX,www.htcsense.com
   - DOMAIN-SUFFIX,www.htcvive.com
