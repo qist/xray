@@ -1,5 +1,4 @@
 proxies:
-
   - name: "snell"
     type: snell
     server: xxx.xxx.com

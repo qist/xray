@@ -1,5 +1,4 @@
 proxies:
-
   - name: "ss"
     type: ss
     server: xxx.xxx.com
@@ -7,7 +6,7 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: "password"
     udp: true
-    
+
   - name: "ssr"
     type: ssr
     server: xxx.xxx.com

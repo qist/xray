@@ -559,7 +559,7 @@ payload:
   - DOMAIN,update.googleapis.com
   - DOMAIN,www-googletagmanager.l.google.com
   - DOMAIN,www.gstatic.com
-  # > ALL 
+  # > ALL
   - DOMAIN-SUFFIX,0-100.com
   - DOMAIN-SUFFIX,0-6.com
   - DOMAIN-SUFFIX,0-gold.net

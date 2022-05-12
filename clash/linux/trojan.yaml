@@ -9,10 +9,10 @@ proxies:
     skip-cert-verify: true
     udp: true
     ws-opts:
-       path: /efnxuvlqws
-       headers:
-         Host: xxx.xxx.com
-         
+      path: /efnxuvlqws
+      headers:
+        Host: xxx.xxx.com
+
   - name: "trojan"
     type: trojan
     server: xxx.xxx.com
@@ -22,7 +22,7 @@ proxies:
     alpn:
       - h2
       - http/1.1
-    skip-cert-verify: true         
+    skip-cert-verify: true
 
   - name: trojan-grpc
     server: xxx.xxx.com
