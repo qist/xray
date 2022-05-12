@@ -527,6 +527,7 @@ payload:
   - DOMAIN,gtm.oasisfeng.com
   - DOMAIN,imasdk.googleapis.com
   - DOMAIN,kh.google.com
+  - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN,khm.google.com
   - DOMAIN,khm.googleapis.com
   - DOMAIN,khm0.google.com
