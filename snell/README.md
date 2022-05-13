@@ -53,15 +53,15 @@ obfs-host=www.bing.com
 version=3
 ```
 
-# 启动 snell-server
+## 启动 snell-server
 
 `systemctl start snell-server`
 
-# 设置开机启动
+## 设置开机启动
 
 `systemctl enable snell-server`
 
-# 查看启动状态
+## 查看启动状态
 
 `systemctl status snell-server`
 
