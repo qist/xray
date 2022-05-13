@@ -482,11 +482,18 @@ rule-providers:
 # 规则
 rules:
   - RULE-SET,applications,DIRECT
+  - RULE-SET,Reject,🛑 广告拦截
+  - RULE-SET,Reject1,🛑 广告拦截
+  - RULE-SET,IpDirect,DIRECT
+  - RULE-SET,Chinao,DIRECT
+  - RULE-SET,Chinat,DIRECT
+  - RULE-SET,Chinas,DIRECT
+  - DOMAIN-SUFFIX,smtp,DIRECT
+  - DOMAIN-KEYWORD,aria2,DIRECT
+  - GEOIP,CN,DIRECT
   - RULE-SET,Apple,Ⓜ️ 微软苹果
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
-  - RULE-SET,Reject,🛑 广告拦截
-  - RULE-SET,Reject1,🛑 广告拦截
   - RULE-SET,Proxy,✈️ 墙外网站
   - RULE-SET,ITdev,✈️ 墙外网站
   #- GEOIP,AE,✈️ 墙外网站
@@ -523,11 +530,4 @@ rules:
   #- GEOIP,TW,✈️ 墙外网站
   #- GEOIP,US,✈️ 墙外网站
   #- GEOIP,VN,✈️ 墙外网站
-  - RULE-SET,IpDirect,DIRECT
-  - RULE-SET,Chinao,DIRECT
-  - RULE-SET,Chinat,DIRECT
-  - RULE-SET,Chinas,DIRECT
-  - DOMAIN-SUFFIX,smtp,DIRECT
-  - DOMAIN-KEYWORD,aria2,DIRECT
-  - GEOIP,CN,DIRECT
   - MATCH,🐟 其他网站
