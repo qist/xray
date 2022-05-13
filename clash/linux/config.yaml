@@ -139,10 +139,6 @@ dns:
       - +.twitter.com
       - +.youtube.com
       - +.xn--ngstr-lra8j.com
-      - +.google.cn
-      - +.googleapis.cn
-      - +.googleapis.com
-      - +.gvt1.com
 
 interface-name: eth0 # 一定要指定网卡
 
@@ -305,10 +301,6 @@ dns:
       - +.twitter.com
       - +.youtube.com
       - +.xn--ngstr-lra8j.com
-      - +.google.cn
-      - +.googleapis.cn
-      - +.googleapis.com
-      - +.gvt1.com
 
 tun:
   enable: true
@@ -488,9 +480,6 @@ rules:
   - RULE-SET,Chinao,DIRECT
   - RULE-SET,Chinat,DIRECT
   - RULE-SET,Chinas,DIRECT
-  - DOMAIN-SUFFIX,smtp,DIRECT
-  - DOMAIN-KEYWORD,aria2,DIRECT
-  - GEOIP,CN,DIRECT
   - RULE-SET,Apple,Ⓜ️ 微软苹果
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
@@ -530,4 +519,7 @@ rules:
   #- GEOIP,TW,✈️ 墙外网站
   #- GEOIP,US,✈️ 墙外网站
   #- GEOIP,VN,✈️ 墙外网站
+  - DOMAIN-SUFFIX,smtp,DIRECT
+  - DOMAIN-KEYWORD,aria2,DIRECT
+  - GEOIP,CN,DIRECT
   - MATCH,🐟 其他网站
