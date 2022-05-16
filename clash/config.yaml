@@ -383,7 +383,7 @@ rule-providers:
     path: ./profiles/rules/applications.yaml
     interval: 3600
 
-  domain-ip-cird:
+  domain-ip-cidr:
     type: http
     behavior: classical
     url: "https://gio.tycng.com/v2ray/clash/Ruleset/domain-ip-cidr.txt"
@@ -404,7 +404,7 @@ rules:
   - RULE-SET,google,DIRECT
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
-  - RULE-SET,domain-ip-cird,✈️ 墙外网站
+  - RULE-SET,domain-ip-cidr,✈️ 墙外网站
   - RULE-SET,proxy,✈️ 墙外网站
   - RULE-SET,gfw,✈️ 墙外网站
   - RULE-SET,tld-not-cn,✈️ 墙外网站
