@@ -398,128 +398,162 @@ proxy-groups:
     url: "https://www.google.com"
     interval: 500
 ##  rule 规则
+
 rule-providers:
-  Apple:
+  reject:
     type: http
-    behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Apple.yaml
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/reject.txt"
+    path: ./profiles/rules/reject.yaml
     interval: 3600
-    path: ./profiles/rules/Apple.yaml
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/icloud.txt"
+    path: ./profiles/rules/icloud.yaml
+    interval: 3600
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/apple.txt"
+    path: ./profiles/rules/apple.yaml
+    interval: 3600
+
+  win-spy:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/win-spy.txt"
+    path: ./profiles/rules/win-spy.yaml
+    interval: 3600
+
+  win-update:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/win-update.txt"
+    path: ./profiles/rules/win-update.yaml
+    interval: 3600
+
+  win-extra:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/win-extra.txt"
+    path: ./profiles/rules/win-extra.yaml
+    interval: 3600
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/google.txt"
+    path: ./profiles/rules/google.yaml
+    interval: 3600
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/proxy.txt"
+    path: ./profiles/rules/proxy.yaml
+    interval: 3600
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/direct.txt"
+    path: ./profiles/rulest/direct.yaml
+    interval: 3600
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/private.txt"
+    path: ./profiles/rules/private.yaml
+    interval: 3600
+
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/gfw.txt"
+    path: ./profiles/rules/gfw.yaml
+    interval: 3600
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/tld-not-cn.txt"
+    path: ./profiles/rules/tld-not-cn.yaml
+    interval: 3600
+
   Foreignmedia:
     type: http
     behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.txt
     interval: 3600
     path: ./profiles/rules/Foreignmedia.yaml
+
   Netflix:
     type: http
     behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.yaml
+    url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.txt
     interval: 3600
     path: ./profiles/rules/Netflix.yaml
-  Reject:
-    type: http
-    behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject.yaml
-    interval: 3600
-    path: ./profiles/rules/Reject.yaml
-  Reject1:
-    type: http
-    behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Reject1.yaml
-    interval: 3600
-    path: ./profiles/rules/Reject1.yaml
-  IpDirect:
+
+  telegramcidr:
     type: http
     behavior: ipcidr
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/IpDirect.yaml
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/telegramcidr.txt"
+    path: ./profiles/rules/telegramcidr.yaml
     interval: 3600
-    path: ./profiles/rules/IpDirect.yaml
-  Proxy:
+
+  cncidr:
     type: http
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Proxy.yaml
+    behavior: ipcidr
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/cncidr.txt"
+    path: ./profiles/rules/cncidr.yaml
     interval: 3600
-    behavior: classical
-    path: ./profiles/rules/Proxy.yaml
-  ITdev:
+
+  lancidr:
     type: http
-    behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/ITdev.yaml
+    behavior: ipcidr
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/lancidr.txt"
+    path: ./profiles/rules/lancidr.yaml
     interval: 3600
-    path: ./profiles/rules/ITdev.yaml
-  Chinao:
-    type: http
-    behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-o.yaml
-    interval: 3600
-    path: ./profiles/rules/China-o.yaml
-  Chinat:
-    type: http
-    behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-t.yaml
-    interval: 3600
-    path: ./profiles/rules/China-t.yaml
-  Chinas:
-    type: http
-    behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/China-s.yaml
-    interval: 3600
-    path: ./profiles/rules/China-s.yaml
+
   applications:
     type: http
     behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/applications.yaml
-    interval: 3600
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/applications.txt"
     path: ./profiles/rules/applications.yaml
+    interval: 3600
+
+  domain-ip-cird:
+    type: http
+    behavior: classical
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/domain-ip-cidr.txt"
+    path: ./profiles/rules/domain-ip-cidr.yaml
+    interval: 3600
+
 # 规则
 rules:
   - RULE-SET,applications,DIRECT
-  - RULE-SET,Reject,🛑 广告拦截
-  - RULE-SET,Reject1,🛑 广告拦截
-  - RULE-SET,IpDirect,DIRECT
-  - RULE-SET,Chinao,DIRECT
-  - RULE-SET,Chinat,DIRECT
-  - RULE-SET,Chinas,DIRECT
-  - RULE-SET,Apple,Ⓜ️ 微软苹果
+  - RULE-SET,private,DIRECT
+  - RULE-SET,reject,🛑 广告拦截
+  - RULE-SET,icloud,Ⓜ️ 微软苹果
+  - RULE-SET,apple,Ⓜ️ 微软苹果
+  - RULE-SET,win-spy,Ⓜ️ 微软苹果
+  - RULE-SET,win-update,Ⓜ️ 微软苹果
+  - RULE-SET,win-extra,Ⓜ️ 微软苹果
+  - RULE-SET,google,DIRECT
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
-  - RULE-SET,Proxy,✈️ 墙外网站
-  - RULE-SET,ITdev,✈️ 墙外网站
-  #- GEOIP,AE,✈️ 墙外网站
-  #- GEOIP,AU,✈️ 墙外网站
-  #- GEOIP,BR,✈️ 墙外网站
-  #- GEOIP,CA,✈️ 墙外网站
-  #- GEOIP,DE,✈️ 墙外网站
-  #- GEOIP,DK,✈️ 墙外网站
-  #- GEOIP,ES,✈️ 墙外网站
-  #- GEOIP,FI,✈️ 墙外网站
-  #- GEOIP,FR,✈️ 墙外网站
-  #- GEOIP,GB,✈️ 墙外网站
-  #- GEOIP,GR,✈️ 墙外网站
-  #- GEOIP,HK,✈️ 墙外网站
-  #- GEOIP,ID,✈️ 墙外网站
-  #- GEOIP,IL,✈️ 墙外网站
-  #- GEOIP,IN,✈️ 墙外网站
-  #- GEOIP,IQ,✈️ 墙外网站
-  #- GEOIP,IR,✈️ 墙外网站
-  #- GEOIP,IT,✈️ 墙外网站
-  #- GEOIP,JP,✈️ 墙外网站
-  #- GEOIP,KR,✈️ 墙外网站
-  #- GEOIP,MO,✈️ 墙外网站
-  #- GEOIP,MY,✈️ 墙外网站
-  #- GEOIP,NL,✈️ 墙外网站
-  #- GEOIP,NO,✈️ 墙外网站
-  #- GEOIP,NZ,✈️ 墙外网站
-  #- GEOIP,PH,✈️ 墙外网站
-  #- GEOIP,RU,✈️ 墙外网站
-  #- GEOIP,SA,✈️ 墙外网站
-  #- GEOIP,SG,✈️ 墙外网站
-  #- GEOIP,TH,✈️ 墙外网站
-  #- GEOIP,TR,✈️ 墙外网站
-  #- GEOIP,TW,✈️ 墙外网站
-  #- GEOIP,US,✈️ 墙外网站
-  #- GEOIP,VN,✈️ 墙外网站
-  - DOMAIN-SUFFIX,smtp,DIRECT
-  - DOMAIN-KEYWORD,aria2,DIRECT
+  - RULE-SET,proxy,✈️ 墙外网站
+  - RULE-SET,gfw,✈️ 墙外网站
+  - RULE-SET,tld-not-cn,✈️ 墙外网站
+  - RULE-SET,domain-ip-cird,✈️ 墙外网站
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,telegramcidr,✈️ 墙外网站
+  - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,🐟 其他网站
