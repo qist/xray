@@ -1,6 +1,4 @@
 payload:
-  - '+.bing'
-  - '+.bing.com'
   - '265.com'
   - '2mdn.net'
   - 'a1.mzstatic.com'
