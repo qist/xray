@@ -267,15 +267,15 @@ rule-providers:
   icloud:
     type: http
     behavior: domain
-    url: "https://gio.tycng.com/v2ray/clash/Ruleset/icloud.txt"
-    path: ./profiles/rules/icloud.yaml
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/icloudcn.txt"
+    path: ./profiles/rules/icloudcn.yaml
     interval: 3600
 
   apple:
     type: http
     behavior: domain
-    url: "https://gio.tycng.com/v2ray/clash/Ruleset/apple.txt"
-    path: ./profiles/rules/apple.yaml
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/applecn.txt"
+    path: ./profiles/rules/applecn.yaml
     interval: 3600
 
   win-spy:
@@ -317,7 +317,7 @@ rule-providers:
     type: http
     behavior: domain
     url: "https://gio.tycng.com/v2ray/clash/Ruleset/direct.txt"
-    path: ./profiles/rulest/direct.yaml
+    path: ./profiles/rules/direct.yaml
     interval: 3600
 
   private:
