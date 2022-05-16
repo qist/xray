@@ -407,6 +407,13 @@ rule-providers:
     path: ./profiles/rules/reject.yaml
     interval: 3600
 
+  rejectcidr:
+    type: http
+    behavior: domain
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/rejectcidr.txt"
+    path: ./profiles/rules/rejectcidr.yaml
+    interval: 3600
+
   icloud:
     type: http
     behavior: domain
@@ -538,6 +545,7 @@ rules:
   - RULE-SET,applications,DIRECT
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,🛑 广告拦截
+  - RULE-SET,rejectcidr,🛑 广告拦截
   - RULE-SET,icloud,Ⓜ️ 微软苹果
   - RULE-SET,apple,Ⓜ️ 微软苹果
   - RULE-SET,win-spy,Ⓜ️ 微软苹果
