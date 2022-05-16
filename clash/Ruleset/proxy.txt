@@ -3321,8 +3321,6 @@ payload:
   - '+.alhayat.com'
   - '+.ali3215.com'
   - '+.alias.awsapps.com'
-  - '+.alibabacloud.com'
-  - '+.alicloud.com'
   - '+.aliengu.com'
   - '+.alifta.com'
   - '+.alistapart.com'
