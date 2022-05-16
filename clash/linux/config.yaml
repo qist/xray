@@ -111,7 +111,6 @@ dns:
     - "*.finalfantasyxiv.com"
     - "*.ffxiv.com"
     - "*.mcdn.bilivideo.cn"
-    - "+.msn.cn"
     - "+.youdao.com"
   nameserver: # 内网劫持可以换成内部dns
     - 223.5.5.5:53
