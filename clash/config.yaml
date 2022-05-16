@@ -259,7 +259,7 @@ rule-providers:
 
   rejectcidr:
     type: http
-    behavior: domain
+    behavior: ipcidr
     url: "https://gio.tycng.com/v2ray/clash/Ruleset/rejectcidr.txt"
     path: ./profiles/rules/rejectcidr.yaml
     interval: 3600
