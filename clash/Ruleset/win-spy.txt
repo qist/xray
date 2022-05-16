@@ -1,6 +1,4 @@
 payload:
-  - '+.bing'
-  - '+.bing.com'
   - 'a.ads1.msn.com'
   - 'a.ads2.msads.net'
   - 'a.ads2.msn.com'
