@@ -13,6 +13,7 @@ payload:
   - 'audio-ak-spotify-com.akamaized.net'
   - 'avatargarenanow-a.akamaihd.net'
   - 'azure.microsoft.com'
+  - '+.msftconnecttest.com'
   - 'azuremarketplace.microsoft.com'
   - 'bcovlive-a.akamaihd.net'
   - 'bcsecure01-a.akamaihd.net'
