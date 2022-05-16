@@ -404,10 +404,10 @@ rules:
   - RULE-SET,google,DIRECT
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
+  - RULE-SET,domain-ip-cird,✈️ 墙外网站
   - RULE-SET,proxy,✈️ 墙外网站
   - RULE-SET,gfw,✈️ 墙外网站
   - RULE-SET,tld-not-cn,✈️ 墙外网站
-  - RULE-SET,domain-ip-cird,✈️ 墙外网站
   - RULE-SET,direct,DIRECT
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,cncidr,DIRECT
