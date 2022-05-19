@@ -24632,6 +24632,7 @@ payload:
   - '+.twitstat.com'
   - '+.twittbot.net'
   - '+.twitter.com'
+  - '+.twitterstat.us'
   - '+.twitter.org'
   - '+.twitter4j.org'
   - '+.twittercounter.com'
