@@ -215,7 +215,17 @@ proxy-groups:
     proxies:
       - REJECT
       - DIRECT
-  - name: Ⓜ️ 微软苹果
+  - name: 🍏 苹果
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 墙外网站
+  - name: Ⓜ️ 微软
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 墙外网站
+  - name: 🐓 谷歌
     type: select
     proxies:
       - DIRECT
@@ -396,12 +406,12 @@ rules:
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,🛑 广告拦截
   - RULE-SET,rejectcidr,🛑 广告拦截
-  - RULE-SET,icloud,Ⓜ️ 微软苹果
-  - RULE-SET,apple,Ⓜ️ 微软苹果
-  - RULE-SET,win-spy,Ⓜ️ 微软苹果
-  - RULE-SET,win-update,Ⓜ️ 微软苹果
-  - RULE-SET,win-extra,Ⓜ️ 微软苹果
-  - RULE-SET,google,DIRECT
+  - RULE-SET,icloud,🍏 苹果
+  - RULE-SET,apple,🍏 苹果
+  - RULE-SET,win-spy,Ⓜ️ 微软
+  - RULE-SET,win-update,Ⓜ️ 微软
+  - RULE-SET,win-extra,Ⓜ️ 微软
+  - RULE-SET,google,🐓 谷歌
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
   - RULE-SET,domain-ip-cidr,✈️ 墙外网站
