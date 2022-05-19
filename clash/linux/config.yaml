@@ -273,6 +273,9 @@ dns:
     - "*.ffxiv.com"
     - "*.mcdn.bilivideo.cn"
     - "+.youdao.com"
+    - '+.baidu.com'
+    - '+.taobao.com'
+    - '+.tmall.com'
   nameserver: # 内网劫持可以换成内部dns
     - 223.5.5.5:53
     - 119.29.29.29:53
