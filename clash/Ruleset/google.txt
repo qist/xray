@@ -38,6 +38,7 @@ payload:
   - '+.googleapis-cn.com'
   - '+.googleapps-cn.com'
   - '+.googleflights-cn.net'
+  - 'services.googleapis.cn'
   - '+.googleoptimize-cn.com'
   - '+.googleoptimize.com'
   - '+.googlesyndication-cn.com'
