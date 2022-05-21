@@ -39,7 +39,7 @@ payload:
   - '+.googleapps-cn.com'
   - '+.googleflights-cn.net'
   - 'services.googleapis.cn'
-  - 'rr.*---sn-j5o7.*n7.*xn--ngstr-lra8j.com'
+  - '+.xn--ngstr-lra8j.com'
   - '+.googleoptimize-cn.com'
   - '+.googleoptimize.com'
   - '+.googlesyndication-cn.com'
