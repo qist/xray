@@ -221,7 +221,6 @@ payload:
   - 'bl2p.wns.windows.com'
   - 'bl2p.wns.notify.windows.com.akadns.net'
   - 'blob.sn4prdstr03a.store.core.windows.net'
-  - 'client.wns.windows.com'
   - 'ctldl.windowsupdate.com'
   - 'db3wns2011111.wns.windows.com'
   - 'db5.wns.windows.com'

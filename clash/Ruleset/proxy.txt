@@ -12546,6 +12546,7 @@ payload:
   - '+.gtvmediagroupfairfund.com'
   - '+.gtxxtv.com'
   - '+.gu'
+  - 'client.wns.windows.com'
   - '+.gu-chu-sum.org'
   - '+.gu-web.net'
   - '+.gu.com'
