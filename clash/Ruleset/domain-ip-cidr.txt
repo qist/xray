@@ -1,4 +1,4 @@
-  - payload:
+payload:
   #  > Entire domain name configuration
   - DOMAIN-SUFFIX,kubernetes.io
   - DOMAIN-SUFFIX,golang.org
