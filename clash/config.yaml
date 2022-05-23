@@ -354,14 +354,14 @@ rule-providers:
   Foreignmedia:
     type: http
     behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.txt
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/Foreignmedia.txt"
     interval: 3600
     path: ./profiles/rules/Foreignmedia.yaml
 
   Netflix:
     type: http
     behavior: classical
-    url: https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.txt
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/Netflix.txt"
     interval: 3600
     path: ./profiles/rules/Netflix.yaml
 
