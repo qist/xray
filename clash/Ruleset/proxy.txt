@@ -12547,6 +12547,7 @@ payload:
   - '+.gtxxtv.com'
   - '+.gu'
   - 'client.wns.windows.com'
+  - 'mobile.events.data.microsoft.com'
   - '+.gu-chu-sum.org'
   - '+.gu-web.net'
   - '+.gu.com'

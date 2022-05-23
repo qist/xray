@@ -114,7 +114,6 @@ payload:
   - 'maps.windows.com'
   - 'm.hotmail.com'
   - 'mediaredirect.microsoft.com'
-  - 'mobile.events.data.microsoft.com'
   - 'msagfx.live.com'
   - 'mscrl.microsoft.com'
   - 'msedge.api.cdp.microsoft.com'
