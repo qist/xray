@@ -40,6 +40,7 @@ payload:
   - '+.googleflights-cn.net'
   - 'services.googleapis.cn'
   - '+.xn--ngstr-lra8j.com'
+  - 'rr4---sn-j5o7dn7e.googlevideo.com'
   - '+.googleoptimize-cn.com'
   - '+.googleoptimize.com'
   - '+.googlesyndication-cn.com'
