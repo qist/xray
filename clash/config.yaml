@@ -372,6 +372,13 @@ rule-providers:
     path: ./profiles/rules/telegramcidr.yaml
     interval: 3600
 
+  proxy-ip-cidr:
+    type: http
+    behavior: ipcidr
+    url: "https://gio.tycng.com/v2ray/clash/Ruleset/proxy-ip-cidr.txt"
+    path: ./profiles/rules/proxy-ip-cidr.yaml
+    interval: 3600
+
   cncidr:
     type: http
     behavior: ipcidr
@@ -422,6 +429,7 @@ rules:
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,cncidr,DIRECT
   - RULE-SET,telegramcidr,✈️ 墙外网站
+  - RULE-SET,proxy-ip-cidr,✈️ 墙外网站
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,🐟 其他网站
