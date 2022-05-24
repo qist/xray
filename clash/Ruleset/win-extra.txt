@@ -226,7 +226,6 @@ payload:
   - 's0.2mdn.net'
   - 's2s.config.skype.com'
   - 'search.msn.com'
-  - 'self.events.data.microsoft.com'
   - 'service.weather.microsoft.com'
   - 'server6.pipe.aria.microsoft.com'
   - 'server7.pipe.aria.microsoft.com'
