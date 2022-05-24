@@ -29,7 +29,6 @@ payload:
   - 'arc.msn.com'
   - 'arc.msn.com.nsatc.net'
   - 'ars.smartscreen.microsoft.com'
-  - 'assets.msn.com'
   - 'assuritystorage.blob.core.windows.net'
   - 'auth.gfx.ms'
   - 'az361816.vo.msecnd.net'

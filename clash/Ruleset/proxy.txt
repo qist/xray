@@ -12549,6 +12549,7 @@ payload:
   - 'client.wns.windows.com'
   - 'mobile.events.data.microsoft.com'
   - 'self.events.data.microsoft.com'
+  - 'assets.msn.com'
   - '+.gu-chu-sum.org'
   - '+.gu-web.net'
   - '+.gu.com'
