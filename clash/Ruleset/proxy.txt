@@ -12550,6 +12550,7 @@ payload:
   - 'mobile.events.data.microsoft.com'
   - 'self.events.data.microsoft.com'
   - 'assets.msn.com'
+  - 'edge.microsoft.com'
   - '+.gu-chu-sum.org'
   - '+.gu-web.net'
   - '+.gu.com'

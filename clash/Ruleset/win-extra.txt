@@ -67,7 +67,6 @@ payload:
   - 'dns.msftncsi.com'
   - 'ecn.dev.virtualearth.net'
   - 'edgetipscdn.microsoft.com'
-  - 'edge.microsoft.com'
   - 'eu-v10.events.data.microsoft.com'
   - 'eu-v20.events.data.microsoft.com'
   - 'eu.vortex.data.microsoft.com'
