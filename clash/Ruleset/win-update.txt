@@ -510,7 +510,6 @@ payload:
   - 'fe2cr.update.microsoft.com'
   - 'fe3.delivery.dsp.mp.microsoft.com.nsatc.net'
   - 'fe3.delivery.mp.microsoft.com'
-  - 'fe3cr.delivery.mp.microsoft.com'
   - 'fg.ds.b1.download.windowsupdate.com'
   - 'fg.v4.download.windowsupdate.com'
   - 'geo-prod.do.dsp.mp.microsoft.com'

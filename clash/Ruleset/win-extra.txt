@@ -263,7 +263,6 @@ payload:
   - 'us-v10.events.data.microsoft.com'
   - 'us-v20.events.data.microsoft.com'
   - 'us.vortex-win.data.microsoft.com'
-  - 'v10.events.data.microsoft.com'
   - 'v10c.events.data.microsoft.com'
   - 'v20.events.data.microsoft.com'
   - 'validation.sls.microsoft.com'
