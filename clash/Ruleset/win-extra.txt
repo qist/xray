@@ -92,7 +92,6 @@ payload:
   - 'iecvlist.microsoft.com'
   - 'img.stb.s-msn.com'
   - 'img-prod-cms-rt-microsoft-com.akamaized.net'
-  - 'img-s-msn-com.akamaized.net'
   - 'inference.location.live.net'
   - 'insiderservice.microsoft.com'
   - 'insideruser.microsoft.com'
