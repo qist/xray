@@ -12556,6 +12556,7 @@ payload:
   - 'live.applicationinsights.azure.cn'
   - 'dl.google.com'
   - '+.dl.google.com'
+  - 'browser.events.data.msn.cn'
   - 'nav.smartscreen.microsoft.com'
   - '+.gu-chu-sum.org'
   - '+.gu-web.net'
