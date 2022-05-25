@@ -12553,6 +12553,8 @@ payload:
   - 'edge.microsoft.com'
   - 'fe3cr.delivery.mp.microsoft.com'
   - 'v10.events.data.microsoft.com'
+  - 'live.applicationinsights.azure.cn'
+  - 'dl.google.com'
   - '+.gu-chu-sum.org'
   - '+.gu-web.net'
   - '+.gu.com'

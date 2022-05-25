@@ -83,7 +83,6 @@ payload:
   - 'di.res.netease.com'
   - 'diablo3.nosdn.127.net'
   - 'discussionschinese.apple.com'
-  - 'dl.google.com'
   - 'dl.l.google.com'
   - 'docs.microsoft.com'
   - 'doubleclick.net'
