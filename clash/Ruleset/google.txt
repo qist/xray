@@ -21,7 +21,6 @@ payload:
   - '+.crl.pki.goog'
   - '+.csi.gstatic.com'
   - '+.dartsearch-cn.net'
-  - '+.dl.google.com'
   - '+.dl.l.google.com'
   - '+.doubleclick-cn.net'
   - '+.doubleclick.net'

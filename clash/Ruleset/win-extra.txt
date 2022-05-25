@@ -116,7 +116,6 @@ payload:
   - 'msedge.api.cdp.microsoft.com'
   - 'msportal.blob.core.windows.net'
   - 'msftncsi.com'
-  - 'nav.smartscreen.microsoft.com'
   - 'ne.cp.wd.microsoft.com'
   - 'ne-we.cp.wd.microsoft.com'
   - 'next-services.apps.microsoft.com'
