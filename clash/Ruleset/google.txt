@@ -69,6 +69,7 @@ payload:
   - '+.gtm.oasisfeng.com'
   - '+.gvt1-cn.com'
   - '+.gvt2-cn.com'
+  - '+.google.cn'
   - '+.imasdk.googleapis.com'
   - '+.ocsp.pki.goog'
   - '+.pagead-googlehosted.l.google.com'
