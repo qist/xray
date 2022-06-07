@@ -19225,7 +19225,6 @@ payload:
   - '+.openlibrary.org'
   - '+.openloadfreetv.me'
   - '+.openmaps.org'
-  - '+.openresty.org'
   - '+.opensea.io'
   - '+.openshift.redhat.com'
   - '+.opensource.guide'
