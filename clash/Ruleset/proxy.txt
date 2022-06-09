@@ -70,6 +70,7 @@ payload:
   - 'faronics.kayako.com'
   - 'fbcdn-a.akamaihd.net'
   - 'firstsearch.oclc.org'
+  - 'store-images.s-microsoft.com'
   - 'fontshop-prod-responsive-images.s3.amazonaws.com'
   - 'foxnewsplayer-a.akamaihd.net'
   - 'gamedownloads-rockstargames-com.akamaized.net'

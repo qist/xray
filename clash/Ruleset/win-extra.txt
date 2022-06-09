@@ -237,7 +237,6 @@ payload:
   - 'statics.teams.cdn.live.net'
   - 'storage.live.com'
   - 'store-images.microsoft.com'
-  - 'store-images.s-microsoft.com'
   - 'storecatalogrevocation.storequality.microsoft.com'
   - 'storeedgefd.dsx.mp.microsoft.com'
   - 'substrate.office.com'
