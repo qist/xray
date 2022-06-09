@@ -42,6 +42,7 @@ payload:
   - 'c-0001.dc-msedge.net'
   - 'c.bing.com'
   - 'c1.microsoft.com'
+  - 'www.microsoft.com'
   - 'candycrushsoda.king.com'
   - 'cdn.content.prod.cms.msn.com'
   - 'cdn.onenote.net'

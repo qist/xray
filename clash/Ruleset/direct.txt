@@ -279,7 +279,6 @@ payload:
   - 'www.apple.com.edgekey.net.globalredir.akadns.net'
   - 'www.gstatic.com'
   - 'www.libvideo.com'
-  - 'www.microsoft.com'
   - 'www.recaptcha.net'
   - 'www4-static.gog-statics.com'
   - 'xb.dlservice.microsoft.com'
