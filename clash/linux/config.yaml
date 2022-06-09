@@ -573,8 +573,6 @@ rules:
   - RULE-SET,direct,DIRECT
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,cncidr,DIRECT
-  - GEOIP,LAN,DIRECT
-  - GEOIP,CN,DIRECT
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
   - RULE-SET,domain-ip-cidr,✈️ 墙外网站
@@ -583,4 +581,6 @@ rules:
   - RULE-SET,tld-not-cn,✈️ 墙外网站
   - RULE-SET,telegramcidr,✈️ 墙外网站
   - RULE-SET,proxy-ip-cidr,✈️ 墙外网站
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
   - MATCH,🐟 其他网站
