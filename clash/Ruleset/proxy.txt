@@ -8519,7 +8519,6 @@ payload:
   - '+.delicyus.com'
   - '+.dell'
   - '+.dell-brand.com'
-  - '+.dell.com'
   - '+.dellcdn.com'
   - '+.delmonte'
   - '+.deloitte'
