@@ -9,56 +9,6 @@ https://github.com/Dreamacro/clash/releases/tag/premium
 # 下载 https://github.com/haishanh/yacd
 创建dashboard目录跟config.yaml 同级 然后解压下载好的yacd.tar.xz 文件 
 # 或者使用https://github.com/qist/v2ray/tree/main/clash/linux/dashboard
-[root@control-plane]# tree  dashboard/
-dashboard/
-├── apple-touch-icon-precomposed.png
-├── assets
-│   ├── Chart.min.44f6c6c6.js
-│   ├── Config.029b666f.js
-│   ├── Config.af7c0f33.css
-│   ├── Connections.52bc9670.js
-│   ├── Connections.9de0e2a6.css
-│   ├── debounce.76599460.js
-│   ├── en.f1dd5536.js
-│   ├── Fab.200e0680.css
-│   ├── Fab.4dc9cb99.js
-│   ├── index.9233837d.js
-│   ├── index.a628dc5e.css
-│   ├── index.ee5bc09a.js
-│   ├── index.esm.edbe839b.js
-│   ├── index.fe1062b5.js
-│   ├── Logs.01e28256.js
-│   ├── logs.4dcb9935.js
-│   ├── Logs.8b54b7be.css
-│   ├── open-sans-latin-400-normal.cce57747.woff2
-│   ├── open-sans-latin-400-normal.d7410996.woff
-│   ├── open-sans-latin-700-normal.a61d6725.woff2
-│   ├── open-sans-latin-700-normal.b1fda8d8.woff
-│   ├── Proxies.71af777a.js
-│   ├── Proxies.831754de.css
-│   ├── roboto-mono-latin-400-normal.2dfc0e86.woff
-│   ├── roboto-mono-latin-400-normal.e1fd013a.woff2
-│   ├── Rules.a609ca62.css
-│   ├── Rules.b2ac0faa.js
-│   ├── Select.29a5a6ae.js
-│   ├── Select.9a98fc65.css
-│   ├── TextFitler.00e03ee5.css
-│   ├── TextFitler.cc7f7fa3.js
-│   ├── useRemainingViewPortHeight.7baef998.js
-│   ├── vendor.38e754a4.js
-│   └── zh.247ad8fa.js
-├── CNAME
-├── _headers
-├── index.html
-├── manifest.webmanifest
-├── registerSW.js
-├── sw.js
-├── yacd-128.png
-├── yacd-64.png
-└── yacd.ico
-
-1 directory, 44 files
-
 # clash 部署IP
 # 访问http://ip:9090/ui/#/
 ```
@@ -85,11 +35,13 @@ proxy-groups:
 H:\docker\tmp\clash-windows-amd64.exe -d H:\docker\tmp
 # 可以使用nssm 创建服务启动 http://www.nssm.cc/download
 ```
-# linux 启动
+# linux 启动 内核大于4.10
+
 # linux 旁路方式局域网使用 部署IP 192.168.2.10
-# 创建用户  clash
- useradd clash -s /sbin/nologin -M
+## 启动配置
  * [clash linux](./clash.service)
+## 挂载bpf驱动
+ * [clash bpf](./sys-fs-bpf.mount)  
 ```
 
 sysctl -w net.ipv4.ip_forward=1
@@ -104,27 +56,4 @@ route delete default gw 192.168.2.1
 route add default gw 192.168.2.10
 # 修改dns 为 192.168.2.10
 #如果固定请修改网卡配置
-```
-# 
-
-内核低于4
-使用脚本模式启动
-# 授权 clash-linux-amd64 root 用户启动
-```
-[Unit]
-Description=A rule based proxy tunnel
-After=network-online.target
-
-[Service]
-Type=simple
-NoNewPrivileges=true
-User=root
-Group=root
-ExecStart=/usr/local/bin/clash-linux-amd64 -d /usr/local/clash
-LimitCORE=infinity
-LimitNOFILE=102400
-LimitNPROC=102400
-#StandardOutput=append:/var/log/clash.log
-[Install]
-WantedBy=multi-user.target
 ```

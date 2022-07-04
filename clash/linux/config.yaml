@@ -143,9 +143,9 @@ interface-name: eth0 # 一定要指定网卡
 
 routing-mark: 7777
 
-#ebpf:
-#  redirect-to-tun:
-#    - eth0
+ebpf:
+  redirect-to-tun:
+    - eth0
 
 tun:
   enable: true
@@ -157,8 +157,8 @@ tun:
     - 114.114.114.114:53
     - any:53
     - tcp://any:53
-  auto-route: true
-  auto-detect-interface: true
+  #auto-route: true
+  #auto-detect-interface: true
 ---
 # win
 ###############################################################
