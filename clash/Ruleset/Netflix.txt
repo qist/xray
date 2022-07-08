@@ -1,21 +1,21 @@
 payload:
-  - DOMAIN-SUFFIX,netflix.com
-  - DOMAIN-SUFFIX,netflix.net
-  - DOMAIN-SUFFIX,nflxext.com
-  - DOMAIN-SUFFIX,nflximg.com
-  - DOMAIN-SUFFIX,nflximg.net
-  - DOMAIN-SUFFIX,nflxso.net
-  - DOMAIN-SUFFIX,nflxvideo.net
-  - DOMAIN-SUFFIX,netflixdnstest0.com
-  - DOMAIN-SUFFIX,netflixdnstest1.com
-  - DOMAIN-SUFFIX,netflixdnstest2.com
-  - DOMAIN-SUFFIX,netflixdnstest3.com
-  - DOMAIN-SUFFIX,netflixdnstest4.com
-  - DOMAIN-SUFFIX,netflixdnstest5.com
-  - DOMAIN-SUFFIX,netflixdnstest6.com
-  - DOMAIN-SUFFIX,netflixdnstest7.com
-  - DOMAIN-SUFFIX,netflixdnstest8.com
-  - DOMAIN-SUFFIX,netflixdnstest9.com
+  - DOMAIN-SUFFIX,netflix.com,no-resolve
+  - DOMAIN-SUFFIX,netflix.net,no-resolve
+  - DOMAIN-SUFFIX,nflxext.com,no-resolve
+  - DOMAIN-SUFFIX,nflximg.com,no-resolve
+  - DOMAIN-SUFFIX,nflximg.net,no-resolve
+  - DOMAIN-SUFFIX,nflxso.net,no-resolve
+  - DOMAIN-SUFFIX,nflxvideo.net,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest0.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest1.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest2.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest3.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest4.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest5.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest6.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest7.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest8.com,no-resolve
+  - DOMAIN-SUFFIX,netflixdnstest9.com,no-resolve
   - IP-CIDR,23.246.0.0/18,no-resolve
   - IP-CIDR,37.77.184.0/21,no-resolve
   - IP-CIDR,45.57.0.0/17,no-resolve
