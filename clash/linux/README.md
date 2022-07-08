@@ -34,7 +34,7 @@ proxy-groups:
      - ss
 ```
 
-# windows 启动
+## windows 启动
 
 ```bash
 # 下载 https://www.wintun.net/  # wintun.dll
