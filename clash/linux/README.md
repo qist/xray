@@ -1,11 +1,15 @@
 # clash 配置
 
-### clash 客户端下载
-```
+## clash 客户端下载
+
+```bash
 https://github.com/Dreamacro/clash/releases/tag/premium
+
 ```
+
 ### dashboard 配置
-```
+
+```bash
 # 下载 https://github.com/haishanh/yacd
 创建dashboard目录跟config.yaml 同级 然后解压下载好的yacd.tar.xz 文件 
 # 或者使用https://github.com/qist/v2ray/tree/main/clash/linux/dashboard
@@ -15,10 +19,11 @@ https://github.com/Dreamacro/clash/releases/tag/premium
 
 ### 配置文件
 
- * [clash 配置文件](./config.yaml)
+* [clash 配置文件](./config.yaml)
  
-# 配置特别说明：
-```
+## 配置特别说明:
+
+```bash
 proxy-groups:
   - name: test
     type: select
@@ -28,21 +33,30 @@ proxy-groups:
      - trojan
      - ss
 ```
+
 # windows 启动
-```
+
+```bash
 # 下载 https://www.wintun.net/  # wintun.dll
 # wintun.dll 放到-d 参数配置目录下面
 H:\docker\tmp\clash-windows-amd64.exe -d H:\docker\tmp
 # 可以使用nssm 创建服务启动 http://www.nssm.cc/download
-```
-# linux 启动 内核大于4.10
 
-# linux 旁路方式局域网使用 部署IP 192.168.2.10
-## 启动配置
- * [clash linux](./clash.service)
-## 挂载bpf驱动
- * [clash bpf](./sys-fs-bpf.mount)  
 ```
+
+## linux 启动 内核大于4.10
+
+## linux 旁路方式局域网使用 部署IP 192.168.2.10
+
+## 启动配置
+
+* [clash linux](./clash.service)
+  
+## 挂载bpf驱动
+
+* [clash bpf](./sys-fs-bpf.mount)  
+  
+```bash
 
 sysctl -w net.ipv4.ip_forward=1
 或者编辑/etc/sysctl.conf
@@ -56,4 +70,5 @@ route delete default gw 192.168.2.1
 route add default gw 192.168.2.10
 # 修改dns 为 192.168.2.10
 #如果固定请修改网卡配置
+
 ```
