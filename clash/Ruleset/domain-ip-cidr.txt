@@ -1,25 +1,25 @@
 payload:
   #  > Entire domain name configuration
-  - DOMAIN-SUFFIX,kubernetes.io
-  - DOMAIN-SUFFIX,golang.org
-  - DOMAIN-SUFFIX,github.com
-  - DOMAIN-SUFFIX,centerch.com
-  - DOMAIN-SUFFIX,githubusercontent.com
-  - DOMAIN-SUFFIX,gab.com
-  - DOMAIN-SUFFIX,cnn.it
-  - DOMAIN-SUFFIX,ansible.com
-  - DOMAIN-SUFFIX,traefik.io
+  - DOMAIN-SUFFIX,kubernetes.io,no-resolve
+  - DOMAIN-SUFFIX,golang.org,no-resolve
+  - DOMAIN-SUFFIX,github.com,no-resolve
+  - DOMAIN-SUFFIX,centerch.com,no-resolve
+  - DOMAIN-SUFFIX,githubusercontent.com,no-resolve
+  - DOMAIN-SUFFIX,gab.com,no-resolve
+  - DOMAIN-SUFFIX,cnn.it,no-resolve
+  - DOMAIN-SUFFIX,ansible.com,no-resolve
+  - DOMAIN-SUFFIX,traefik.io,no-resolve
   #  > Domain name fuzzy matching k8s.io k8s.com ....
-  - DOMAIN-SUFFIX,k8s.io
-  - DOMAIN-SUFFIX,coredns.io
-  - DOMAIN-SUFFIX,istio.io
-  - DOMAIN-SUFFIX,k8s.com
-  - DOMAIN-SUFFIX,go.dev
-  - DOMAIN-KEYWORD,elastic
-  - DOMAIN-KEYWORD,docker
-  - DOMAIN-KEYWORD,cloudfront
-  - DOMAIN-KEYWORD,cloudflare
-  - DOMAIN-KEYWORD,victoriametrics
-  - DOMAIN-KEYWORD,discord
-  - DOMAIN-SUFFIX,cert-manager.io
+  - DOMAIN-SUFFIX,k8s.io,no-resolve
+  - DOMAIN-SUFFIX,coredns.io,no-resolve
+  - DOMAIN-SUFFIX,istio.io,no-resolve
+  - DOMAIN-SUFFIX,k8s.com,no-resolve
+  - DOMAIN-SUFFIX,go.dev,no-resolve
+  - DOMAIN-KEYWORD,elastic,no-resolve
+  - DOMAIN-KEYWORD,docker,no-resolve
+  - DOMAIN-KEYWORD,cloudfront,no-resolve
+  - DOMAIN-KEYWORD,cloudflare,no-resolve
+  - DOMAIN-KEYWORD,victoriametrics,no-resolve
+  - DOMAIN-KEYWORD,discord,no-resolve
+  - DOMAIN-SUFFIX,cert-manager.io,no-resolve
   - IP-CIDR,144.34.252.132/32,no-resolve
