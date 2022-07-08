@@ -36,7 +36,7 @@ payload:
   - 'dmqdd6hw24ucf.cloudfront.net'
   - 'd22qjgkvxw22r6.cloudfront.net'
   - 'd1v5ir2lpwr8os.cloudfront.net'
-  - '+.avoddashs'
+  - '+.avoddashs.*'
   - '+.bahamut.com.tw'
   - '+.gamer.com.tw'
   - 'gamer-cds.cdn.hinet.net'
