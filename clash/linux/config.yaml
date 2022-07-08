@@ -311,6 +311,9 @@ tun:
   auto-route: true
   auto-detect-interface: true
 
+experimental:
+  sniff-tls-sni: true
+  
 # 代理节点服务器
 proxy-providers: #  https://user:pasword@gio.tycng.com/trojan.yaml # 账号密码下载 htpasswd生成密码 配置参考config.yaml 同级目录对应的yaml
   trojan:
@@ -570,14 +573,14 @@ rules:
   - RULE-SET,win-update,Ⓜ️ 微软
   - RULE-SET,win-extra,Ⓜ️ 微软
   - RULE-SET,google,🐓 谷歌
-  - RULE-SET,Foreignmedia,🌍 国外媒体
-  - RULE-SET,Netflix,🎥 NETFLIX
-  - RULE-SET,domain-ip-cidr,✈️ 墙外网站
-  - RULE-SET,proxy,✈️ 墙外网站
-  - RULE-SET,gfw,✈️ 墙外网站
-  - RULE-SET,tld-not-cn,✈️ 墙外网站
-  - RULE-SET,telegramcidr,✈️ 墙外网站
-  - RULE-SET,proxy-ip-cidr,✈️ 墙外网站
+  - RULE-SET,Foreignmedia,🌍 国外媒体,no-resolve
+  - RULE-SET,Netflix,🎥 NETFLIX,no-resolve
+  - RULE-SET,domain-ip-cidr,✈️ 墙外网站,no-resolve
+  - RULE-SET,proxy,✈️ 墙外网站,no-resolve
+  - RULE-SET,gfw,✈️ 墙外网站,no-resolve
+  - RULE-SET,tld-not-cn,✈️ 墙外网站,no-resolve
+  - RULE-SET,telegramcidr,✈️ 墙外网站,no-resolve
+  - RULE-SET,proxy-ip-cidr,✈️ 墙外网站,no-resolve
   - RULE-SET,direct,DIRECT
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,cncidr,DIRECT

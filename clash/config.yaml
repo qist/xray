@@ -26,6 +26,10 @@ secret: ""
 #    - tls://1.0.0.1:853
 #    - tls://dns.google:853
 # Will be ignored after profile selection
+
+experimental:
+  sniff-tls-sni: true
+
 proxies:
   - name: "socks"
     type: socks5
@@ -419,14 +423,14 @@ rules:
   - RULE-SET,win-update,Ⓜ️ 微软
   - RULE-SET,win-extra,Ⓜ️ 微软
   - RULE-SET,google,🐓 谷歌
-  - RULE-SET,Foreignmedia,🌍 国外媒体
-  - RULE-SET,Netflix,🎥 NETFLIX
-  - RULE-SET,domain-ip-cidr,✈️ 墙外网站
-  - RULE-SET,proxy,✈️ 墙外网站
-  - RULE-SET,gfw,✈️ 墙外网站
-  - RULE-SET,tld-not-cn,✈️ 墙外网站
-  - RULE-SET,telegramcidr,✈️ 墙外网站
-  - RULE-SET,proxy-ip-cidr,✈️ 墙外网站
+  - RULE-SET,Foreignmedia,🌍 国外媒体,no-resolve
+  - RULE-SET,Netflix,🎥 NETFLIX,no-resolve
+  - RULE-SET,domain-ip-cidr,✈️ 墙外网站,no-resolve
+  - RULE-SET,proxy,✈️ 墙外网站,no-resolve
+  - RULE-SET,gfw,✈️ 墙外网站,no-resolve
+  - RULE-SET,tld-not-cn,✈️ 墙外网站,no-resolve
+  - RULE-SET,telegramcidr,✈️ 墙外网站,no-resolve
+  - RULE-SET,proxy-ip-cidr,✈️ 墙外网站,no-resolve
   - RULE-SET,direct,DIRECT
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,cncidr,DIRECT
