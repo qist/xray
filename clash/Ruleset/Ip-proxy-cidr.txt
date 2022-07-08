@@ -1,2 +1,3 @@
 payload:
+  # > The payload is a string of bytes.
   - '144.34.252.132/32'
