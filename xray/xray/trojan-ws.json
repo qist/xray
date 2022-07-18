@@ -2,7 +2,7 @@
   "inbounds": [
     {
       // "port": 6666,
-      "listen": "/run/trojan-ws.sock",
+      "listen": "/run/trojan-ws.sock,0666",
       "protocol": "trojan",
       "tag": "TROJANWS",
       "settings": {

@@ -2,7 +2,7 @@
     "inbounds": [
         {
             //"port": 31301,
-            "listen": "/run/vmess-grpc.sock",
+            "listen": "/run/vmess-grpc.sock,0666",
             "protocol": "vmess",
             "tag": "VLESSGRPC",
             "settings": {

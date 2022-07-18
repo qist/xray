@@ -2,7 +2,7 @@
   "inbounds": [
     {
       //"port": 9999,
-      "listen": "/run/vmess-ws.sock",
+      "listen": "/run/vmess-ws.sock,0666",
       "protocol": "vmess",
       "tag": "VLESSWS",
       "settings": {

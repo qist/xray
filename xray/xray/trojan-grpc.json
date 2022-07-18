@@ -2,7 +2,7 @@
     "inbounds": [
         {
             //"port": 6565,
-            "listen": "/run/trojan-grpc.sock",
+            "listen": "/run/trojan-grpc.sock,0666",
             "protocol": "trojan",
             "tag": "TROJANGRPC",
             "settings": {
