@@ -58,6 +58,7 @@ payload:
   - 'cl4-cdn.origin-apple.com.akadns.net'
   - 'cl4-cn.apple.com'
   - 'cl4.apple.com'
+  - '+.998you.com'
   - 'cl5-cdn.origin-apple.com.akadns.net'
   - 'cl5.apple.com'
   - 'clickserve.dartsearch.net'
