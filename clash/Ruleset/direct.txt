@@ -230,7 +230,6 @@ payload:
   - 'ss.bjmu.edu.cn'
   - 'ssl-google-analytics.l.google.com'
   - 'ssl.gstatic.com'
-  - '+.998you.com
   - 'static-login.gog-statics.com'
   - 'stocks-sparkline-lb.apple.com.akadns.net'
   - 'stocks-sparkline.apple.com'
