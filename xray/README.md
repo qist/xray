@@ -7,6 +7,8 @@ mkdir -p /usr/local/xray
 
 cd /usr/local/xray
 
+打开下面url 选择新版本，然后点击下载
+
 https://github.com/XTLS/Xray-core/releases
 
 ```
