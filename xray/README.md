@@ -20,6 +20,11 @@ unzip  下载对应版本名
 
 ## 配置启动文件
 
+```bash
+# 修改路径 ExecStart=/usr/local/xray/xray run  -confdir=/etc/xray
+
+```
+
 ## 目录方式启动
 
 * [xray 启动配置](./xray.service)
@@ -29,6 +34,8 @@ unzip  下载对应版本名
 ## xray 配置参考
 
 * [xray 配置](./xray)
+
+修改xray json 文件适合自己使用
 
 ```bash
 v2 配置在线生成
