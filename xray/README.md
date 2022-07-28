@@ -95,7 +95,7 @@ cd /apps/nginx/sslkey/tycng.com
 ## letsencrypt 签发
 
 ```bash
-acme.sh --issue  tycng.com -d *.tycng.com  --nginx -k 4096
+acme.sh --issue  --nginx -d gio.tycng.com -d tycng.com -d ocezs.tycng.com -d trojan.tycng.com  -d kms.tycng.com -d dvns.tycng.com -k 4096
 
 ```
 
@@ -113,7 +113,7 @@ acme.sh --install-cert -d gio.tycng.com  \
 ecc 证书申请
 
 ```bash
-acme.sh --issue  -d tycng.com -d *.tycng.com --dns dns_dp -k ec-256 
+acme.sh --issue --nginx -d gio.tycng.com -d tycng.com -d ocezs.tycng.com -d trojan.tycng.com  -d kms.tycng.com -d dvns.tycng.com -k ec-256 
 
 ```
 
