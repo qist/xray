@@ -245,7 +245,6 @@ payload:
   - 't0.ssl.ak.dynamic.tiles.virtualearth.net'
   - 't0.ssl.ak.tiles.virtualearth.net'
   - 't.urs.microsoft.com'
-  - 'teams.events.data.microsoft.com'
   - 'teams.live.com'
   - 'thestreamstaging.blob.core.windows.net'
   - 'tile-service.weather.microsoft.com'
