@@ -25,6 +25,7 @@ payload:
   - 'bl3301-g.1drv.com'
   - 'docs.microsoft.com'
   - '+.docs.microsoft.com'
+  - '+.ditu.live.com'
   - 'bn2-ris-ap-prod-atm.trafficmanager.net'
   - 'bn2-ris-prod-atm.trafficmanager.net'
   - 'bn2b-cor001.api.p001.1drv.com'
