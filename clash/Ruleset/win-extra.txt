@@ -220,6 +220,7 @@ payload:
   - 'romeccs.microsoft.com'
   - 's.gateway.messenger.live.com'
   - 's0.2mdn.net'
+  - 'pcmanager.microsoft.com'
   - 's2s.config.skype.com'
   - 'search.msn.com'
   - 'service.weather.microsoft.com'
