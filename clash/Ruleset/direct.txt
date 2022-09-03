@@ -20194,7 +20194,6 @@ payload:
   - '+.downkuai.com'
   - '+.download.microsoft.com'
   - '+.download.visualstudio.microsoft.com'
-  - '+.download.windowsupdate.com'
   - '+.downloadcenter.samsung.com'
   - '+.downloadla.pro'
   - '+.downok.com'

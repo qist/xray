@@ -501,7 +501,7 @@ payload:
   - 'definitionupdates.microsoft.com'
   - 'dl.delivery.mp.microsoft.com'
   - 'download.microsoft.com'
-  - 'download.windowsupdate.com'
+  - '+.download.windowsupdate.com'
   - 'ds.download.windowsupdate.com'
   - 'emdl.ws.microsoft.com'
   - 'fe2.update.microsoft.com'
