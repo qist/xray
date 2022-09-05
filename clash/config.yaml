@@ -424,6 +424,8 @@ rules:
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,🛑 广告拦截
   - RULE-SET,rejectcidr,🛑 广告拦截
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,cncidr,DIRECT
   - RULE-SET,icloud,🍏 苹果
   - RULE-SET,apple,🍏 苹果
   - RULE-SET,win-spy,Ⓜ️ 微软
@@ -440,8 +442,6 @@ rules:
   - RULE-SET,telegramcidr,✈️ 墙外网站,no-resolve
   - RULE-SET,proxy-ip-cidr,✈️ 墙外网站,no-resolve
   - RULE-SET,direct,DIRECT
-  - RULE-SET,lancidr,DIRECT
-  - RULE-SET,cncidr,DIRECT
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,🐟 其他网站
