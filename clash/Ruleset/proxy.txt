@@ -9136,6 +9136,7 @@ payload:
   - '+.dreamteamfc.com'
   - '+.dreamtoplay.com'
   - '+.dreamworks.com'
+  - '+.safebrowsing.googleapis.com'
   - '+.drebeats-australia.com'
   - '+.drebeats-france.com'
   - '+.drebeats-monster.com'
