@@ -2,6 +2,8 @@ payload:
   - 'abematv.akamaized.net'
   - 'trojan.tycng.com'
   - 'gio.tycng.com'
+  - 'ubeewk.tycng.com'
+  - '6gzw5k.tycng.com'
   - 'amp.akamaized.net'
   - 'angle.com.tw'
   - 'api-p.videomarket.jp'
