@@ -1,0 +1,27 @@
+{
+    "inbounds": [
+        {
+            "port": 16565,
+            "protocol": "shadowsocks",
+            "tag": "SHADOWSOCKSGRPC",
+            "settings": {
+                "method": "2022-blake3-aes-256-gcm",
+                //openssl rand -base64 32
+                "password": "ddd+ddd/4dRiiNFS+ddd=", 
+                "email": "dvns.tycng.com_SHADOWSOCKS_gRPC",
+                "network": "tcp,udp"
+            },
+            "streamSettings": {
+                "network": "grpc",
+                "security": "none",
+                "grpcSettings": {
+                    "serviceName": "jgJ8aVot1Ylb",
+                    "multiMode": true
+                },
+                "sockopt": {
+                    "tcpFastOpen": true
+                }
+            }
+        }
+    ]
+}
