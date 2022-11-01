@@ -1,5 +1,7 @@
 # clash.meta 配置
 
+兼容clash配置
+
 ## clash.meta windows 客户端下载
 
 ```bash
