@@ -29,7 +29,7 @@ https://github.com/MetaCubeX/ClashMetaForAndroid
 
 ### 说明
 
-配置支持版本 windows Android 最新版本 就版本可能不支持配置
+配置支持版本 windows Android 最新版本 旧版本可能不支持配置
 
 ### 规则
 
