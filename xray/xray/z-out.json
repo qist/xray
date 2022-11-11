@@ -2,9 +2,7 @@
     "outbounds": [
         {
             "protocol": "freedom",
-            "settings": {
-                "domainStrategy": "UseIPv4"
-            },
+            "settings": {},
             "tag": "direct"
         },
         {
