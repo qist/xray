@@ -22,3 +22,4 @@ payload:
   - '+.victoriametrics.*'
   - '+.discord.*'
   - '+.cert-manager.io'
+  - '+.abs-cbn.com'
