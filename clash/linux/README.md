@@ -10,9 +10,9 @@ https://github.com/Dreamacro/clash/releases/tag/premium
 ### dashboard 配置
 
 ```bash
-# 下载 https://github.com/haishanh/yacd
+# 下载 git clone -b gh-pages https://github.com/MetaCubeX/Yacd-meta.git
 创建dashboard目录跟config.yaml 同级 然后解压下载好的yacd.tar.xz 文件 
-# 或者使用https://github.com/qist/v2ray/tree/main/clash/linux/dashboard
+# 或者使用git clone -b gh-pages https://github.com/MetaCubeX/Razord-meta.git
 # clash 部署IP
 # 访问http://ip:9090/ui/#/
 ```
