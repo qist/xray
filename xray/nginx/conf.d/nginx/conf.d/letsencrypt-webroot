@@ -1,0 +1,3 @@
+location /.well-known/ {
+    alias /apps/nginx/html/.well-known/;
+}
