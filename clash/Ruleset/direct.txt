@@ -3278,7 +3278,6 @@ payload:
   - '+.360hy.com'
   - '+.360hyzj.com'
   - '+.360ic.com'
-  - '+.jianguoyun.com'
   - '+.360img.cc'
   - '+.360insurancemall.com'
   - '+.360ito.com'

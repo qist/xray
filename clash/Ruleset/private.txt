@@ -14,3 +14,4 @@ payload:
   - '+.bing.net'
   - '+.localhost.sec.qq.com'
   - '+.localhost.ptlogin2.qq.com'
+  - '+.jianguoyun.com'
