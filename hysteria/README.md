@@ -35,7 +35,7 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE CAP_NET_RAW
 NoNewPrivileges=true
 WorkingDirectory=/etc/hysteria
 Environment=HYSTERIA_LOG_LEVEL=info
-ExecStart=/usr/local/bin/hysteria -c /etc/hysteria/config.json server
+ExecStart=/usr/local/bin/hysteria-linux-amd64 -c /etc/hysteria/config.json server
 Restart=on-failure
 RestartPreventExitStatus=1
 RestartSec=5
