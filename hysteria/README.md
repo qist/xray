@@ -24,7 +24,6 @@ cp -pdr hysteria-linux-amd64 ../bin/
 vim /etc/systemd/system/hysteria-server.service
 
 [Unit]
-[Unit]
 Description=Hysteria, a feature-packed network utility optimized for networks of poor quality
 Documentation=https://github.com/HyNetwork/hysteria/wiki
 After=network.target

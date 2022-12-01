@@ -24,7 +24,6 @@ cp -pdr tuic-server-0.8.5-x86_64-linux-gnu ../bin/
 vim /etc/systemd/system/tuic-server.service
 
 [Unit]
-[Unit]
 Description=tuic, a feature-packed network utility optimized for networks of poor quality
 Documentation=https://github.com/EAimTY/tuic#readme
 After=network.target
