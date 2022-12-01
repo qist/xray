@@ -4,6 +4,7 @@
 
 * [snell安装](./snell/README.md)
 * [hysteria安装](./hysteria/README.md)
+* [tuic安装](./tuic/README.md)
 * [xray安装](./xray/README.md)
 
 ## 客户端安装
