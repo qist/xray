@@ -215,6 +215,8 @@ upstream grpc {
         keepalive_requests 4294967296;
         grpc_socket_keepalive on;
         grpc_intercept_errors on;
+        grpc_ssl_session_reuse off;
+        grpc_ssl_server_name on;
         grpc_set_header Host "xxx.com"; # 后端域名
         grpc_set_header X-Real-IP $remote_addr;
         grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
