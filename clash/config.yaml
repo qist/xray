@@ -432,6 +432,7 @@ rules:
   - RULE-SET,win-update,Ⓜ️ 微软
   - RULE-SET,win-extra,Ⓜ️ 微软
   - RULE-SET,google,🐓 谷歌
+  - RULE-SET,direct,DIRECT
   - RULE-SET,Foreignmedia,🌍 国外媒体,no-resolve
   - RULE-SET,Netflix,🎥 NETFLIX,no-resolve
   - RULE-SET,domain-proxy-cidr,✈️ 墙外网站,no-resolve
@@ -441,7 +442,6 @@ rules:
   - RULE-SET,tld-not-cn,✈️ 墙外网站,no-resolve
   - RULE-SET,telegramcidr,✈️ 墙外网站,no-resolve
   - RULE-SET,proxy-ip-cidr,✈️ 墙外网站,no-resolve
-  - RULE-SET,direct,DIRECT
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,🐟 其他网站
