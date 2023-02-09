@@ -19207,7 +19207,6 @@ payload:
   - '+.ope99.com'
   - '+.open'
   - '+.open.firstory.me'
-  - '+.openai.com'
   - '+.openaked.com'
   - '+.openallweb.com'
   - '+.openamt.com'
