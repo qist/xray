@@ -70,6 +70,16 @@ vim /etc/hysteria/config.json
     "disable_mtu_discovery": true, // 禁用 MTU 探测 (RFC 8899)
     "resolve_preference": "4" // DNS IPv4/IPv6 优先级。可用选项 "64" (IPv6 优先，可回落到 IPv4) "46" (IPv4 优先，可回落到 IPv6) "6" (仅 IPv6) "4" (仅 IPv4)
 }
+
+# 随机端口配置 
+
+ "protocol": "udp"
+# 防火墙规则
+firewall-cmd --add-forward-port=port=40000-50000:proto=udp:toport=36712 --permanent
+# 放行端口
+firewall-cmd --add-port=40000-50000/udp --permanent
+# 生效
+firewall-cmd --reload
 cd /etc/hysteria
 # 下载GeoLite2-Country.mmdb
 wget https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb
