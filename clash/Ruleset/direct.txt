@@ -24857,7 +24857,6 @@ payload:
   - '+.gitee.io'
   - '+.githang.com'
   - '+.github.do'
-  - '+.githubusercontents.com'
   - '+.gitissue.com'
   - '+.gitlee.com'
   - '+.gitlib.com'
