@@ -44,5 +44,3 @@ payload:
   - PROCESS-NAME,uTorrent.exe
   - PROCESS-NAME,WebTorrent.exe
   - PROCESS-NAME,v2rayN.exe
-  - PROCESS-NAME,Clash.Meta
-  - PROCESS-NAME,clash
