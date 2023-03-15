@@ -48,3 +48,4 @@ payload:
   - PROCESS-NAME,Clash.Meta
   - PROCESS-NAME,clash.exe
   - PROCESS-NAME,Clash.Meta.exe
+  - PROCESS-NAME,clash.meta
