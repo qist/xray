@@ -24,3 +24,4 @@ payload:
   - '+.cert-manager.io'
   - '+.abs-cbn.com'
   - '+.githubusercontents.com'
+  - '+.openai.com'
