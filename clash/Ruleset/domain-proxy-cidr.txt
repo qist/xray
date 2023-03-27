@@ -25,3 +25,5 @@ payload:
   - '+.abs-cbn.com'
   - '+.githubusercontents.com'
   - '+.openai.com'
+  - '+.ipleak.net'
+  - 'ipleak.net'
