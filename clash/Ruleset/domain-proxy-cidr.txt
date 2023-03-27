@@ -27,3 +27,4 @@ payload:
   - '+.openai.com'
   - '+.ipleak.net'
   - 'ipleak.net'
+  - '+.browserleaks.org'
