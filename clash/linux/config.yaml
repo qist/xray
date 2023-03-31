@@ -597,13 +597,13 @@ rules:
   - RULE-SET,win-extra,Ⓜ️ 微软
   - RULE-SET,google,🐓 谷歌
   - RULE-SET,direct,DIRECT
-  - RULE-SET,Foreignmedia,🌍 国外媒体,no-resolve
-  - RULE-SET,Netflix,🎥 NETFLIX,no-resolve
-  - RULE-SET,domain-proxy-cidr,✈️ 墙外网站,no-resolve
+  - RULE-SET,Foreignmedia,🌍 国外媒体
+  - RULE-SET,Netflix,🎥 NETFLIX
+  - RULE-SET,domain-proxy-cidr,✈️ 墙外网站
   - RULE-SET,ip-proxy-cidr,✈️ 墙外网站,no-resolve
-  - RULE-SET,proxy,✈️ 墙外网站,no-resolve
-  - RULE-SET,gfw,✈️ 墙外网站,no-resolve
-  - RULE-SET,tld-not-cn,✈️ 墙外网站,no-resolve
+  - RULE-SET,proxy,✈️ 墙外网站
+  - RULE-SET,gfw,✈️ 墙外网站
+  - RULE-SET,tld-not-cn,✈️ 墙外网站
   - RULE-SET,telegramcidr,✈️ 墙外网站,no-resolve
   - RULE-SET,proxy-ip-cidr,✈️ 墙外网站,no-resolve
   - GEOIP,LAN,DIRECT
