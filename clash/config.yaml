@@ -118,11 +118,21 @@ dns:
     - "+.miwifi.com"
     - "+.360.cn"
     - "+.360safe.com"
+  nameserver-policy: 
+    "geosite:cn,private,apple,icloud,geolocation-cn,direct":
+       - 1.2.4.8
+       - 119.29.29.29
+       - 223.5.5.5
+       - tls://dns.rubyfish.cn:853   
+    "+.google.cn,+.cn": 
+       - 1.2.4.8
+       - 119.29.29.29
+       - 223.5.5.5
+       - tls://dns.rubyfish.cn:853  
   nameserver:
-    - 1.2.4.8
-    - 119.29.29.29
-    - 223.5.5.5
-    - tls://dns.rubyfish.cn:853
+    - "https://dns.google/dns-query"
+    - "https://dns.cloudflare.com/dns-query"
+    - "https://dns.quad9.net/dns-query"
   fallback:
     - 223.5.5.5
     - tls://1.0.0.1:853
