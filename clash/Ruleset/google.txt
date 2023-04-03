@@ -26,7 +26,6 @@ payload:
   - '+.doubleclick.net'
   - '+.firebase-settings.crashlytics.com'
   - 'footprints-pa.googleapis.com'
-  - '+.fonts.gstatic.com'
   - '+.g1.gstatic.com'
   - '+.g2.gstatic.com'
   - '+.google-analytics-cn.com'
