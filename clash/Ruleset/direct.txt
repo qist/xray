@@ -93,7 +93,6 @@ payload:
   - 'emoi-cncdn.bing.com'
   - 'fides-pol.apple.com'
   - 'firebase-settings.crashlytics.com'
-  - 'fonts.googleapis.com'
   - 'fonts.gstatic.com'
   - 'fs.microsoft.com'
   - 'g1.gstatic.com'
