@@ -77,7 +77,6 @@ payload:
   - '+.redirector.gvt1.com'
   - '+.regioninfo-pa.googleapis.com'
   - '+.ssl-google-analytics.l.google.com'
-  - '+.ssl.gstatic.com'
   - '+.tools.google.com'
   - '+.tools.l.google.com'
   - '+.translate.googleapis.com'
