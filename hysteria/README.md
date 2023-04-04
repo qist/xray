@@ -49,7 +49,7 @@ mkdir /etc/hysteria
 vim /etc/hysteria/config.json
 {
     "listen": ":36712",  // 监听地址
-    "protocol": "wechat-video",  // 留空或 "udp", "wechat-video", "faketcp"
+    "protocol": "udp",  // 留空或 "udp", "wechat-video", "faketcp"
     "cert": "/apps/nginx/sslkey/tycng.com/ecc/fullchain.crt", // 证书 
     "key": "/apps/nginx/sslkey/tycng.com/ecc/private.key", // 证书密钥
     "up": "200 Mbps", // 单客户端最大上传速度，和 "up_mbps" 互斥
