@@ -49,3 +49,5 @@ payload:
   - PROCESS-NAME,clash.exe
   - PROCESS-NAME,Clash.Meta.exe
   - PROCESS-NAME,clash.meta
+  - PROCESS-NAME,QQ.exe
+  - PROCESS-NAME,WXWorkWeb.exe
