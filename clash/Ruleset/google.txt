@@ -79,6 +79,5 @@ payload:
   - '+.ssl-google-analytics.l.google.com'
   - '+.tools.google.com'
   - '+.tools.l.google.com'
-  - '+.update.googleapis.com'
   - '+.www-google-analytics.l.google.com'
   - '+.www-googletagmanager.l.google.com'
