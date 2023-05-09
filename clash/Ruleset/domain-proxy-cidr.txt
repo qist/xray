@@ -28,3 +28,4 @@ payload:
   - '+.ipleak.net'
   - 'ipleak.net'
   - '+.browserleaks.org'
+  - '+.caddyserver.*'
