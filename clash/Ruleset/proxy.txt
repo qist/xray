@@ -1,6 +1,5 @@
 payload:
   - 'abematv.akamaized.net'
-  - '+.tycng.com'
   - '+.redhat.com'
   - 'gra.caldis.me'
   - 'amp.akamaized.net'
