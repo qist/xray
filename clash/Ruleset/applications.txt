@@ -47,3 +47,5 @@ payload:
   - PROCESS-NAME,QQ.exe
   - PROCESS-NAME,WXWorkWeb.exe
   - PROCESS-NAME,WXWork.exe
+  - PROCESS-NAME,Clash.Meta-windows-amd64.exe
+  - PROCESS-NAME,Clash.Meta-windows-amd64-cgo.exe
