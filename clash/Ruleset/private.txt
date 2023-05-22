@@ -15,6 +15,5 @@ payload:
   - '+.tvyb03.com'
   - '6gzw5k.tycng.com'
   - 'gio.tycng.com'
-  - 'ocezs.tycng.com'
   - 'ubeewk.tycng.com'
   - 'taa8ws.tycng.com'
