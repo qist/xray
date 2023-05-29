@@ -8,6 +8,11 @@ mode: rule
 log-level: info
 external-controller: "127.0.0.1:9090"
 secret: ""
+unified-delay: true
+tcp-concurrent: true
+geodata-mode: true
+find-process-mode: strict
+global-client-fingerprint: chrome
 dns:
   enable: false
   listen: 0.0.0.0:53
@@ -133,26 +138,26 @@ dns:
     - "https://dns.google/dns-query"
     - "https://dns.cloudflare.com/dns-query"
     - "https://dns.quad9.net/dns-query"
-  fallback:
-    - 223.5.5.5
-    - tls://1.0.0.1:853
-    - tls://dns.google:853
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-      - 127.0.0.1/8
-      - 0.0.0.0/32
-    domain:
-      - "+.google.com"
-      - "+.facebook.com"
-      - "+.youtube.com"
-      - "+.githubusercontent.com"
-      - "+.googlevideo.com"
-      - "+.twitter.com"
-      - "+.xn--ngstr-lra8j.com"
-      - "msftconnecttest.com"
+  # fallback:
+  #   - 223.5.5.5
+  #   - tls://1.0.0.1:853
+  #   - tls://dns.google:853
+  # fallback-filter:
+  #   geoip: true
+  #   geoip-code: CN
+  #   ipcidr:
+  #     - 240.0.0.0/4
+  #     - 127.0.0.1/8
+  #     - 0.0.0.0/32
+  #   domain:
+  #     - "+.google.com"
+  #     - "+.facebook.com"
+  #     - "+.youtube.com"
+  #     - "+.githubusercontent.com"
+  #     - "+.googlevideo.com"
+  #     - "+.twitter.com"
+  #     - "+.xn--ngstr-lra8j.com"
+  #     - "msftconnecttest.com"
 
 experimental:
   sniff-tls-sni: true
