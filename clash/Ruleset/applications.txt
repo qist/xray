@@ -49,3 +49,5 @@ payload:
   - PROCESS-NAME,WXWork.exe
   - PROCESS-NAME,Clash.Meta-windows-amd64.exe
   - PROCESS-NAME,Clash.Meta-windows-amd64-cgo.exe
+  - PROCESS-NAME,wireguard.exe
+  - PROCESS-NAME,wireguard
