@@ -17,3 +17,5 @@ payload:
   - 'gio.tycng.com'
   - 'ubeewk.tycng.com'
   - 'taa8ws.tycng.com'
+  - '+.cqvip.com'
+  - '+.fanyu.com'
