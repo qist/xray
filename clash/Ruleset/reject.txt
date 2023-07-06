@@ -16,6 +16,7 @@ payload:
   - '+.0101011.com'
   - '+.01fen.com'
   - '+.01tn.cn'
+  - '+.duomeng.net'
   - 'r4---sn-j5o76n7e.gvt1.com'
   - '+.0210bb49cd.com'
   - '+.022aifang.com'
