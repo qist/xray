@@ -1,6 +1,7 @@
 payload:
   - '+.0.nextyourcontent.com'
   - '+.00-gov.cn'
+  - 'api.ttt.sh'
   - '+.0001.best'
   - '+.000123456789.online'
   - '+.000123456789.site'
