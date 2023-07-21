@@ -30,3 +30,4 @@ payload:
   - '+.browserleaks.org'
   - '+.caddyserver.*'
   - '+.clstorage.net'
+  - '+.ipify.org'
