@@ -40,6 +40,8 @@ payload:
   - 'browser.events.data.microsoft.com'
   - 'browser.events.data.msn.com'
   - 'c-0001.dc-msedge.net'
+  - '+.nelreports.net'
+  - '+.bing.com'
   - 'c.bing.com'
   - 'cn.bing.com'
   - 'c1.microsoft.com'
