@@ -51,3 +51,4 @@ payload:
   - PROCESS-NAME,Clash.Meta-windows-amd64-cgo.exe
   - PROCESS-NAME,wireguard.exe
   - PROCESS-NAME,wireguard
+  - PROCESS-NAME,XLServicePlatform.exe
