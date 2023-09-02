@@ -17,3 +17,4 @@ payload:
   - '+.cqvip.com'
   - '+.fanyu.com'
   - 'js.users.51.la'
+  - '+.cnyuncdn.com'
