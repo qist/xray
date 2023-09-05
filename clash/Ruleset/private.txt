@@ -16,3 +16,4 @@ payload:
   - '+.tvyb02.com'
   - '+.cqvip.com'
   - '+.fanyu.com'
+  - '+.libvio.fun'
