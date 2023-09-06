@@ -19,3 +19,4 @@ payload:
   - '+.libvio.fun'
   - 'js.users.51.la'
   - '+.cnyuncdn.com'
+  - '+.ugdtimg.com'
