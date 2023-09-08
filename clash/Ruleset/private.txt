@@ -20,3 +20,7 @@ payload:
   - 'js.users.51.la'
   - '+.cnyuncdn.com'
   - '+.ugdtimg.com'
+  - '+.zxzj.pro'
+  - 'agit.ai'
+  - 'www.cz01.me'
+  - 'bfzyapi.com'
