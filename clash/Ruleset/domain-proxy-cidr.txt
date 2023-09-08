@@ -31,4 +31,4 @@ payload:
   - '+.caddyserver.*'
   - '+.clstorage.net'
   - '+.ipify.org'
-  - '.tycng.com'
+  - '+.ip-api.com'
