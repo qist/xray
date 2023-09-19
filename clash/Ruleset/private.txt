@@ -24,3 +24,4 @@ payload:
   - 'agit.ai'
   - 'www.cz01.me'
   - 'bfzyapi.com'
+  - '+.yiyingys.asia'
