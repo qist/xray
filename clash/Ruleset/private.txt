@@ -10,7 +10,7 @@ payload:
   - '+.home.arpa'
   - '+.msftncsi.com'
   - '+.localhost.sec.qq.com'
-  - '+.localhost.ptlogin2.qq.com'
+  - '+.localhost.ptlogin2.qq.com'   
   - '+.jianguoyun.com'
   - '+.tvyb03.com'
   - '+.tvyb02.com'
