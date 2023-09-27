@@ -25,3 +25,4 @@ payload:
   - 'www.cz01.me'
   - 'bfzyapi.com'
   - '+.yiyingys.asia'
+  - '+.naifei.ws'
