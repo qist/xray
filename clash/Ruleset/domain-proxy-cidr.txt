@@ -32,3 +32,4 @@ payload:
   - '+.clstorage.net'
   - '+.ipify.org'
   - '+.ip-api.com'
+  - '+.ysgc1.cc'
