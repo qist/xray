@@ -105,8 +105,9 @@ masquerade:
   proxy:
     url: https://www.lovelive-anime.jp
     rewriteHost: true
+```
 
-
+```
 # 放行端口
 firewall-cmd --add-port=443/udp --permanent
 # 生效
