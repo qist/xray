@@ -81,24 +81,24 @@ auth:
   password: #密码
 
 
-# acl:
-#   inline:
-#     - cn_proxy(geoip:cn)
-#     - cn_proxy(ip.sb)
-#     - cn_proxy(*.ip.sb)
-#     - cn_proxy(ipinfo.io)
-#     - cn_proxy(*.ipinfo.io)
-#     - cn_proxy(openai.com)
-#     - cn_proxy(*.openai.com)
-#     - direct(all)
+acl:
+  inline:
+    - cn_proxy(geoip:cn)
+    - cn_proxy(ip.sb)
+    - cn_proxy(*.ip.sb)
+    - cn_proxy(ipinfo.io)
+    - cn_proxy(*.ipinfo.io)
+    - cn_proxy(openai.com)
+    - cn_proxy(*.openai.com)
+    - direct(all)
 
-# outbounds:
-#   - name: cn_proxy
-#     type: socks5
-#     socks5:
-#       addr: 127.0.0.1:26346
-#       username: #用户名
-#       password: #密码
+outbounds:
+  - name: cn_proxy
+    type: socks5
+    socks5:
+      addr: 127.0.0.1:26346
+      username: #用户名
+      password: #密码
 
 masquerade:
   type: proxy
