@@ -8,6 +8,11 @@ mixed-port: 10801 # HTTP(S) 和 SOCKS 代理混合端口
 
 allow-lan: true # 允许局域网连接
 bind-address: "*" # 绑定 IP 地址，仅作用于 allow-lan 为 true，'*'表示所有地址
+authentication: # http,socks入口的验证用户名，密码
+  - "username:password"
+skip-auth-prefixes: # 设置跳过验证的IP段
+  - 127.0.0.1/8
+  - ::1/128
 
 #  find-process-mode has 3 values:always, strict, off
 #  - always, 开启，强制匹配所有进程
@@ -19,9 +24,9 @@ mode: rule
 
 #自定义 geodata url
 geox-url:
-  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat"
-  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
-  mmdb: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb"
+  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
 
 log-level: debug # 日志等级 silent/error/warning/info/debug
 
@@ -41,7 +46,11 @@ external-controller-tls: 0.0.0.0:9443 # RESTful API HTTPS 监听地址，需要�
 # secret: "123456" # `Authorization:Bearer ${secret}`
 
 # tcp-concurrent: true # TCP 并发连接所有 IP, 将使用最快握手的 TCP
-external-ui: /path/to/ui/folder # 配置 WEB UI 目录，使用 http://{{external-controller}}/ui 访问
+
+# 配置 WEB UI 目录，使用 http://{{external-controller}}/ui 访问
+external-ui: /path/to/ui/folder/
+external-ui-name: xd
+external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 # interface-name: en0 # 设置出口网卡
 
@@ -50,8 +59,18 @@ external-ui: /path/to/ui/folder # 配置 WEB UI 目录，使用 http://{{externa
 # Utls is currently support TLS transport in TCP/grpc/WS/HTTP for VLESS/Vmess and trojan.
 global-client-fingerprint: chrome
 
+#  TCP keep alive interval
+keep-alive-interval: 15
+
 # routing-mark:6666 # 配置 fwmark 仅用于 Linux
 experimental:
+  # Disable quic-go GSO support. This may result in reduced performance on Linux.
+  # This is not recommended for most users.
+  # Only users encountering issues with quic-go's internal implementation should enable this,
+  # and they should disable it as soon as the issue is resolved.
+  # This field will be removed when quic-go fixes all their issues in GSO.
+  # This equivalent to the environment variable QUIC_GO_DISABLE_GSO=1.
+  #quic-go-disable-gso: true
 
 # 类似于 /etc/hosts, 仅支持配置单个 IP
 hosts:
@@ -628,6 +647,25 @@ proxies: # socks5
     # fingerprint: xxxx
     # fast-open: true # 支持 TCP 快速打开，默认为 false
 
+  #hysteria2
+  - name: "hysteria2"
+    type: hysteria2
+    server: server.com
+    port: 443
+    #  up和down均不写或为0则使用BBR流控
+    # up: "30 Mbps" # 若不写单位，默认为 Mbps
+    # down: "200 Mbps" # 若不写单位，默认为 Mbps
+    password: yourpassword
+    # obfs: salamander # 默认为空，如果填写则开启obfs，目前仅支持salamander
+    # obfs-password: yourpassword
+    # sni: server.com
+    # skip-cert-verify: false
+    # fingerprint: xxxx
+    # alpn:
+    #   - h3
+    # ca: "./my.ca"
+    # ca-str: "xyz"
+
   # wireguard
   - name: "wg"
     type: wireguard
@@ -681,6 +719,11 @@ proxies: # socks5
     # skip-cert-verify: true
     # max-open-streams: 20 # default 100, too many open streams may hurt performance
     # sni: example.com
+    #
+    # meta和sing-box私有扩展，将ss-uot用于udp中继，开启此选项后udp-relay-mode将失效
+    # 警告，与原版tuic不兼容！！！
+    # udp-over-stream: false
+    # udp-over-stream-version: 1
 
   # ShadowsocksR
   # The supported ciphers (encryption methods): all stream ciphers in ss
@@ -898,6 +941,10 @@ listeners:
       - username: 1
         uuid: 9d0cb9d0-964f-4ef6-897d-6c6b3ccf9e68
         alterId: 1
+    # ws-path: "/" # 如果不为空则开启websocket传输层
+    # 下面两项如果填写则开启tls（需要同时填写）
+    # certificate: ./server.crt
+    # private-key: ./server.key
 
   - name: tuic-in-1
     type: tuic
