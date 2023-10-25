@@ -27,3 +27,4 @@ payload:
   - '+.yiyingys.asia'
   - '+.naifei.ws'
   - '+.wangfei.*'
+  - 'www.czzy88.com'
