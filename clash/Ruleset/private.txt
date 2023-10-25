@@ -28,3 +28,7 @@ payload:
   - '+.naifei.ws'
   - '+.wangfei.*'
   - 'www.czzy88.com'
+  - '+.nmddd.*'
+  - '+.lzzypic.com'
+  - '+.lzzyimg.com'
+  - '+.liangzipic.com'
