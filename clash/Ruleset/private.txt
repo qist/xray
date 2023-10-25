@@ -32,3 +32,4 @@ payload:
   - '+.lzzypic.com'
   - '+.lzzyimg.com'
   - '+.liangzipic.com'
+  - '+.pipixia.vip'
