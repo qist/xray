@@ -26,3 +26,4 @@ payload:
   - 'bfzyapi.com'
   - '+.yiyingys.asia'
   - '+.naifei.ws'
+  - '+.wangfei.*'
