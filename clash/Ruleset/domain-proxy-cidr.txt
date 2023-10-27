@@ -33,3 +33,4 @@ payload:
   - '+.ipify.org'
   - '+.ip-api.com'
   - '+.ysgc1.cc'
+  - 'taa8ws.tycng.com'
