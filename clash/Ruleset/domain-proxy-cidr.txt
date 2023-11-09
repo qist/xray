@@ -34,3 +34,4 @@ payload:
   - '+.ip-api.com'
   - '+.ysgc1.cc'
   - 'taa8ws.tycng.com'
+  - '+.pkg.dev'
