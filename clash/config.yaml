@@ -123,17 +123,17 @@ dns:
     - "+.miwifi.com"
     - "+.360.cn"
     - "+.360safe.com"
-  nameserver-policy: 
+  nameserver-policy:
     "geosite:cn,private,apple,icloud,geolocation-cn,direct":
-       - 1.2.4.8
-       - 119.29.29.29
-       - 223.5.5.5
-       - tls://dns.rubyfish.cn:853   
-    "+.google.cn,+.cn": 
-       - 1.2.4.8
-       - 119.29.29.29
-       - 223.5.5.5
-       - tls://dns.rubyfish.cn:853  
+      - 1.2.4.8
+      - 119.29.29.29
+      - 223.5.5.5
+      - tls://dns.rubyfish.cn:853
+    "+.google.cn,+.cn":
+      - 1.2.4.8
+      - 119.29.29.29
+      - 223.5.5.5
+      - tls://dns.rubyfish.cn:853
   nameserver:
     - "https://dns.google/dns-query"
     - "https://dns.cloudflare.com/dns-query"

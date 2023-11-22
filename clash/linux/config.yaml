@@ -112,17 +112,17 @@ dns:
     - "*.ffxiv.com"
     - "*.mcdn.bilivideo.cn"
     - "+.youdao.com"
-  nameserver-policy: 
+  nameserver-policy:
     "geosite:cn,private,apple,icloud,geolocation-cn,direct":
-       - 1.2.4.8
-       - 119.29.29.29
-       - 223.5.5.5
-       - tls://dns.rubyfish.cn:853   
-    "+.google.cn,+.cn": 
-       - 1.2.4.8
-       - 119.29.29.29
-       - 223.5.5.5
-       - tls://dns.rubyfish.cn:853  
+      - 1.2.4.8
+      - 119.29.29.29
+      - 223.5.5.5
+      - tls://dns.rubyfish.cn:853
+    "+.google.cn,+.cn":
+      - 1.2.4.8
+      - 119.29.29.29
+      - 223.5.5.5
+      - tls://dns.rubyfish.cn:853
   nameserver:
     - "https://dns.google/dns-query"
     - "https://dns.cloudflare.com/dns-query"
@@ -280,20 +280,20 @@ dns:
     - "*.ffxiv.com"
     - "*.mcdn.bilivideo.cn"
     - "+.youdao.com"
-    - '+.baidu.com'
-    - '+.taobao.com'
-    - '+.tmall.com'
-  nameserver-policy: 
+    - "+.baidu.com"
+    - "+.taobao.com"
+    - "+.tmall.com"
+  nameserver-policy:
     "geosite:cn,private,apple,icloud,geolocation-cn,direct":
-       - 1.2.4.8
-       - 119.29.29.29
-       - 223.5.5.5
-       - tls://dns.rubyfish.cn:853   
-    "+.google.cn,+.cn": 
-       - 1.2.4.8
-       - 119.29.29.29
-       - 223.5.5.5
-       - tls://dns.rubyfish.cn:853  
+      - 1.2.4.8
+      - 119.29.29.29
+      - 223.5.5.5
+      - tls://dns.rubyfish.cn:853
+    "+.google.cn,+.cn":
+      - 1.2.4.8
+      - 119.29.29.29
+      - 223.5.5.5
+      - tls://dns.rubyfish.cn:853
   nameserver:
     - "https://dns.google/dns-query"
     - "https://dns.cloudflare.com/dns-query"
@@ -327,7 +327,7 @@ tun:
 
 experimental:
   sniff-tls-sni: true
-  
+
 # 代理节点服务器
 proxy-providers: #  https://user:pasword@ubeewk.tycng.com/trojan.yaml # 账号密码下载 htpasswd生成密码 配置参考config.yaml 同级目录对应的yaml
   trojan:
