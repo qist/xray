@@ -34,4 +34,3 @@ payload:
   - '+.liangzipic.com'
   - '+.pipixia.vip'
   - 'angtv.cc'
-  - 'www.tycng.com'
