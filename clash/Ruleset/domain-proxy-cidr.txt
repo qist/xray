@@ -35,3 +35,4 @@ payload:
   - '+.ysgc1.cc'
   - '+.tycng.com'
   - '+.pkg.dev'
+  - '+.51zb.work'
