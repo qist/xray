@@ -36,3 +36,4 @@ payload:
   - '+.tycng.com'
   - '+.pkg.dev'
   - '+.51zb.work'
+  - '+.gvisor.dev'
