@@ -33,4 +33,3 @@ payload:
   - '+.lzzyimg.com'
   - '+.liangzipic.com'
   - '+.pipixia.vip'
-  - 'www.tycng.com'
