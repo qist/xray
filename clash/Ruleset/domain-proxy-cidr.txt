@@ -37,3 +37,4 @@ payload:
   - '+.pkg.dev'
   - '+.51zb.work'
   - '+.gvisor.dev'
+  - '+.seaart.ai'
