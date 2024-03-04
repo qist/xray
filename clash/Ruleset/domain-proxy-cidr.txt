@@ -38,3 +38,4 @@ payload:
   - '+.51zb.work'
   - '+.gvisor.dev'
   - '+.seaart.ai'
+  - '+.hayo.com'
