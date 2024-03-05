@@ -39,3 +39,4 @@ payload:
   - '+.gvisor.dev'
   - '+.seaart.ai'
   - '+.hayo.com'
+  - '+.metacubex.one'
