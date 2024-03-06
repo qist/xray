@@ -40,3 +40,4 @@ payload:
   - '+.seaart.ai'
   - '+.hayo.com'
   - '+.metacubex.one'
+  - '+.claude.ai'
