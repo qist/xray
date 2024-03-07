@@ -42,3 +42,4 @@ payload:
   - '+.metacubex.one'
   - '+.claude.ai'
   - 'claude.ai'
+  - '+.anthropic.*'
