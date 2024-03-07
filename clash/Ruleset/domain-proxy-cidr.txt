@@ -41,3 +41,4 @@ payload:
   - '+.hayo.com'
   - '+.metacubex.one'
   - '+.claude.ai'
+  - 'claude.ai'
