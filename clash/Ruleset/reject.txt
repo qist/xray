@@ -21251,7 +21251,6 @@ payload:
   - '+.googles.video'
   - '+.googleshopping.sapoapps.vn'
   - '+.googlesyndication.com'
-  - '+.googletagmanager.com'
   - '+.googletagservices.com'
   - '+.googletrackmanager.com'
   - '+.googlexbaidu.top'
