@@ -547,13 +547,6 @@ rule-providers:
     path: ./profiles/rules/proxy-ip-cidr.yaml
     interval: 86400 
 
-  cncidr:
-    type: http
-    behavior: ipcidr
-    url: "https://ubeewk.tycng.com/v2ray/clash/Ruleset/cncidr.txt"
-    path: ./profiles/rules/cncidr.yaml
-    interval: 86400 
-
   lancidr:
     type: http
     behavior: ipcidr
@@ -605,7 +598,6 @@ rules:
   - RULE-SET,reject,🛑 广告拦截
   - RULE-SET,rejectcidr,🛑 广告拦截
   - RULE-SET,lancidr,DIRECT
-  - RULE-SET,cncidr,DIRECT
   - RULE-SET,allcidr,DIRECT,no-resolve
   - RULE-SET,allipv6cidr,DIRECT,no-resolve
   - RULE-SET,icloud,🍏 苹果
