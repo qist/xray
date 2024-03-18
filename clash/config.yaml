@@ -550,6 +550,22 @@ rule-providers:
     path: ./profiles/rules/ip-proxy-cidr.yaml
     interval: 3600
 
+  allcidr:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: "https://ispip.clang.cn/all_cn_cidr.txt"
+    path: ./profiles/rules/all_cn_cidr.txt
+    interval: 3600
+
+  allipv6cidr:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: "https://ispip.clang.cn/all_cn_ipv6.txt"
+    path: ./profiles/rules/all_cn_ipv6.txt
+    interval: 3600
+
 # 规则
 rules:
   - RULE-SET,applications,DIRECT
@@ -558,6 +574,8 @@ rules:
   - RULE-SET,rejectcidr,🛑 广告拦截
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,cncidr,DIRECT
+  - RULE-SET,allcidr,DIRECT,no-resolve
+  - RULE-SET,allipv6cidr,DIRECT,no-resolve
   - RULE-SET,icloud,🍏 苹果
   - RULE-SET,apple,🍏 苹果
   - RULE-SET,win-spy,Ⓜ️ 微软
