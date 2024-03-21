@@ -34,3 +34,5 @@ payload:
   - '+.liangzipic.com'
   - '+.pipixia.vip'
   - '+.wogg.xyz'
+  - '+.hz.cz'
+  - '+.bdys10.com'
