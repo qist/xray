@@ -45,3 +45,4 @@ payload:
   - '+.anthropic.*'
   - '+.ciciai.com'
   - '+.yhgfb-static.com'
+  - '+.nudegirls4u.com'
