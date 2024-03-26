@@ -43,3 +43,4 @@ payload:
   - '+.claude.ai'
   - 'claude.ai'
   - '+.anthropic.*'
+  - '+.ciciai.com'
