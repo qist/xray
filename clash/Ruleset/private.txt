@@ -21,6 +21,7 @@ payload:
   - '+.cnyuncdn.com'
   - '+.ugdtimg.com'
   - '+.zxzj.pro'
+  - 'www.czzy77.com'
   - 'agit.ai'
   - 'www.cz01.me'
   - 'bfzyapi.com'
