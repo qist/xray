@@ -42,6 +42,8 @@ payload:
   - 'c-0001.dc-msedge.net'
   - '+.nelreports.net'
   - 'c.bing.com'
+  - 'www.bing.com'
+  - 'rewards.bing.com'
   - 'cn.bing.com'
   - 'c1.microsoft.com'
   - 'www.microsoft.com'
