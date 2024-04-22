@@ -37,3 +37,4 @@ payload:
   - '+.wogg.xyz'
   - '+.hz.cz'
   - '+.bdys10.com'
+  - 'www.cz233.com'
