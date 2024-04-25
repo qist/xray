@@ -38,4 +38,4 @@ payload:
   - '+.hz.cz'
   - '+.bdys10.com'
   - 'www.cz233.com'
-  -'www.czys.top'
+  - 'www.czys.top'
