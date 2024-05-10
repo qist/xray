@@ -151,21 +151,22 @@ interface-name: eth0 # 一定要指定网卡
 routing-mark: 7777
 
 ebpf:
-  redirect-to-tun:
+  auto-redir: # redirect 模式，仅支持 TCP
+    - eth0
+  redirect-to-tun: # UDP+TCP 使用该功能请勿启用 auto-route
     - eth0
 
 tun:
   enable: true
   stack: system
+  device: utun0
   dns-hijack:
-    - 223.5.5.5:53
-    - 119.29.29.29:53
-    - 1.2.4.8:53
-    - 114.114.114.114:53
     - any:53
     - tcp://any:53
-  #auto-route: true
-  #auto-detect-interface: true
+  # auto-route: true
+  # auto-detect-interface: true
+  mtu: 9000
+  strict-route: true
 ---
 # win
 ###############################################################
