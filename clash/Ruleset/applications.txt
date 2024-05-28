@@ -52,3 +52,6 @@ payload:
   - PROCESS-NAME,wireguard.exe
   - PROCESS-NAME,wireguard
   - PROCESS-NAME,XLServicePlatform.exe
+  - PROCESS-NAME,WsaService.exe
+  - PROCESS-NAME,WsaClient.exe
+  - PROCESS-NAME,WSACrashUploader.exe
