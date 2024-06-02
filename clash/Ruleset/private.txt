@@ -41,3 +41,4 @@ payload:
   - 'www.czys.top'
   - '+.wwgz.cn'
   - '+.freeok.vip'
+  - '+.kuaifan.tv'
