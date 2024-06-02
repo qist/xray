@@ -40,3 +40,4 @@ payload:
   - 'www.cz233.com'
   - 'www.czys.top'
   - '+.wwgz.cn'
+  - '+.freeok.vip'
