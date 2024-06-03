@@ -46,3 +46,5 @@ payload:
   - '+.ciciai.com'
   - '+.yhgfb-static.com'
   - '+.nudegirls4u.com'
+  - '+.chatgpt.com'
+  - '+.oaistatic.com'
