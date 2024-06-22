@@ -285,6 +285,7 @@ payload:
   - 'wscont1.apps.microsoft.com'
   - 'www.msedge.net'
   - 'www.msftncsi.com'
+  - 'www.msftconnecttest.com'
   - 'www.telecommandsvc.microsoft.com'
   - 'www.windowssearch.com'
   - 'x.urs.microsoft.com'
