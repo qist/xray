@@ -42,3 +42,4 @@ payload:
   - '+.wwgz.cn'
   - '+.freeok.vip'
   - '+.kuaifan.tv'
+  - 'raw.gitmirror.com'
