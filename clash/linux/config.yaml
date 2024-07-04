@@ -11,6 +11,7 @@ external-controller: "0.0.0.0:9090"
 secret: "124356789"
 external-ui: dashboard
 ipv6: false
+global-client-fingerprint: random
 
 dns:
   enable: true
@@ -165,10 +166,17 @@ tun:
     - tcp://any:53
   # auto-route: true
   # auto-detect-interface: true
-  mtu: 9000
   strict-route: true
+  gso: true
+  gso-max-size: 65536
+  udp-timeout: 300
+  inet4-route-exclude-address:
+    - 100.100.0.0/16 # 排除 100.100.0.0/16
+    #- 223.5.5.5/32
+    #- 114.114.114.114/32
+    #- 119.29.29.29/32
 ---
-# win
+# windows 用户请使用以下配置
 ###############################################################
 #prot: 7893
 mixed-port: 7890
