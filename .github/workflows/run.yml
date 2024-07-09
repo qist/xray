@@ -1,0 +1,46 @@
+name: Generate RULE-SET for Premium Edition of Clash
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 23 * * *"
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/README.md"
+jobs:
+  build:
+    runs-on: ubuntu-latest      
+    steps:
+      - name: Checkout the branch
+        uses: actions/checkout@v4
+
+      - name: wget the latest version of clash
+        run: |
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt -O direct.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt -O proxy.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt -O reject.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt -O private.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt -O applecn.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt -O icloudcn.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt -O google.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt -O gfw.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/tld-not-cn.txt -O tld-not-cn.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt  -O telegramcidr.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt -O lancidr.txt
+           wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt -O cncidr.txt
+           wget https://ispip.clang.cn/all_cn_cidr.txt -O all_cn_cidr.txt
+           wget https://ispip.clang.cn/all_cn_ipv6.txt -O all_cn_ipv6.txt
+        shell: bash
+
+      - name: Git push assets to "release" branch
+        run: |
+          cd publish || exit 1
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b release
+          git add .
+          git commit -m "clash $(date +%Y%m%d%H%M)"
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f origin release
