@@ -17,6 +17,7 @@ jobs:
 
       - name: wget the latest version of clash
         run: |
+           cd clash/Ruleset/
            wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt -O direct.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt -O proxy.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt -O reject.txt
