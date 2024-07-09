@@ -32,9 +32,15 @@ jobs:
            wget https://ispip.clang.cn/all_cn_cidr.txt -O all_cn_cidr.txt
            wget https://ispip.clang.cn/all_cn_ipv6.txt -O all_cn_ipv6.txt
         shell: bash
-
+    #   - name: Move files to publish directory
+    #     run: |
+    #       mkdir -p publish
+    #       \cp *.txt ./publish/
       - name: Git push assets to "release" branch
         run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b main
           git add .
           git commit -m "clash $(date +%Y%m%d%H%M)"
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
