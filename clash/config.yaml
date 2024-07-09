@@ -554,17 +554,17 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
-    url: "https://ispip.clang.cn/all_cn_cidr.txt"
+    url: "https://rules.tycng.com/clash/Ruleset/all_cn_cidr.txt"
     path: ./profiles/rules/all_cn_cidr.txt
-    interval: 86400 
+    interval: 86400
 
   allipv6cidr:
     type: http
     behavior: ipcidr
     format: text
-    url: "https://ispip.clang.cn/all_cn_ipv6.txt"
+    url: "https://rules.tycng.com/clash/Ruleset/all_cn_ipv6.txt"
     path: ./profiles/rules/all_cn_ipv6.txt
-    interval: 86400 
+    interval: 86400
 
 # 规则
 rules:
