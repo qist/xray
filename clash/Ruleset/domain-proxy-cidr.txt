@@ -48,3 +48,5 @@ payload:
   - '+.nudegirls4u.com'
   - '+.chatgpt.com'
   - '+.oaistatic.com'
+  - '+.redhat.com'
+  - 'gra.caldis.me'

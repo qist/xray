@@ -514,6 +514,13 @@ rule-providers:
     path: ./profiles/rules/private.yaml
     interval: 86400 
 
+  privatecn:
+    type: http
+    behavior: domain
+    url: "https://rules.tycng.com/clash/Ruleset/privatecn.txt"
+    path: ./profiles/rules/privatecn.yaml
+    interval: 86400 
+
   gfw:
     type: http
     behavior: domain
@@ -604,6 +611,7 @@ rule-providers:
 rules:
   - RULE-SET,applications,DIRECT
   - RULE-SET,private,DIRECT
+  - RULE-SET,privatecn,DIRECT
   - RULE-SET,reject,🛑 广告拦截
   - RULE-SET,rejectcidr,🛑 广告拦截
   - RULE-SET,lancidr,DIRECT
