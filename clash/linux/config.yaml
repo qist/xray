@@ -468,22 +468,25 @@ rule-providers:
   win-spy:
     type: http
     behavior: domain
+    format: text
     url: "https://rules.tycng.com/clash/Ruleset/win-spy.txt"
-    path: ./profiles/rules/win-spy.yaml
+    path: ./profiles/rules/win-spy.txt
     interval: 86400 
 
   win-update:
     type: http
     behavior: domain
+    format: text
     url: "https://rules.tycng.com/clash/Ruleset/win-update.txt"
-    path: ./profiles/rules/win-update.yaml
+    path: ./profiles/rules/win-update.txt
     interval: 86400 
 
   win-extra:
     type: http
     behavior: domain
+    format: text
     url: "https://rules.tycng.com/clash/Ruleset/win-extra.txt"
-    path: ./profiles/rules/win-extra.yaml
+    path: ./profiles/rules/win-extra.txt
     interval: 86400 
 
   google:
