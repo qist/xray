@@ -33,3 +33,6 @@ payload:
   - '+.freeok.vip'
   - '+.kuaifan.tv'
   - 'raw.gitmirror.com'
+  - '+.bing'
+  - '+.bing.com'
+  - '+.bing.net'
