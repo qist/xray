@@ -594,6 +594,13 @@ rule-providers:
     path: ./profiles/rules/ip-proxy-cidr.yaml
     interval: 86400 
 
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://rules.tycng.com/clash/Ruleset/cncidr.txt"
+    path: ./profiles/rules/cncidr.yaml
+    interval: 86400
+
   allcidr:
     type: http
     behavior: ipcidr
@@ -620,6 +627,7 @@ rules:
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,allcidr,DIRECT,no-resolve
   - RULE-SET,allipv6cidr,DIRECT,no-resolve
+  - RULE-SET,cncidr,DIRECT,no-resolve
   - RULE-SET,icloud,🍏 苹果
   - RULE-SET,apple,🍏 苹果
   - RULE-SET,win-spy,Ⓜ️ 微软
