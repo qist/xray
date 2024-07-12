@@ -50,3 +50,4 @@ payload:
   - '+.oaistatic.com'
   - '+.redhat.com'
   - 'gra.caldis.me'
+  - 'transcend-cdn.com'
