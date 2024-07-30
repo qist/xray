@@ -709,22 +709,22 @@ ${pvlesswstls}
 ################################################################
 clash-meta
 ---------------------------------------------------------------
-- type: vless
-  name: ${hostName}
-  server: ${hostName}
-  port: 443
-  uuid: ${userID}
-  network: ws
-  tls: true
-  udp: true
-  servername: ${hostName}
-  skip-cert-verify: false
-  ws-opts:
-    path: "/?ed=2560"
-    headers:
-      Host: ${hostName}
-    max-early-data: 4096
-    early-data-header-name: Sec-WebSocket-Protocol
+  - type: vless
+    name: ${hostName}
+    server: ${hostName}
+    port: 443
+    uuid: ${userID}
+    network: ws
+    tls: true
+    udp: true
+    servername: ${hostName}
+    skip-cert-verify: false
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: ${hostName}
+      max-early-data: 4096
+      early-data-header-name: Sec-WebSocket-Protocol
 ---------------------------------------------------------------
 ################################################################
 `;
