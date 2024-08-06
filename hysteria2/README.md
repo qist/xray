@@ -108,7 +108,12 @@ masquerade:
 ```
 
 ```
+# 随机端口配置 
+"protocol": "udp"
+# 防火墙规则
+firewall-cmd --add-forward-port=port=40000-50000:proto=udp:toport=443 --permanent
 # 放行端口
+firewall-cmd --add-port=40000-50000/udp --permanent
 firewall-cmd --add-port=443/udp --permanent
 # 生效
 firewall-cmd --reload
