@@ -1,3 +1,4 @@
 payload:
   - '+.mytvsuper.com'
   - '+.tvb.com'
+  - 'mytvsuper.boown.com'

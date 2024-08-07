@@ -137,3 +137,5 @@ payload:
   - '+.googlevideo.com'
   - '+.youtube.com'
   - 'youtubei.googleapis.com'
+  - '+.mytvsuper.com'
+  - '+.tvb.com'
