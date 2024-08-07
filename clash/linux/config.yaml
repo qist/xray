@@ -389,6 +389,12 @@ proxy-groups:
     proxies:
       - "负载均衡"
       - DIRECT
+  - name: tvbs
+    type: select
+    use:
+      - vmess
+    proxies:
+      - DIRECT
   - name: 🐟 其他网站
     type: select
     proxies:
@@ -398,6 +404,11 @@ proxy-groups:
     type: select
     proxies:
       - ✈️ 墙外网站
+      - DIRECT     
+  - name: tvb
+    type: select
+    proxies:
+      - tvbs
       - DIRECT
   - name: 🚫 以下不用动
     type: select
@@ -617,6 +628,13 @@ rule-providers:
     path: ./profiles/rules/all_cn_ipv6.txt
     interval: 86400
 
+  tvb:
+    type: http
+    behavior: domain
+    url: "https://rules.tycng.com/clash/Ruleset/tvb.txt"
+    path: ./profiles/rules/tvb.ymal
+    interval: 86400
+
 # 规则
 rules:
   - RULE-SET,applications,DIRECT
@@ -635,6 +653,7 @@ rules:
   - RULE-SET,win-update,Ⓜ️ 微软
   - RULE-SET,win-extra,Ⓜ️ 微软
   - RULE-SET,googlel,🐓 谷歌
+  - RULE-SET,tvb,tvb
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
   - RULE-SET,proxy,✈️ 墙外网站
