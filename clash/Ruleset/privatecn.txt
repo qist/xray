@@ -55,3 +55,5 @@ payload:
   - '+.imgyzzy.com'
   - '+.xb6v.com'
   - '+.66tutup.com'
+  - '+.heimuer.tv'
+  - '+.doube.eu.org'
