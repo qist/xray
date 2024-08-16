@@ -51,3 +51,4 @@ payload:
   - '+.redhat.com'
   - 'gra.caldis.me'
   - 'transcend-cdn.com'
+  - '+.hysteria.network'
