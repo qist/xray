@@ -55,3 +55,7 @@ payload:
   - '+.imgyzzy.com'
   - '+.xb6v.com'
   - '+.66tutup.com'
+  - '+.heimuer.*'
+  - '+.doube.eu.org'
+  - '+.hmrvideo.com'
+  - 'r8qgyo0ts.com'
