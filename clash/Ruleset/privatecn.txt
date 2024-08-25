@@ -61,3 +61,5 @@ payload:
   - 'r8qgyo0ts.com'
   - '+.setvn.com'
   - '+.cdnlz22.com'
+  - '+.maccms.la'
+  - '+.cdnlz3.com'
