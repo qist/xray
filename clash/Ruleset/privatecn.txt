@@ -63,3 +63,5 @@ payload:
   - '+.cdnlz22.com'
   - '+.maccms.la'
   - '+.cdnlz3.com'
+  - '+.dplayerstatic.com'
+  - '+.rrcdnbf3.com'
