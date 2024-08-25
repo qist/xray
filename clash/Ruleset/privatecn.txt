@@ -60,3 +60,4 @@ payload:
   - '+.hmrvideo.com'
   - 'r8qgyo0ts.com'
   - '+.setvn.com'
+  - '+.cdnlz22.com'
