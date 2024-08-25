@@ -65,3 +65,4 @@ payload:
   - '+.cdnlz3.com'
   - '+.dplayerstatic.com'
   - '+.rrcdnbf3.com'
+  - '+.hktvyun.com'
