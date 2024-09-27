@@ -134,6 +134,10 @@ dns:
       - 119.29.29.29
       - 223.5.5.5
       - tls://dns.rubyfish.cn:853
+    "geosite:geolocation-!cn,!cn,gfw":
+      - "https://dns.google/dns-query"
+      - "https://dns.cloudflare.com/dns-query"
+      - "https://dns.quad9.net/dns-query"
   nameserver:
     - "https://dns.google/dns-query"
     - "https://dns.cloudflare.com/dns-query"
