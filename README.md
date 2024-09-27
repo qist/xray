@@ -230,6 +230,8 @@ rules:
   - GEOSITE,geolocation-!cn,✈️ 墙外网站
   - RULE-SET,domain-proxy-cidr,✈️ 墙外网站
   - RULE-SET,ip-proxy-cidr,✈️ 墙外网站,no-resolve
+  - GEOSITE,!cn,✈️ 墙外网站
+  - GEOIP,!CN,DIRECT,✈️ 墙外网站,no-resolve
   - RULE-SET,direct,DIRECT
   - GEOSITE,cn,DIRECT
   - GEOIP,private,DIRECT
