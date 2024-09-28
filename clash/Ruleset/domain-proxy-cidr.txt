@@ -54,3 +54,4 @@ payload:
   - '+.hysteria.network'
   - '+.swsixtwo.top'
   - '+.ugigc.us.kg'
+  - '+.android.com'
