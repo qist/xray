@@ -66,3 +66,4 @@ payload:
   - '+.dplayerstatic.com'
   - '+.rrcdnbf3.com'
   - '+.hktvyun.com'
+  - '+.staticfile.org'
