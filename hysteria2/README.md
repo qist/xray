@@ -112,9 +112,12 @@ masquerade:
 "protocol": "udp"
 # 防火墙规则
 firewall-cmd --add-forward-port=port=40000-50000:proto=udp:toport=443 --permanent
+firewall-cmd --permanent --add-rich-rule='rule family="ipv6" forward-port port="40000-50000" protocol="udp" to-port="443"'
 # 放行端口
 firewall-cmd --add-port=40000-50000/udp --permanent
 firewall-cmd --add-port=443/udp --permanent
+firewall-cmd --permanent --add-rich-rule='rule family="ipv6" port port="40000-50000" protocol="udp" accept'
+firewall-cmd --permanent --add-rich-rule='rule family="ipv6" port port="443" protocol="udp" accept'
 # 生效
 firewall-cmd --reload
 ```
