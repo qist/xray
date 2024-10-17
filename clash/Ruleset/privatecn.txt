@@ -88,3 +88,6 @@ payload:
   - '+.voflix.me'
   - '+.ysgc.fun'
   - '+.qinttv.com'
+  - '+.bdzyimg1.com'
+  - '+.apibdzy.com'
+  - '+.112114.eu.org'
