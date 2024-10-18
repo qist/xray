@@ -1,18 +1,28 @@
+###############################################################
+#prot: 7893
 mixed-port: 7890
-socks-port: 7891
-redir-port: 7892
-allow-lan: false
+#socks-port: 7891
+#redir-port: 7892
+allow-lan: true
 bind-address: "*"
-ipv6: false
-mode: rule
-log-level: info
-external-controller: "127.0.0.1:9090"
-secret: ""
-unified-delay: true
 tcp-concurrent: true
 geodata-mode: true
 find-process-mode: strict
-global-client-fingerprint: chrome
+global-client-fingerprint: random
+keep-alive-interval: 15
+mode: rule
+log-level: info
+ipv6: false
+external-controller: "0.0.0.0:9091"
+secret: ""
+unified-delay: true
+
+geox-url:
+  geoip: "https://vruoiepxsk.swsixtwo.top/meta-rules-dat/geoip.dat"
+  geosite: "https://vruoiepxsk.swsixtwo.top/meta-rules-dat/geosite.dat"
+  mmdb: "https://vruoiepxsk.swsixtwo.top/meta-rules-dat/geoip.metadb"
+geo-auto-update: true # 是否自动更新 geodata
+geo-update-interval: 24 # 更新间隔，单位：小时
 
 hosts:
   "dns.alidns.com": [223.5.5.5,223.6.6.6,'2400:3200::1','2400:3200:baba::1']
