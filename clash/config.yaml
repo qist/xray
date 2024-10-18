@@ -141,7 +141,7 @@ dns:
     - "+.360.cn"
     - "+.360safe.com"
   nameserver-policy:
-    "geosite:cn,private,apple,icloud,geolocation-cn,direct":
+    "geosite:cn,private,apple,icloud,geolocation-cn":
       - 1.2.4.8
       - 119.29.29.29
       - 223.5.5.5
