@@ -91,3 +91,4 @@ payload:
   - '+.bdzyimg1.com'
   - '+.apibdzy.com'
   - '+.112114.eu.org'
+  - 'ubeewk.swsixtwo.top'
