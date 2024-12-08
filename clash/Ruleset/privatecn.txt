@@ -92,3 +92,7 @@ payload:
   - '+.apibdzy.com'
   - '+.112114.eu.org'
   - 'ubeewk.swsixtwo.top'
+  - '+.ttuv77.com'
+  - '+.tlkqc.com'
+  - '+.wujinapi.me'
+  - '+.wujinzy.com'
