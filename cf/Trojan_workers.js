@@ -8,12 +8,6 @@ let hostnames = [''];
 let sha224Password;
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 const worker_default = {
-    /**
-     * @param {import("@cloudflare/workers-types").Request} request
-     * @param {proxyip: string, pswd: string} env
-     * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
-     * @returns {Promise<Response>}
-     */
     async fetch(request, env, ctx) {
         try {
             proxyIP = env.proxyip || proxyIP;
@@ -32,8 +26,8 @@ const worker_default = {
                         });
 
                     case `/${Pswd}`: {
-                        const trojanConfig = gettrojanConfig(Pswd, request.headers.get('Host'));
-                        return new Response(`${trojanConfig}`, {
+                        const tojConfig = gettojConfig(Pswd, request.headers.get('Host'));
+                        return new Response(`${tojConfig}`, {
                             status: 200,
                             headers: {
                                 "Content-Type": "text/plain;charset=utf-8",
@@ -49,16 +43,15 @@ const worker_default = {
                         return await fetch(request);
                 }
             } else {
-                return await trojanOverWSHandler(request);
+                return await tojOverWSHandler(request);
             }
         } catch (err) {
-			/** @type {Error} */ let e = err;
             return new Response(e.toString());
         }
     },
 };
 
-async function trojanOverWSHandler(request) {
+async function tojOverWSHandler(request) {
     const webSocketPair = new WebSocketPair();
     const [client, webSocket] = Object.values(webSocketPair);
     webSocket.accept();
@@ -90,7 +83,7 @@ async function trojanOverWSHandler(request) {
                 portRemote = 443,
                 addressRemote = "",
                 rawClientData
-            } = await parseTrojanHeader(chunk);
+            } = await parseTojHeader(chunk);
             address = addressRemote;
             portWithRandomLog = `${portRemote}--${Math.random()} tcp`;
             if (hasError) {
@@ -115,7 +108,7 @@ async function trojanOverWSHandler(request) {
     });
 }
 
-async function parseTrojanHeader(buffer) {
+async function parseTojHeader(buffer) {
     if (buffer.byteLength < 56) {
         return {
             hasError: true,
@@ -284,11 +277,6 @@ async function remoteSocketToWS(remoteSocket, webSocket, retry, log) {
     await remoteSocket.readable.pipeTo(
         new WritableStream({
             start() { },
-            /**
-             *
-             * @param {Uint8Array} chunk
-             * @param {*} controller
-             */
             async write(chunk, controller) {
                 hasIncomingData = true;
                 if (webSocket.readyState !== WS_READY_STATE_OPEN) {
@@ -350,7 +338,7 @@ export {
 };
 
 //# sourceMappingURL=worker.js.map
-function gettrojanConfig(Pswd, hostName) {
+function gettojConfig(Pswd, hostName) {
     const wtrojanws = `trojan://${Pswd}\u0040${hostName}:80?security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
     const ptrojanwstls = `trojan://${Pswd}\u0040${hostName}:443?security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
     const note = `正在使用的ProxyIP：${proxyIP}`;
@@ -446,15 +434,6 @@ clash-meta
     }
 }
 
-/**
- * [js-sha256]{@link https://github.com/emn178/js-sha256}
- *
- * @version 0.11.0
- * @author Chen, Yi-Cyuan [emn178@gmail.com]
- * @copyright Chen, Yi-Cyuan 2014-2024
- * @license MIT
- */
-/*jslint bitwise: true */
 (function () {
     'use strict';
 

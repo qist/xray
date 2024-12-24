@@ -4,7 +4,7 @@ import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID:
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
-let userID = '3a633010-2cd8-4578-99fc-1486ad84806d';
+let userID = '0aebbc46-f0bd-4cf0-9fcc-d579ccfc988d';
 
 const proxyIPs = ['cdn-all.xn--b6gac.eu.org', 'cdn.xn--b6gac.eu.org', 'cdn-b100.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org', 'cdn.anycast.eu.org'];
 const cn_hostnames = [''];
@@ -16,12 +16,6 @@ if (!isValidUUID(userID)) {
 }
 
 export default {
-    /**
-     * @param {import("@cloudflare/workers-types").Request} request
-     * @param {uuid: string, proxyip: string} env
-     * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
-     * @returns {Promise<Response>}
-     */
     async fetch(request, env, ctx) {
         try {
             userID = env.uuid || userID;
@@ -39,8 +33,8 @@ export default {
                         });
 
                     case `/${userID}`: {
-                        const vlessConfig = getVLESSConfig(userID, request.headers.get('Host'));
-                        return new Response(`${vlessConfig}`, {
+                        const vsConfig = getVSConfig(userID, request.headers.get('Host'));
+                        return new Response(`${vsConfig}`, {
                             status: 200,
                             headers: {
                                 "Content-Type": "text/plain;charset=utf-8",
@@ -56,7 +50,7 @@ export default {
                         return await fetch(request);
                 }
             } else {
-                return await vlessOverWSHandler(request);
+                return await vsOverWSHandler(request);
             }
         } catch (err) {
 			/** @type {Error} */ let e = err;
@@ -65,14 +59,8 @@ export default {
     },
 };
 
-/**
- * 
- * @param {import("@cloudflare/workers-types").Request} request
- */
-async function vlessOverWSHandler(request) {
+async function vsOverWSHandler(request) {
 
-    /** @type {import("@cloudflare/workers-types").WebSocket[]} */
-    // @ts-ignore
     const webSocketPair = new WebSocketPair();
     const [client, webSocket] = Object.values(webSocketPair);
 
@@ -113,7 +101,7 @@ async function vlessOverWSHandler(request) {
                 portRemote = 443,
                 addressRemote = '',
                 rawDataIndex,
-                vlessVersion = new Uint8Array([0, 0]),
+                vsVersion = new Uint8Array([0, 0]),
                 isUDP,
             } = await processVlessHeader(chunk, userID);
             address = addressRemote;
@@ -136,17 +124,17 @@ async function vlessOverWSHandler(request) {
                 }
             }
             // ["version", "附加信息长度 N"]
-            const vlessResponseHeader = new Uint8Array([vlessVersion[0], 0]);
+            const vsResponseHeader = new Uint8Array([vsVersion[0], 0]);
             const rawClientData = chunk.slice(rawDataIndex);
 
             // TODO: support udp here when cf runtime has udp support
             if (isDns) {
-                const { write } = await handleUDPOutBound(webSocket, vlessResponseHeader, log);
+                const { write } = await handleUDPOutBound(webSocket, vsResponseHeader, log);
                 udpStreamWrite = write;
                 udpStreamWrite(rawClientData);
                 return;
             }
-            handleTCPOutBound(remoteSocketWapper, addressRemote, portRemote, rawClientData, webSocket, vlessResponseHeader, log);
+            handleTCPOutBound(remoteSocketWapper, addressRemote, portRemote, rawClientData, webSocket, vsResponseHeader, log);
         },
         close() {
             log(`readableWebSocketStream is close`);
@@ -164,12 +152,6 @@ async function vlessOverWSHandler(request) {
         webSocket: client,
     });
 }
-
-/**
- * Checks if a given UUID is present in the API response.
- * @param {string} targetUuid The UUID to search for.
- * @returns {Promise<boolean>} A Promise that resolves to true if the UUID is present in the API response, false otherwise.
- */
 async function checkUuidInApiResponse(targetUuid) {
     // Check if any of the environment variables are empty
 
@@ -188,19 +170,7 @@ async function checkUuidInApiResponse(targetUuid) {
 }
 
 
-/**
- * Handles outbound TCP connections.
- *
- * @param {any} remoteSocket 
- * @param {string} addressRemote The remote address to connect to.
- * @param {number} portRemote The remote port to connect to.
- * @param {Uint8Array} rawClientData The raw client data to write.
- * @param {import("@cloudflare/workers-types").WebSocket} webSocket The WebSocket to pass the remote socket to.
- * @param {Uint8Array} vlessResponseHeader The VLESS response header.
- * @param {function} log The logging function.
- * @returns {Promise<void>} The remote socket.
- */
-async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawClientData, webSocket, vlessResponseHeader, log,) {
+async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawClientData, webSocket, vsResponseHeader, log,) {
     async function connectAndWrite(address, port) {
         /** @type {import("@cloudflare/workers-types").Socket} */
         const tcpSocket = connect({
@@ -224,22 +194,16 @@ async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawCli
         }).finally(() => {
             safeCloseWebSocket(webSocket);
         })
-        remoteSocketToWS(tcpSocket, webSocket, vlessResponseHeader, null, log);
+        remoteSocketToWS(tcpSocket, webSocket, vsResponseHeader, null, log);
     }
 
     const tcpSocket = await connectAndWrite(addressRemote, portRemote);
 
     // when remoteSocket is ready, pass to websocket
     // remote--> ws
-    remoteSocketToWS(tcpSocket, webSocket, vlessResponseHeader, retry, log);
+    remoteSocketToWS(tcpSocket, webSocket, vsResponseHeader, retry, log);
 }
 
-/**
- * 
- * @param {import("@cloudflare/workers-types").WebSocket} webSocketServer
- * @param {string} earlyDataHeader for ws 0rtt
- * @param {(info: string)=> void} log for ws 0rtt
- */
 function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
     let readableStreamCancel = false;
     const stream = new ReadableStream({
@@ -300,29 +264,24 @@ function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
 
 }
 
-// https://xtls.github.io/development/protocols/vless.html
+// https://xtls.github.io/development/protocols/vs.html
 // https://github.com/zizifn/excalidraw-backup/blob/main/v2ray-protocol.excalidraw
 
-/**
- * 
- * @param { ArrayBuffer} vlessBuffer 
- * @param {string} userID 
- * @returns 
- */
+
 async function processVlessHeader(
-    vlessBuffer,
+    vsBuffer,
     userID
 ) {
-    if (vlessBuffer.byteLength < 24) {
+    if (vsBuffer.byteLength < 24) {
         return {
             hasError: true,
             message: 'invalid data',
         };
     }
-    const version = new Uint8Array(vlessBuffer.slice(0, 1));
+    const version = new Uint8Array(vsBuffer.slice(0, 1));
     let isValidUser = false;
     let isUDP = false;
-    const slicedBuffer = new Uint8Array(vlessBuffer.slice(1, 17));
+    const slicedBuffer = new Uint8Array(vsBuffer.slice(1, 17));
     const slicedBufferString = stringify(slicedBuffer);
 
     const uuids = userID.includes(',') ? userID.split(",") : [userID];
@@ -339,11 +298,11 @@ async function processVlessHeader(
         };
     }
 
-    const optLength = new Uint8Array(vlessBuffer.slice(17, 18))[0];
+    const optLength = new Uint8Array(vsBuffer.slice(17, 18))[0];
     //skip opt for now
 
     const command = new Uint8Array(
-        vlessBuffer.slice(18 + optLength, 18 + optLength + 1)
+        vsBuffer.slice(18 + optLength, 18 + optLength + 1)
     )[0];
 
     // 0x01 TCP
@@ -359,13 +318,13 @@ async function processVlessHeader(
         };
     }
     const portIndex = 18 + optLength + 1;
-    const portBuffer = vlessBuffer.slice(portIndex, portIndex + 2);
+    const portBuffer = vsBuffer.slice(portIndex, portIndex + 2);
     // port is big-Endian in raw data etc 80 == 0x005d
     const portRemote = new DataView(portBuffer).getUint16(0);
 
     let addressIndex = portIndex + 2;
     const addressBuffer = new Uint8Array(
-        vlessBuffer.slice(addressIndex, addressIndex + 1)
+        vsBuffer.slice(addressIndex, addressIndex + 1)
     );
 
     // 1--> ipv4  addressLength =4
@@ -379,22 +338,22 @@ async function processVlessHeader(
         case 1:
             addressLength = 4;
             addressValue = new Uint8Array(
-                vlessBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
+                vsBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
             ).join('.');
             break;
         case 2:
             addressLength = new Uint8Array(
-                vlessBuffer.slice(addressValueIndex, addressValueIndex + 1)
+                vsBuffer.slice(addressValueIndex, addressValueIndex + 1)
             )[0];
             addressValueIndex += 1;
             addressValue = new TextDecoder().decode(
-                vlessBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
+                vsBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
             );
             break;
         case 3:
             addressLength = 16;
             const dataView = new DataView(
-                vlessBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
+                vsBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
             );
             // 2001:0db8:85a3:0000:0000:8a2e:0370:7334
             const ipv6 = [];
@@ -423,37 +382,23 @@ async function processVlessHeader(
         addressType,
         portRemote,
         rawDataIndex: addressValueIndex + addressLength,
-        vlessVersion: version,
+        vsVersion: version,
         isUDP,
     };
 }
 
-
-/**
- * 
- * @param {import("@cloudflare/workers-types").Socket} remoteSocket 
- * @param {import("@cloudflare/workers-types").WebSocket} webSocket 
- * @param {ArrayBuffer} vlessResponseHeader 
- * @param {(() => Promise<void>) | null} retry
- * @param {*} log 
- */
-async function remoteSocketToWS(remoteSocket, webSocket, vlessResponseHeader, retry, log) {
+async function remoteSocketToWS(remoteSocket, webSocket, vsResponseHeader, retry, log) {
     // remote--> ws
     let remoteChunkCount = 0;
     let chunks = [];
     /** @type {ArrayBuffer | null} */
-    let vlessHeader = vlessResponseHeader;
+    let vsHeader = vsResponseHeader;
     let hasIncomingData = false; // check if remoteSocket has incoming data
     await remoteSocket.readable
         .pipeTo(
             new WritableStream({
                 start() {
                 },
-                /**
-                 * 
-                 * @param {Uint8Array} chunk 
-                 * @param {*} controller 
-                 */
                 async write(chunk, controller) {
                     hasIncomingData = true;
                     // remoteChunkCount++;
@@ -462,9 +407,9 @@ async function remoteSocketToWS(remoteSocket, webSocket, vlessResponseHeader, re
                             'webSocket.readyState is not open, maybe close'
                         );
                     }
-                    if (vlessHeader) {
-                        webSocket.send(await new Blob([vlessHeader, chunk]).arrayBuffer());
-                        vlessHeader = null;
+                    if (vsHeader) {
+                        webSocket.send(await new Blob([vsHeader, chunk]).arrayBuffer());
+                        vsHeader = null;
                     } else {
                         // seems no need rate limit this, CF seems fix this??..
                         // if (remoteChunkCount > 20000) {
@@ -500,11 +445,6 @@ async function remoteSocketToWS(remoteSocket, webSocket, vlessResponseHeader, re
     }
 }
 
-/**
- * 
- * @param {string} base64Str 
- * @returns 
- */
 function base64ToArrayBuffer(base64Str) {
     if (!base64Str) {
         return { error: null };
@@ -520,10 +460,6 @@ function base64ToArrayBuffer(base64Str) {
     }
 }
 
-/**
- * This is not real UUID validation
- * @param {string} uuid 
- */
 function isValidUUID(uuid) {
     const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
     return uuidRegex.test(uuid);
@@ -531,10 +467,6 @@ function isValidUUID(uuid) {
 
 const WS_READY_STATE_OPEN = 1;
 const WS_READY_STATE_CLOSING = 2;
-/**
- * Normally, WebSocket will not has exceptions when close.
- * @param {import("@cloudflare/workers-types").WebSocket} socket
- */
 function safeCloseWebSocket(socket) {
     try {
         if (socket.readyState === WS_READY_STATE_OPEN || socket.readyState === WS_READY_STATE_CLOSING) {
@@ -560,14 +492,7 @@ function stringify(arr, offset = 0) {
     return uuid;
 }
 
-
-/**
- * 
- * @param {import("@cloudflare/workers-types").WebSocket} webSocket 
- * @param {ArrayBuffer} vlessResponseHeader 
- * @param {(string)=> void} log 
- */
-async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
+async function handleUDPOutBound(webSocket, vsResponseHeader, log) {
 
     let isVlessHeaderSent = false;
     const transformStream = new TransformStream({
@@ -611,7 +536,7 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
                 if (isVlessHeaderSent) {
                     webSocket.send(await new Blob([udpSizeBuffer, dnsQueryResult]).arrayBuffer());
                 } else {
-                    webSocket.send(await new Blob([vlessResponseHeader, udpSizeBuffer, dnsQueryResult]).arrayBuffer());
+                    webSocket.send(await new Blob([vsResponseHeader, udpSizeBuffer, dnsQueryResult]).arrayBuffer());
                     isVlessHeaderSent = true;
                 }
             }
@@ -623,23 +548,14 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
     const writer = transformStream.writable.getWriter();
 
     return {
-        /**
-         * 
-         * @param {Uint8Array} chunk 
-         */
         write(chunk) {
             writer.write(chunk);
         }
     };
 }
 
-/**
- * 
- * @param {string} userID 
- * @param {string | null} hostName
- * @returns {string}
- */
-function getVLESSConfig(userID, hostName) {
+
+function getVSConfig(userID, hostName) {
     const wvlessws = `vless://${userID}\u0040${hostName}:80?encryption=none&security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
     const pvlesswstls = `vless://${userID}\u0040${hostName}:443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
     const note = `正在使用的ProxyIP：${proxyIP}`;
