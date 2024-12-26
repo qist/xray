@@ -28,7 +28,7 @@ hosts:
   "dns.alidns.com": [223.5.5.5,223.6.6.6,'2400:3200::1','2400:3200:baba::1']
   "doh.pub": [120.53.53.53,1.12.12.12]
   "doh.360.cn": [36.99.170.86,180.163.249.75]
-  "rules.ugigc.us.kg": rules.cloudflare.182682.xyz
+  "rules.ugigc.ggff.net": rules.cloudflare.182682.xyz
 
 dns:
   enable: false
@@ -431,28 +431,28 @@ rule-providers:
   reject:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/reject.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/reject.txt"
     path: ./profiles/rules/reject.yaml
     interval: 86400
 
   rejectcidr:
     type: http
     behavior: ipcidr
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/rejectcidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/rejectcidr.txt"
     path: ./profiles/rules/rejectcidr.yaml
     interval: 86400
 
   icloud:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/icloudcn.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/icloudcn.txt"
     path: ./profiles/rules/icloudcn.yaml
     interval: 86400
 
   apple:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/applecn.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/applecn.txt"
     path: ./profiles/rules/applecn.yaml
     interval: 86400
 
@@ -460,7 +460,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/win-spy.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/win-spy.txt"
     path: ./profiles/rules/win-spy.txt
     interval: 86400
 
@@ -468,7 +468,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/win-update.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/win-update.txt"
     path: ./profiles/rules/win-update.txt
     interval: 86400
 
@@ -476,119 +476,119 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/win-extra.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/win-extra.txt"
     path: ./profiles/rules/win-extra.txt
     interval: 86400
 
   googlel:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/google.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/google.txt"
     path: ./profiles/rules/google.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/proxy.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/proxy.txt"
     path: ./profiles/rules/proxy.yaml
     interval: 86400
 
   direct:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/direct.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/direct.txt"
     path: ./profiles/rules/direct.yaml
     interval: 86400
 
   private:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/private.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/private.txt"
     path: ./profiles/rules/private.yaml
     interval: 86400
 
   privatecn:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/privatecn.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/privatecn.txt"
     path: ./profiles/rules/privatecn.yaml
     interval: 86400
 
   gfw:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/gfw.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/gfw.txt"
     path: ./profiles/rules/gfw.yaml
     interval: 86400
 
   tld-not-cn:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/tld-not-cn.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/tld-not-cn.txt"
     path: ./profiles/rules/tld-not-cn.yaml
     interval: 86400
 
   Foreignmedia:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/Foreignmedia.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/Foreignmedia.txt"
     interval: 86400
     path: ./profiles/rules/Foreignmedia.yaml
 
   Netflix:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/Netflix.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/Netflix.txt"
     interval: 86400
     path: ./profiles/rules/Netflix.yaml
 
   telegramcidr:
     type: http
     behavior: ipcidr
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/telegramcidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/telegramcidr.txt"
     path: ./profiles/rules/telegramcidr.yaml
     interval: 86400
 
   proxy-ip-cidr:
     type: http
     behavior: ipcidr
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/proxy-ip-cidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/proxy-ip-cidr.txt"
     path: ./profiles/rules/proxy-ip-cidr.yaml
     interval: 86400
 
   lancidr:
     type: http
     behavior: ipcidr
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/lancidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/lancidr.txt"
     path: ./profiles/rules/lancidr.yaml
     interval: 86400
 
   applications:
     type: http
     behavior: classical
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/applications.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/applications.txt"
     path: ./profiles/rules/applications.yaml
     interval: 86400
 
   domain-proxy-cidr:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/domain-proxy-cidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/domain-proxy-cidr.txt"
     path: ./profiles/rules/domain-proxy-cidr.yaml
     interval: 86400
 
   ip-proxy-cidr:
     type: http
     behavior: ipcidr
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/ip-proxy-cidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/ip-proxy-cidr.txt"
     path: ./profiles/rules/ip-proxy-cidr.yaml
     interval: 86400
 
   cncidr:
     type: http
     behavior: ipcidr
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/cncidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/cncidr.txt"
     path: ./profiles/rules/cncidr.yaml
     interval: 86400
 
@@ -596,7 +596,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/all_cn_cidr.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/all_cn_cidr.txt"
     path: ./profiles/rules/all_cn_cidr.txt
     interval: 86400
 
@@ -604,14 +604,14 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/all_cn_ipv6.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/all_cn_ipv6.txt"
     path: ./profiles/rules/all_cn_ipv6.txt
     interval: 86400
 
   tvb:
     type: http
     behavior: domain
-    url: "https://rules.ugigc.us.kg/clash/Ruleset/tvb.txt"
+    url: "https://rules.ugigc.ggff.net/clash/Ruleset/tvb.txt"
     path: ./profiles/rules/tvb.ymal
     interval: 86400
 # 规则
