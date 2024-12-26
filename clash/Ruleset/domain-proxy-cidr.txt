@@ -52,7 +52,4 @@ payload:
   - 'gra.caldis.me'
   - 'transcend-cdn.com'
   - '+.hysteria.network'
-  - '+.swsixtwo.top'
-  - '+.ugigc.us.kg'
   - '+.android.com'
-  - '+.112114.xyz'
