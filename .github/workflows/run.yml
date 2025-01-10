@@ -30,7 +30,7 @@ jobs:
            wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt  -O telegramcidr.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt -O lancidr.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt -O cncidr.txt
-           wget https://ispip.clang.cn/all_cn_cidr.txt -O all_cn_cidr.txt
+           wget https://ispip.clang.cn/all_cn.txt -O all_cn_cidr.txt
            wget https://ispip.clang.cn/all_cn_ipv6.txt -O all_cn_ipv6.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-spy.txt -O win-spy.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-update.txt -O win-update.txt
