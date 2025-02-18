@@ -53,3 +53,4 @@ payload:
   - 'transcend-cdn.com'
   - '+.hysteria.network'
   - '+.android.com'
+  - '+.grok.com'
