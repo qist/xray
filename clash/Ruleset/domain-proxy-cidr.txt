@@ -55,3 +55,4 @@ payload:
   - '+.android.com'
   - '+.grok.com'
   - '+.swsixtwo.top'
+  - '+.akash.network'
