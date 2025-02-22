@@ -96,3 +96,4 @@ payload:
   - '+.tlkqc.com'
   - '+.wujinapi.me'
   - '+.wujinzy.com'
+  - '+.tvyun07.com'
