@@ -54,6 +54,5 @@ payload:
   - '+.hysteria.network'
   - '+.android.com'
   - '+.grok.com'
-  - '+.swsixtwo.top'
   - '+.akash.network'
   - '+.112114.xyz'
