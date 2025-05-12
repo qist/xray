@@ -97,3 +97,4 @@ payload:
   - '+.wujinapi.me'
   - '+.wujinzy.com'
   - '+.tvyun07.com'
+  - '+.102008.xyz'
