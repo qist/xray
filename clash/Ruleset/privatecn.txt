@@ -98,3 +98,4 @@ payload:
   - '+.wujinzy.com'
   - '+.tvyun07.com'
   - '+.102008.xyz'
+  - '+.tvyun10.com'
