@@ -4,6 +4,7 @@
 
 * [snell安装](./snell/README.md)
 * [hysteria安装](./hysteria/README.md)
+* [hysteria2安装](./hysteria2/README.md)
 * [tuic安装](./tuic/README.md)
 * [xray安装](./xray/README.md)
 
@@ -196,12 +197,6 @@ rule-providers:
     path: ./profiles/rules/all_cn_ipv6.txt
     interval: 86400
 
-  tvb:
-    type: http
-    behavior: domain
-    url: "https://rules.swsixtwo.top/clash/Ruleset/tvb.txt"
-    path: ./profiles/rules/tvb.ymal
-    interval: 86400
 # 规则
 rules:
   - RULE-SET,applications,DIRECT
@@ -220,7 +215,6 @@ rules:
   - RULE-SET,win-update,Ⓜ️ 微软
   - RULE-SET,win-extra,Ⓜ️ 微软
   - RULE-SET,googlel,🐓 谷歌
-  - RULE-SET,tvb,tvb
   - RULE-SET,Foreignmedia,🌍 国外媒体
   - RULE-SET,Netflix,🎥 NETFLIX
   - RULE-SET,proxy,✈️ 墙外网站
