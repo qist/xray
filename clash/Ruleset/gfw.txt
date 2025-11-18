@@ -192,6 +192,7 @@ payload:
   - '+.agoogleaday.com'
   - '+.agro.hk'
   - '+.ai.binwang.me'
+  - '+.ai.dev'
   - '+.aiosearch.com'
   - '+.aiph.net'
   - '+.airasia.com'
