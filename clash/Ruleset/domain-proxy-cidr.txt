@@ -33,7 +33,6 @@ payload:
   - '+.ipify.org'
   - '+.ip-api.com'
   - '+.ysgc1.cc'
-  - '+.tycng.com'
   - '+.pkg.dev'
   - '+.51zb.work'
   - '+.gvisor.dev'
