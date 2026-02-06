@@ -50,7 +50,7 @@ export default {
                         return await fetch(request);
                 }
             } else {
-                return await \u0076\u006c\u0065\u0073\u0073OverWSHandler(request);
+                 return await QistOverWSHandler(request);
             }
         } catch (err) {
 			/** @type {Error} */ let e = err;
@@ -63,7 +63,7 @@ export default {
  *
  * @param {any} request
  */
-async function \u0076\u006c\u0065\u0073\u0073OverWSHandler(request) {
+async function QistOverWSHandler(request) {
   /** @type {any} */
   // @ts-ignore
   const webSocketPair = new WebSocketPair();
