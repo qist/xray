@@ -10,6 +10,7 @@ const proxyIPs = ['cdn-all.xn--b6gac.eu.org', 'cdn.xn--b6gac.eu.org', 'cdn-b100.
 const cn_hostnames = [''];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
+let proxyPort = proxyIP.match(/:(\d+)$/) ? proxyIP.match(/:(\d+)$/)[1] : '443';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -18,8 +19,33 @@ if (!isValidUUID(userID)) {
 export default {
     async fetch(request, env, ctx) {
         try {
-            userID = env.uuid || userID;
-            proxyIP = env.proxyip || proxyIP;
+            const { proxyip } = env;
+            if (proxyip) {
+                if (proxyip.includes(']:')) {
+                    let lastColonIndex = proxyip.lastIndexOf(':');
+                    proxyPort = proxyip.slice(lastColonIndex + 1);
+                    proxyIP = proxyip.slice(0, lastColonIndex);
+
+                } else if (!proxyip.includes(']:') && !proxyip.includes(']')) {
+                    [proxyIP, proxyPort = '443'] = proxyip.split(':');
+                } else {
+                    proxyPort = '443';
+                    proxyIP = proxyip;
+                }
+            } else {
+                if (proxyIP.includes(']:')) {
+                    let lastColonIndex = proxyIP.lastIndexOf(':');
+                    proxyPort = proxyIP.slice(lastColonIndex + 1);
+                    proxyIP = proxyIP.slice(0, lastColonIndex);
+                } else {
+                    const match = proxyIP.match(/^(.*?)(?::(\d+))?$/);
+                    proxyIP = match[1];
+                    let proxyPort = match[2] || '443';
+                    console.log("IP:", proxyIP, "Port:", proxyPort);
+                }
+            }
+            console.log('ProxyIP:', proxyIP);
+            console.log('ProxyPort:', proxyPort);
             const upgradeHeader = request.headers.get('Upgrade');
             if (!upgradeHeader || upgradeHeader !== 'websocket') {
                 const url = new URL(request.url);
@@ -187,13 +213,15 @@ async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawCli
 
     // if the cf connect tcp socket have no incoming data, we retry to redirect ip
     async function retry() {
-        const tcpSocket = await connectAndWrite(proxyIP || addressRemote, portRemote)
+        const tcpSocket = await connectAndWrite(proxyIP || addressRemote, proxyPort || portRemote);
         // no matter retry success or not, close websocket
-        tcpSocket.closed.catch(error => {
-            console.log('retry tcpSocket closed error', error);
-        }).finally(() => {
-            safeCloseWebSocket(webSocket);
-        })
+        tcpSocket.closed
+            .catch((error) => {
+                console.log("retry tcpSocket closed error", error);
+            })
+            .finally(() => {
+                safeCloseWebSocket(webSocket);
+            });
         remoteSocketToWS(tcpSocket, webSocket, vsResponseHeader, null, log);
     }
 
@@ -202,6 +230,7 @@ async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawCli
     // when remoteSocket is ready, pass to websocket
     // remote--> ws
     remoteSocketToWS(tcpSocket, webSocket, vsResponseHeader, retry, log);
+
 }
 
 function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {

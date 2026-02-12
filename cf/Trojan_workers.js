@@ -7,48 +7,75 @@ let hostnames = [''];
 
 let sha224Password;
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
+let proxyPort = proxyIP.match(/:(\d+)$/) ? proxyIP.match(/:(\d+)$/)[1] : '443';
 const worker_default = {
-    async fetch(request, env, ctx) {
-        try {
-            proxyIP = env.proxyip || proxyIP;
-            Pswd = env.pswd || Pswd
-            sha224Password = sha256.sha224(Pswd);
-            const upgradeHeader = request.headers.get("Upgrade");
-            if (!upgradeHeader || upgradeHeader !== 'websocket') {
-                const url = new URL(request.url);
-                switch (url.pathname) {
-                    case '/cf':
-                        return new Response(JSON.stringify(request.cf, null, 4), {
-                            status: 200,
-                            headers: {
-                                "Content-Type": "application/json;charset=utf-8",
-                            },
-                        });
+  async fetch(request, env, ctx) {
+    try {
+      const { proxyip } = env;  
+      if (proxyip) {
+        if (proxyip.includes(']:')) {
+          let lastColonIndex = proxyip.lastIndexOf(':');
+          proxyPort = proxyip.slice(lastColonIndex + 1);
+          proxyIP = proxyip.slice(0, lastColonIndex);
 
-                    case `/${Pswd}`: {
-                        const QistConfig = getQistConfig(Pswd, request.headers.get('Host'));
-                        return new Response(`${QistConfig}`, {
-                            status: 200,
-                            headers: {
-                                "Content-Type": "text/plain;charset=utf-8",
-                            }
-                        });
-                    }
-                    default:
-                        // return new Response('Not found', { status: 404 });
-                        // For any other path, reverse proxy to 'maimai.sega.jp' and return the original response
-                        url.hostname = 'maimai.sega.jp';
-                        url.protocol = 'https:';
-                        request = new Request(url, request);
-                        return await fetch(request);
-                }
-            } else {
-                return await QistOverWSHandler(request);
-            }
-        } catch (err) {
-            return new Response(e.toString());
+        } else if (!proxyip.includes(']:') && !proxyip.includes(']')) {
+          [proxyIP, proxyPort = '443'] = proxyip.split(':');
+        } else {
+          proxyPort = '443';
+          proxyIP = proxyip;
         }
-    },
+      } else {
+        if (proxyIP.includes(']:')) {
+          let lastColonIndex = proxyIP.lastIndexOf(':');
+          proxyPort = proxyIP.slice(lastColonIndex + 1);
+          proxyIP = proxyIP.slice(0, lastColonIndex);
+        } else {
+          const match = proxyIP.match(/^(.*?)(?::(\d+))?$/);
+          proxyIP = match[1];
+          let proxyPort = match[2] || '443';
+          console.log("IP:", proxyIP, "Port:", proxyPort);
+        }
+      }
+      console.log('ProxyIP:', proxyIP);
+      console.log('ProxyPort:', proxyPort);
+      Pswd = env.pswd || Pswd
+      sha224Password = sha256.sha224(Pswd);
+      const upgradeHeader = request.headers.get("Upgrade");
+      if (!upgradeHeader || upgradeHeader !== 'websocket') {
+        const url = new URL(request.url);
+        switch (url.pathname) {
+          case '/cf':
+            return new Response(JSON.stringify(request.cf, null, 4), {
+              status: 200,
+              headers: {
+                "Content-Type": "application/json;charset=utf-8",
+              },
+            });
+
+          case `/${Pswd}`: {
+            const QistConfig = getQistConfig(Pswd, request.headers.get('Host'));
+            return new Response(`${QistConfig}`, {
+              status: 200,
+              headers: {
+                "Content-Type": "text/plain;charset=utf-8",
+              }
+            });
+          }
+          default:
+            // return new Response('Not found', { status: 404 });
+            // For any other path, reverse proxy to 'maimai.sega.jp' and return the original response
+            url.hostname = 'maimai.sega.jp';
+            url.protocol = 'https:';
+            request = new Request(url, request);
+            return await fetch(request);
+        }
+      } else {
+        return await QistOverWSHandler(request);
+      }
+    } catch (err) {
+      return new Response(e.toString());
+    }
+  },
 };
 
 async function QistOverWSHandler(request) {
@@ -259,7 +286,7 @@ function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
         controller.enqueue(earlyData);
       }
     },
-    pull(controller) {},
+    pull(controller) { },
     cancel(reason) {
       if (readableStreamCancel) {
         return;
@@ -277,7 +304,7 @@ async function remoteSocketToWS(remoteSocket, webSocket, retry, log) {
   await remoteSocket.readable
     .pipeTo(
       new WritableStream({
-        start() {},
+        start() { },
         /**
          *
          * @param {Uint8Array} chunk
@@ -335,17 +362,17 @@ function safeCloseWebSocket(socket) {
   }
 }
 export {
-    worker_default as
-        default
+  worker_default as
+    default
 };
 
 //# sourceMappingURL=worker.js.map
 function getQistConfig(Pswd, hostName) {
-    const wQisws = `trojan://${Pswd}\u0040${hostName}:80?security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
-    const pQistwstls = `trojan://${Pswd}\u0040${hostName}:443?security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
-    const note = `正在使用的ProxyIP：${proxyIP}`;
-    if (hostName.includes('pages.dev')) {
-        return `
+  const wQisws = `trojan://${Pswd}\u0040${hostName}:80?security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
+  const pQistwstls = `trojan://${Pswd}\u0040${hostName}:443?security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
+  const note = `正在使用的ProxyIP：${proxyIP}`;
+  if (hostName.includes('pages.dev')) {
+    return `
 ==========================配置详解==============================
 
 ${note}
@@ -369,8 +396,8 @@ ${pQistwstls}
 跳过证书验证(allowlnsecure)：false
 ################################################################
 `;
-    } else {
-        return `
+  } else {
+    return `
 ==========================配置详解==============================
 
 ${note}
@@ -433,7 +460,7 @@ clash-meta
 ---------------------------------------------------------------
 ################################################################
 `;
-    }
+  }
 }
 
 (function () {
@@ -579,7 +606,7 @@ clash-meta
         blocks[13] =
         blocks[14] =
         blocks[15] =
-          0;
+        0;
       this.blocks = blocks;
     } else {
       this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -660,7 +687,7 @@ clash-meta
           blocks[13] =
           blocks[14] =
           blocks[15] =
-            0;
+          0;
       }
 
       if (notString) {
@@ -738,7 +765,7 @@ clash-meta
         blocks[13] =
         blocks[14] =
         blocks[15] =
-          0;
+        0;
     }
     blocks[14] = (this.hBytes << 3) | (this.bytes >>> 29);
     blocks[15] = this.bytes << 3;
