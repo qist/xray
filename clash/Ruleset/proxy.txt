@@ -6523,6 +6523,7 @@ payload:
   - '+.cutout.pro'
   - '+.cutscenes.net'
   - '+.cutt.ly'
+  - '+.cve.org'
   - '+.cw.com.tw'
   - '+.cwcams.com'
   - '+.cxacg.com'
