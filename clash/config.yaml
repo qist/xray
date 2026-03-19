@@ -622,6 +622,13 @@ rules:
   - RULE-SET,reject,🛑 广告拦截
   - RULE-SET,rejectcidr,🛑 广告拦截
   - GEOSITE,category-ads-all,🛑 广告拦截
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOIP,CN))),REJECT
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,allcidr))),REJECT
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,allipv6cidr))),REJECT
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,cncidr))),REJECT
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,direct))),REJECT
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,lancidr))),REJECT
   - RULE-SET,lancidr,DIRECT,no-resolve
   - RULE-SET,allcidr,DIRECT,no-resolve
   - RULE-SET,allipv6cidr,DIRECT,no-resolve
