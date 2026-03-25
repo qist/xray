@@ -7,7 +7,7 @@ Trojan 需要自己的域名支持不然不能访问
 Vless没域名可以访问 只能是http 端口 https 端口不能访问
 端口(port)：6个https端口可任意选择(443、8443、2053、2083、2087、2096)
 访问或者连接
-
+记得修改 proxyIPs 可以这样写www.test.com:4065 代理 地址 proxyIPs 可以使用 vless+reality serverNames 用cf 域名就可以了 端口可以任意 
 # 修改好后对代码进行混淆
 ```
 安装混淆工具
