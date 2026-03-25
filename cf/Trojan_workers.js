@@ -32,7 +32,7 @@ const worker_default = {
         } else {
           const match = proxyIP.match(/^(.*?)(?::(\d+))?$/);
           proxyIP = match[1];
-          proxyPort = match[2] || '443';
+          let proxyPort = match[2] || '443';
           console.log("IP:", proxyIP, "Port:", proxyPort);
         }
       }
@@ -73,7 +73,6 @@ const worker_default = {
         return await QistOverWSHandler(request);
       }
     } catch (err) {
-      let e = err;
       return new Response(e.toString());
     }
   },
@@ -232,10 +231,57 @@ async function parseQistkHeader(buffer) {
 
 async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawClientData, webSocket, log) {
   if (/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(addressRemote)) addressRemote = `${atob('d3d3Lg==')}${addressRemote}${atob('LnNzbGlwLmlv')}`;
+  function isIPv4Address(host) {
+    return /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(host);
+  }
+  function isIPv6Address(host) {
+    return /^[0-9a-fA-F:]+$/.test(host) && host.includes(":");
+  }
+  function normalizeHost(host) {
+    const trimmed = `${host || ""}`.trim();
+    if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+      return trimmed.slice(1, -1);
+    }
+    return trimmed;
+  }
+  async function resolveToIP(host) {
+    const normalized = normalizeHost(host);
+    if (!normalized) {
+      return "";
+    }
+    if (isIPv4Address(normalized) || isIPv6Address(normalized)) {
+      return normalized;
+    }
+    const aResp = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(normalized)}&type=A`, {
+      headers: {
+        accept: "application/dns-json",
+      },
+    });
+    if (aResp.ok) {
+      const data = await aResp.json();
+      const answers = Array.isArray(data.Answer) ? data.Answer : [];
+      const ipV4 = answers.filter((a) => a && a.type === 1 && typeof a.data === "string").map((a) => a.data).find((a) => isIPv4Address(a));
+      if (ipV4) {
+        return ipV4;
+      }
+    }
+    const aaaaResp = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(normalized)}&type=AAAA`, {
+      headers: {
+        accept: "application/dns-json",
+      },
+    });
+    if (!aaaaResp.ok) {
+      return "";
+    }
+    const aaaaData = await aaaaResp.json();
+    const aaaaAnswers = Array.isArray(aaaaData.Answer) ? aaaaData.Answer : [];
+    const ipV6 = aaaaAnswers.filter((a) => a && a.type === 28 && typeof a.data === "string").map((a) => a.data).find((a) => isIPv6Address(a));
+    return ipV6 || "";
+  }
   async function connectAndWrite(address, port) {
     const tcpSocket2 = connect({
       hostname: address,
-      port: port,
+      port,
     });
     remoteSocket.value = tcpSocket2;
     log(`connected to ${address}:${port}`);
@@ -245,18 +291,36 @@ async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawCli
     return tcpSocket2;
   }
   async function retry() {
-    const tcpSocket2 = await connectAndWrite(proxyIP || addressRemote, proxyPort || portRemote);
-    tcpSocket2.closed
-      .catch((error) => {
-        console.log("retry tcpSocket closed error", error);
-      })
-      .finally(() => {
-        safeCloseWebSocket(webSocket);
-      });
-    remoteSocketToWS(tcpSocket2, webSocket, null, log);
+    try {
+      const resolvedAddress = await resolveToIP(proxyIP || addressRemote);
+      if (!resolvedAddress) {
+        throw new Error(`no ip for ${proxyIP || addressRemote}`);
+      }
+      const tcpSocket2 = await connectAndWrite(resolvedAddress, proxyPort || portRemote);
+      tcpSocket2.closed
+        .catch((error) => {
+          console.log("retry tcpSocket closed error", error);
+        })
+        .finally(() => {
+          safeCloseWebSocket(webSocket);
+        });
+      remoteSocketToWS(tcpSocket2, webSocket, null, log);
+    } catch (error) {
+      console.log("retry error", error);
+      safeCloseWebSocket(webSocket);
+    }
   }
-  const tcpSocket = await connectAndWrite(addressRemote, portRemote);
-  remoteSocketToWS(tcpSocket, webSocket, retry, log);
+  try {
+    const resolvedAddress = await resolveToIP(addressRemote);
+    if (!resolvedAddress) {
+      throw new Error(`no ip for ${addressRemote}`);
+    }
+    const tcpSocket = await connectAndWrite(resolvedAddress, portRemote);
+    remoteSocketToWS(tcpSocket, webSocket, retry, log);
+  } catch (error) {
+    console.log("connect error", error);
+    safeCloseWebSocket(webSocket);
+  }
 }
 function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
   let readableStreamCancel = false;
