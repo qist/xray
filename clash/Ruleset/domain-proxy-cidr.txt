@@ -55,3 +55,4 @@ payload:
   - '+.grok.com'
   - '+.akash.network'
   - '+.112114.xyz'
+  - '.swsixtwo.top'
