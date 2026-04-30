@@ -501,6 +501,7 @@ payload:
   - 'time4.google.com'
   - 'time5.facebook.com'
   - 'tmdb-image-prod.b-cdn.net'
+  - 'tmdb-web-image-prod.b-cdn.net'
   - 'tv.applemusic.com'
   - 'tvcastlive-hamivideo.cdn.hinet.net'
   - 'ubisoft-orbit-savegames.s3.amazonaws.com'
