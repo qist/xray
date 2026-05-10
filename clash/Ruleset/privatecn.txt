@@ -96,3 +96,4 @@ payload:
   - '+.wujinzy.com'
   - '+.tvyun07.com'
   - '+.tvyun10.com'
+  - '+.cupfox7.com'
