@@ -56,3 +56,4 @@ payload:
   - '+.akash.network'
   - '+.112114.xyz'
   - '.swsixtwo.top'
+  - '.italkbbtv.com'
