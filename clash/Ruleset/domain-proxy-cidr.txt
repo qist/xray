@@ -57,3 +57,4 @@ payload:
   - '+.112114.xyz'
   - '.swsixtwo.top'
   - '.italkbbtv.com'
+  - '.italkdd.com'
