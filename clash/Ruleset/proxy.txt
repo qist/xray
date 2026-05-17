@@ -2911,6 +2911,7 @@ payload:
   - '+.archivx.to'
   - '+.archlinux.de'
   - '+.archlinux.org'
+  - '+.archlinux.page'
   - '+.archlinuxarm.org'
   - '+.archlinuxcn.org'
   - '+.arcraiders.com'
