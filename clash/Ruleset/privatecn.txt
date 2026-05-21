@@ -97,3 +97,5 @@ payload:
   - '+.tvyun07.com'
   - '+.tvyun10.com'
   - '+.cupfox7.com'
+  - '+.czzyv.com'
+  - '+.cz4k.com'
