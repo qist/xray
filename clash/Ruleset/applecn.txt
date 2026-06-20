@@ -104,6 +104,7 @@ payload:
   - '+.itunes-apple.com.akadns.net'
   - '+.itunes.apple.com'
   - '+.itunesconnect.apple.com'
+  - '+.mensura.cdn-apple.com'
   - '+.mesu-cdn.apple.com.akadns.net'
   - '+.mesu-china.apple.com.akadns.net'
   - '+.mesu.apple.com'
