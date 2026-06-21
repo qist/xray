@@ -58,4 +58,4 @@ payload:
   - '.swsixtwo.top'
   - '.italkbbtv.com'
   - '.italkdd.com'
-  - '.xiaomimimo.com'
+  - 'token-plan-sgp.xiaomimimo.com'
