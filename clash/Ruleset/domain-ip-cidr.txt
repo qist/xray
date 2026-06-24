@@ -22,4 +22,3 @@ payload:
   - DOMAIN-KEYWORD,victoriametrics,no-resolve
   - DOMAIN-KEYWORD,discord,no-resolve
   - DOMAIN-SUFFIX,cert-manager.io,no-resolve
-  - IP-CIDR,144.34.252.132/32,no-resolve
