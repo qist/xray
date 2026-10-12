@@ -61,4 +61,3 @@ payload:
   - 'token-plan-sgp.xiaomimimo.com'
   - '.yuntongclouds.com'
   - '.olelive.com'
-  - 'janus.tycng.com'
