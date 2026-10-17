@@ -1245,6 +1245,7 @@ payload:
   - '+.7tb.cc'
   - '+.7tv.app'
   - '+.7tv.io'
+  - '+.7x24hrs.com'
   - '+.8-d.com'
   - '+.8008206616.com'
   - '+.8111y.top'
