@@ -61,4 +61,6 @@ payload:
   - 'token-plan-sgp.xiaomimimo.com'
   - '.yuntongclouds.com'
   - '.olelive.com'
-  - '.workbuddy.ai'
+  - '+.workbuddy.ai'
+  - '+.workbuddy.host'
+  - '+.workbuddy.link'
