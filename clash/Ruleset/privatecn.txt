@@ -105,3 +105,4 @@ payload:
   - '+.360buyimg.com'
   - '+.jd.hk'
   - '+.pay.jd.com'
+  - '+.hongkongdollvideo.com'
