@@ -106,3 +106,4 @@ payload:
   - '+.jd.hk'
   - '+.pay.jd.com'
   - '+.hongkongdollvideo.com'
+  - '+.shenhua7.vip'
