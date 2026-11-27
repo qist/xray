@@ -253,7 +253,6 @@ onedriveclucproddm20006.blob.core.windows.net
 onedriveclucproddm20007.blob.core.windows.net
 onedriveclucproddm20008.blob.core.windows.net
 onedriveclucproddm20009.blob.core.windows.net
-onedriveclucprodbn20010.blob.core.windows.net
 onedriveclucproddm20011.blob.core.windows.net
 onedriveclucproddm20012.blob.core.windows.net
 onedriveclucproddm20013.blob.core.windows.net

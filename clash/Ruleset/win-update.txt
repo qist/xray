@@ -50,7 +50,6 @@
 000b25-1.l.windowsupdate.com
 000b3d-1.l.windowsupdate.com
 000b62-1.l.windowsupdate.com
-000b62-1.l.windowsupdate.com
 000b78-1.l.windowsupdate.com
 000bc0-1.l.windowsupdate.com
 000bcf-1.l.windowsupdate.com

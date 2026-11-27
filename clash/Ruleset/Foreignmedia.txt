@@ -14,7 +14,6 @@ payload:
   - '+.scdn.co'
   - '+.spotify.com'
   - '+.spoti.fi'
-  - '+.spotify.com'
   - '+.-spotify-com'
   - '+.tidal.com'
   - '+.c4assets.com'

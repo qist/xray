@@ -120,7 +120,7 @@ dns:
     - "*.mcdn.bilivideo.cn"
     - "+.youdao.com"
   nameserver-policy:
-    "geosite:cn,private,apple,icloud,geolocation-cn,direct":
+    "geosite:cn,private,apple,icloud,geolocation-cn":
       - 1.2.4.8
       - 119.29.29.29
       - 223.5.5.5
@@ -667,6 +667,8 @@ rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,cncidr))),REJECT
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,direct))),REJECT
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,lancidr))),REJECT
+  # 阻断 STUN/TURN（WebRTC 防泄漏）：UDP 3478、19302
+  - AND,((NETWORK,UDP),(DST-PORT,3478/19302)),REJECT
   - RULE-SET,lancidr,DIRECT,no-resolve
   - RULE-SET,allcidr,DIRECT,no-resolve
   - RULE-SET,allipv6cidr,DIRECT,no-resolve

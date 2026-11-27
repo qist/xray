@@ -629,6 +629,8 @@ rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,cncidr))),REJECT
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,direct))),REJECT
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((RULE-SET,lancidr))),REJECT
+  # 阻断 STUN/TURN（WebRTC 防泄漏）：UDP 3478、19302
+  - AND,((NETWORK,UDP),(DST-PORT,3478/19302)),REJECT
   - RULE-SET,lancidr,DIRECT,no-resolve
   - RULE-SET,allcidr,DIRECT,no-resolve
   - RULE-SET,allipv6cidr,DIRECT,no-resolve

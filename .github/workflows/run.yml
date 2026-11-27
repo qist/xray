@@ -36,6 +36,12 @@ jobs:
            wget https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-update.txt -O win-update.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-extra.txt -O win-extra.txt
         shell: bash
+
+      # 上游列表之间/内部本身就有重复条目（如 gfw 与 proxy 交叉、direct 里同一条
+      # 既有精确域名又有 +. 后缀）。这里做保序去重：只删完全重复的后缀/精确条目，
+      # 以及已被同文件后缀覆盖的精确条目；不改顺序、不改内容、不动注释。
+      - name: Dedupe ruleset files (keep order)
+        run: python3 .github/scripts/dedupe_rules.py --apply
     #   - name: Move files to publish directory
     #     run: |
     #       mkdir -p publish

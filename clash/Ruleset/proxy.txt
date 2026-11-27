@@ -375,7 +375,6 @@ payload:
   - 'p16-tiktokcdn-com.akamaized.net'
   - 'packages.microsoft.com'
   - 'paper-attachments.s3.amazonaws.com'
-  - 'pchomeonline.com.tw'
   - 'pki.google.com'
   - 'play-edge.itunes.apple.com'
   - 'poshtestgallery.cloudapp.net'
