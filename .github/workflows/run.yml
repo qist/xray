@@ -35,7 +35,18 @@ jobs:
            wget https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-spy.txt -O win-spy.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-update.txt -O win-update.txt
            wget https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-extra.txt -O win-extra.txt
+           # 港澳台地址段（与 all_cn 同源：ispip.clang.cn），用于从大陆名单里剔除
+           mkdir -p "$GITHUB_WORKSPACE/.github/data/regions"
+           cd "$GITHUB_WORKSPACE/.github/data/regions"
+           for f in hk.txt tw.txt mo.txt hk_ipv6.txt tw_ipv6.txt mo_ipv6.txt; do
+             wget "https://ispip.clang.cn/$f" -O "$f"
+           done
         shell: bash
+
+      # 大陆直连名单（cncidr / all_cn_cidr / all_cn_ipv6）里混有少量港澳台网段，
+      # 这些地址应当走代理。按 .github/data/regions 做网段相减，保留大陆部分。
+      - name: Exclude HK/MO/TW from China IP lists
+        run: python3 .github/scripts/exclude_hk_mo_tw.py --apply
 
       # 上游列表之间/内部本身就有重复条目（如 gfw 与 proxy 交叉、direct 里同一条
       # 既有精确域名又有 +. 后缀）。这里做保序去重：只删完全重复的后缀/精确条目，
