@@ -1,2 +1,4 @@
 clash/linux/dashboard/
 .vscode/
+# Python
+__pycache__/

@@ -24,13 +24,6 @@ rule-providers:
     path: ./profiles/rules/reject.yaml
     interval: 86400
 
-  rejectcidr:
-    type: http
-    behavior: ipcidr
-    url: "https://rules.swsixtwo.top/clash/Ruleset/rejectcidr.txt"
-    path: ./profiles/rules/rejectcidr.yaml
-    interval: 86400
-
   icloud:
     type: http
     behavior: domain
@@ -203,7 +196,6 @@ rules:
   - RULE-SET,private,DIRECT
   - RULE-SET,privatecn,DIRECT
   - RULE-SET,reject,🛑 广告拦截
-  - RULE-SET,rejectcidr,🛑 广告拦截
   - GEOSITE,category-ads-all,🛑 广告拦截
   - RULE-SET,lancidr,DIRECT,no-resolve
   - RULE-SET,allcidr,DIRECT,no-resolve

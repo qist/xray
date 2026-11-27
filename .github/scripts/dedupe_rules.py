@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """规则文件保序去重。
 
-只做三件事，不改顺序、不改内容：
+做四件事，不改顺序、不改内容：
   1. 删除完全重复的后缀条目（同一条 `+.example.com` 出现多次）；
   2. 删除完全重复的精确条目（同一条 `example.com` 出现多次）；
   3. 删除已被同文件内后缀条目覆盖的精确条目（有 `+.example.com` 时，
-     `example.com` 是冗余的；反之不成立，所以只按"后缀已存在"删精确）。
+     `example.com` 是冗余的；反之不成立，所以只按"后缀已存在"删精确）；
+  4. 仅对 SUBSUMED_FILES 内的文件，额外删除已被**父级通配后缀**覆盖的条目：
+     有 `+.google.com.uy` 时，`scholar.google.com.uy` 与 `+.scholar.google.com.uy`
+     都不会再被匹配到，删掉不改变任何行为。
 
 注释、空行、`payload:` 头原样保留；换行符（LF/CRLF）原样保留；
 CIDR / PROCESS-NAME 等按原值比较。
@@ -20,6 +23,11 @@ import os
 import sys
 
 HEADERS = {"payload:", "rules:"}
+
+# 父后缀覆盖去重只在"同一目标"的名单内部做：直连名单对直连名单、代理名单对
+# 代理名单。不看跨文件（例如 gfw 与 proxy 有 4350 条交叉）——每个 ruleset 都是
+# 独立发布的 URL，外部可能只引用其中一个，跨文件删除会让单独使用者漏规则。
+SUBSUMED_FILES = {"proxy.txt", "gfw.txt", "direct.txt"}
 
 
 def parse(line):
@@ -44,9 +52,19 @@ def read_lines(path):
         return fh.readlines()
 
 
-def dedupe_lines(lines):
+def has_parent_suffix(value, suffixes):
+    """value 是否被某个父级后缀覆盖（不含自身）。"""
+    parts = value.split(".")
+    for i in range(1, len(parts)):
+        if ".".join(parts[i:]) in suffixes:
+            return True
+    return False
+
+
+def dedupe_lines(lines, drop_subsumed=False):
     """返回 (去重后的行, 删除行数)。"""
-    suffixes = {v for v, w in filter(None, (parse(l) for l in lines)) if w}
+    parsed = [p for p in (parse(l) for l in lines) if p]
+    suffixes = {v for v, w in parsed if w}
     eol = "\r\n" if any(l.endswith("\r\n") for l in lines) else "\n"
 
     out = []
@@ -54,9 +72,12 @@ def dedupe_lines(lines):
     seen_exact = set()
     removed = 0
     for line in lines:
-        parsed = parse(line)
-        if parsed:
-            value, wildcard = parsed
+        p = parse(line)
+        if p:
+            value, wildcard = p
+            if drop_subsumed and has_parent_suffix(value, suffixes):
+                removed += 1
+                continue
             if wildcard:
                 if value in seen_suffix:
                     removed += 1
@@ -77,7 +98,7 @@ def main():
     total = 0
     for path in sorted(glob.glob(os.path.join(root, "clash", "Ruleset", "*.txt"))):
         lines = read_lines(path)
-        out, removed = dedupe_lines(lines)
+        out, removed = dedupe_lines(lines, drop_subsumed=os.path.basename(path) in SUBSUMED_FILES)
         if apply and removed:
             with open(path, "w", encoding="utf-8", newline="") as fh:
                 fh.writelines(out)
